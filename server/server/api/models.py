@@ -48,12 +48,9 @@ class GraphRunState(Model):
 class GraphRun(Model):
 
     graph = ForeignKey(Graph, related_name='runs', on_delete=CASCADE)
+    graph_name = CharField(max_length=250, null=True)
     state = ForeignKey(GraphRunState, related_name='runs', on_delete=CASCADE)
 
     run_id = AutoField(primary_key=True)
     created = DateTimeField(auto_now_add=True)
     content = TextField()
-
-    content_parsed = TextField()
-    run_start = DateTimeField()
-    duration = DurationField()

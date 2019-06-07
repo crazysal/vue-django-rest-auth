@@ -9,7 +9,20 @@
         <b-col sm="7" class="d-md-block">
           <b-button type="button" variant="danger" class="float-right" style="margin-left: 3px" v-on:click="handleRun()"><i class="fa fa-play"></i></b-button>
           <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px" v-on:click="handleSave()"><i class="fa fa-save"></i></b-button>
-          <b-button type="button" variant="secondary" class="float-right"  v-on:click="handleLoad()"><i class="fa fa-folder-open"></i></b-button>
+          <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px"  v-on:click="handleLoad()"><i class="fa fa-folder-open"></i></b-button>
+          <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px"  v-on:click="handleShowWizard()"><i class="fa fa-folder"></i></b-button>
+          <b-dropdown right split variant="primary" class="float-right" style="margin-left: 3px"  v-on:click="handleResetLayout('dagre')" title="Set Layout">
+            <template slot="button-content">
+              <i class="fa fa-sitemap"  title="DAG Layout"></i>
+            </template>
+            <b-dropdown-item v-on:click="handleResetLayout('dagre')">DAG Layout</b-dropdown-item>
+            <b-dropdown-item v-on:click="handleResetLayout('circle')">Circle Layout</b-dropdown-item>
+            <b-dropdown-item v-on:click="handleResetLayout('breadthfirst')">Breadth First Layout</b-dropdown-item>
+            <b-dropdown-item v-on:click="handleResetLayout('grid')">Grid Layout</b-dropdown-item>
+            <b-dropdown-item v-on:click="handleResetLayout('concentric')">Concentric Layout</b-dropdown-item>
+            <b-dropdown-item v-on:click="handleResetLayout('cose')">CoSE Layout</b-dropdown-item>
+            <b-dropdown-item v-on:click="handleResetLayout('random')">Random Layout</b-dropdown-item>
+          </b-dropdown>
           <!-- <b-button-toolbar class="float-right" aria-label="Toolbar with buttons group">
             <b-form-radio-group class="mr-3" id="radiosBtn" buttons button-variant="outline-secondary" v-model="selected" name="radiosBtn">
               <b-form-radio class="mx-0" value="Day">Day</b-form-radio>
@@ -19,7 +32,7 @@
           </b-button-toolbar> -->
         </b-col>
       </b-row>
-      <cytoscape-graph class="chart-wrapper" style="height:400px;margin-top:40px;" height="400"></cytoscape-graph>
+      <cytoscape-graph class="chart-wrapper" style="height:600px;margin-top:40px;" height="600"></cytoscape-graph>
       <!-- <div slot="footer">
         <ul>
           <li>
@@ -68,14 +81,16 @@ export default {
   computed: {
     ...mapGetters({
       currentGraphType: 'graph/currentGraphType',
-      currentGraphId: 'graph/currentGraphId'
+      currentGraphId: 'graph/currentGraphId',
+      cy: 'cy'
     })
   },
   methods: {
     ...mapMutations({
       showLoad: 'showLoadGraph',
       showSave: 'showSaveGraph',
-      showUpdate: 'showUpdateGraph'
+      showUpdate: 'showUpdateGraph',
+      showWizard: 'showWizard'
     }),
     ...mapActions({
       updateRootGraphs: 'graph/updateRootGraphs',
@@ -96,6 +111,17 @@ export default {
       } else {
         this.showUpdate()
       }
+    },
+    handleResetLayout: function (layoutName) {
+      var layout = this.cy.layout(
+        { name: layoutName,
+          animate: true, // whether to transition the node positions
+          animationDuration: 500 // duration of animation in ms if enabled
+        })
+      layout.run()
+    },
+    handleShowWizard: function () {
+      this.showWizard()
     }
   }
 }

@@ -1,23 +1,29 @@
 <template>
-  <b-modal title="Load Graph" v-model="myModal" @ok="handleOk()" @cancel="hide()" no-close-on-esc no-close-on-backdrop hide-header-close >
+  <b-modal title="Load Graph" size="lg" v-model="myModal" @ok="handleOk()" @cancel="hide()" hide-header-close >
     <div class="row">
-      <div class="col-sm-4" style="border-right: 1px solid #a4b7c1">
+      <div class="col-sm-2" style="border-right: 1px solid #a4b7c1">
         <b-list-group>
           <b-list-group-item id="root" v-on:click="openView('rootgraphs')" href="#" view="rootgraphs" class="sections btn-secondary btn-sm active">Templates</b-list-group-item>
           <b-list-group-item id="user" v-on:click="openView('usergraphs')" href="#" view="usergraphs" class="sections btn-secondary btn-sm">Saved</b-list-group-item>
         </b-list-group>
       </div>
-      <div class="col-sm-8">
-        <select name="user" id="rootgraphs" size="8" class="form-control graphviews">
-          <template v-for='graph in rootgraphs'>
-            <option :value=graph.graph_id>{{graph.title}}</option>
-          </template>
-        </select>
-        <select name="user" id="usergraphs" size="8" class="form-control graphviews hiddenView">
-          <template v-for='graph in usergraphs'>
-            <option :value=graph.graph_id>{{graph.title}}</option>
-          </template>
-        </select>
+      <div id="rootgraphs" class="col-sm-10 graphviews">
+        <div class="col-sm-6">
+          <select name="user" size="8" class="form-control">
+            <template v-for='graph in rootgraphs'>
+              <option :value=graph.graph_id>{{graph.title}}</option>
+            </template>
+          </select>
+        </div>
+      </div>
+      <div  id="usergraphs" class="col-sm-10 graphviews hiddenView">
+        <div class="col-sm-6">
+          <select name="user" size="8" class="form-control">
+            <template v-for='graph in usergraphs'>
+              <option :value=graph.graph_id>{{graph.title}}</option>
+            </template>
+          </select>
+        </div>
       </div>
     </div>
   </b-modal>

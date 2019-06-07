@@ -6,7 +6,8 @@ const state = {
   editEdgeVisible: false,
   loadGraphVisible: false,
   saveGraphVisible: false,
-  updateGraphVisible: false
+  updateGraphVisible: false,
+  wizardVisible: false
 }
 
 // getters
@@ -16,7 +17,8 @@ const getters = {
   editEdgeVisible: state => state.editEdgeVisible,
   loadGraphVisible: state => state.loadGraphVisible,
   saveGraphVisible: state => state.saveGraphVisible,
-  updateGraphVisible: state => state.updateGraphVisible
+  updateGraphVisible: state => state.updateGraphVisible,
+  wizardVisible: state => state.wizardVisible
 }
 
 // actions
@@ -78,6 +80,9 @@ const mutations = {
   showUpdateGraph (state) {
     state.updateGraphVisible = true
   },
+  showWizard (state) {
+    state.wizardVisible = true
+  },
   hideAddNode (state) {
     state.addNodeVisible = false
   },
@@ -95,6 +100,9 @@ const mutations = {
   },
   hideUpdateGraph (state) {
     state.updateGraphVisible = false
+  },
+  hideWizard (state) {
+    state.wizardVisible = false
   }
   // setAddNode (state, value) {
   //   state.addNodeVisible = value

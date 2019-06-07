@@ -6,6 +6,7 @@
     <load-graph></load-graph>
     <save-graph></save-graph>
     <update-graph></update-graph>
+    <wizard></wizard>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import EditEdge from './EditEdge.vue'
 import LoadGraph from './LoadGraph.vue'
 import SaveGraph from './SaveGraph.vue'
 import UpdateGraph from './UpdateGraph.vue'
+import Wizard from './Wizard.vue'
 
 export default {
   name: 'modals',
@@ -25,7 +27,8 @@ export default {
     EditEdge,
     LoadGraph,
     SaveGraph,
-    UpdateGraph
+    UpdateGraph,
+    Wizard
   },
   data () {
     return {

@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 function getEditNodeOnClickFunction (self) {
   return function (event) {
     let target = event.target || event.cyTarget
@@ -61,8 +63,8 @@ function getEdgeDropFunction (self) {
         group: 'edges',
         data: addedEles.data()
       }
-      edge.data.inputs = self.funcMeta[sFunc].output
-      edge.data.outputs = self.funcMeta[tFunc].input
+      edge.data.inputs = _.cloneDeep(self.funcMeta[sFunc].output)
+      edge.data.outputs = _.cloneDeep(self.funcMeta[tFunc].input)
 
       self.$store.commit('setSelectedEdge', edge)
       self.$store.commit('showEditEdge')

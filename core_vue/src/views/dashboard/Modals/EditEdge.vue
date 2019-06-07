@@ -1,5 +1,5 @@
 <template>
-  <b-modal title="Edit Edge" v-model="myModal" @ok="handleOk()" @cancel="hide()" no-close-on-esc no-close-on-backdrop hide-header-close>
+  <b-modal title="Edit Edge" v-model="myModal" @ok="handleOk()" @cancel="hide()" hide-header-close>
 
     <strong v-if='inputs.length>0'>Inputs</strong>
     <template v-for='input in inputs'>

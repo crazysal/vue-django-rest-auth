@@ -15,5 +15,8 @@ export default {
   },
   runGraph (data) {
     return session.post('/api/rungraph/', data)
+  },
+  getGraphRuns () {
+    return session.get('/api/graphruns/')
   }
 }

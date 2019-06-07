@@ -1,5 +1,5 @@
 <template>
-  <b-modal title="Add Node" v-model="myModal" @ok="handleOk()" @cancel="hide()" no-close-on-esc no-close-on-backdrop hide-header-close>
+  <b-modal title="Add Node" v-model="myModal" @ok="handleOk()" @cancel="hide()" hide-header-close>
     <div>
       <template v-for='(stage, key1) in libHierarchy'>
         <b-form-group

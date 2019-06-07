@@ -9,6 +9,7 @@ import Full from '@/containers/Full'
 
 // Views
 import Dashboard from '@/views/Dashboard'
+import Results from '@/views/Results'
 
 // Views - Pages
 import Page404 from '@/views/pages/Page404'
@@ -38,6 +39,14 @@ const router = new Router({
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: 'results',
+          name: 'Results',
+          component: Results,
           meta: {
             requiresAuth: true
           }

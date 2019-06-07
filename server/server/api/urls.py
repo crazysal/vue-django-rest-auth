@@ -7,7 +7,9 @@ from .views import (
     GraphViewSet,
     UserGraphs,
     RootGraphs,
-    RunGraph
+    RunGraph,
+    GraphRuns,
+    DownloadGraphRun
 )
 
 router = DefaultRouter()
@@ -21,5 +23,7 @@ urlpatterns = [
     url(r'usergraphs', UserGraphs.as_view(), name='user-graphs'),
     url(r'rootgraphs', RootGraphs.as_view(), name='root-graphs'),
     url(r'^', include(router.urls)),
-    url(r'rungraph', RunGraph.as_view(), name='run-graph')
+    url(r'rungraph', RunGraph.as_view(), name='run-graph'),
+    url(r'graphruns', GraphRuns.as_view(), name='graph-runs'),
+    url(r'downloadGraphRun', DownloadGraphRun.as_view(), name='download-graphrun')
 ]

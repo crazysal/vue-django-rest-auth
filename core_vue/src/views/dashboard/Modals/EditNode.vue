@@ -43,6 +43,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import _ from 'lodash'
 // import $ from 'jquery'
 
 export default {
@@ -84,8 +85,8 @@ export default {
     handleFuncChange: function (host, func) {
       this.host = host
       this.func = func
-      this.wparams = this.funcMeta[func].WParameters
-      this.fparams = this.funcMeta[func].FParameters
+      this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
+      this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
     },
     handleOk: function () {
       let node = this.selectedNode

@@ -7,7 +7,8 @@ from rest_framework.serializers import (
 from .models import (
     User,
     # Post,
-    Graph
+    Graph,
+    GraphRun
 )
 
 
@@ -54,3 +55,22 @@ class GraphSerializer(ModelSerializer):
     class Meta:
         model = Graph
         fields = '__all__'
+
+
+class GraphRunSerializer(ModelSerializer):
+
+    # graphruns = HyperlinkedIdentityField(view_name='graph-runs')
+    graph = GraphSerializer(read_only=True)
+
+    class Meta:
+        model = GraphRun
+        fields = '__all__'
+
+        # fields = (
+        #     'graph',
+        #     'state',
+        #     'run_id',
+        #     'created',
+        #     'content',
+        # )
+

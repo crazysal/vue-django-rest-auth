@@ -13,10 +13,15 @@ CELERY_BROKER_URL = 'pyamqp://guest@localhost//'
 #: Only add pickle to this list if your broker is secured
 #: from unwanted access (see userguide/security.html)
 # CELERY_ACCEPT_CONTENT = ['json']
-# CELERY_RESULT_BACKEND = 'db+sqlite:///results.sqlite'
-CELERY_RESULT_BACKEND = 'redis://localhost'
+
+# CELERY_RESULT_BACKEND = 'db+sqlite:////home/tinto/Workspace/CUBS/vue-django-rest-auth/server/results.sqlite'
+CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/chemml/web/vue-django-rest-auth/server/results.sqlite'
+
+# CELERY_RESULT_BACKEND = 'redis://localhost'
 # CELERY_TASK_SERIALIZER = 'json'
 
+# CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_PERSISTENT = True
 
 
 """
@@ -53,7 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',      # Django auth
 
     'django.contrib.sessions',
-    # 'django.contrib.messages',
+    'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
@@ -65,6 +70,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'rest_auth.registration',
     'server.api',
+    'django_celery_results',
 )
 
 MIDDLEWARE = (

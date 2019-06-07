@@ -6,7 +6,8 @@ const state = {
   error: false,
   currentGraphId: '1',
   currentGraphType: 'root',
-  currentGraphTitle: 'init_template'
+  currentGraphTitle: 'init_template',
+  graphruns: null
 }
 
 const getters = {
@@ -15,12 +16,13 @@ const getters = {
   error: state => state.error,
   currentGraphId: state => state.currentGraphId,
   currentGraphType: state => state.currentGraphType,
-  currentGraphTitle: state => state.currentGraphTitle
+  currentGraphTitle: state => state.currentGraphTitle,
+  graphruns: state => state.graphruns
 }
 
 const actions = {
   updateRootGraphs ({ commit }) {
-    console.log('in store')
+    // console.log('in store')
     return graph.getRootGraphs()
       .then(({ data }) => commit('setRootGraphs', data))
       .then(() => commit('apiSuccess'))
@@ -56,6 +58,12 @@ const actions = {
     return graph.runGraph({'graph_id': state.currentGraphId})
       .then(() => commit('apiSuccess'))
       .catch(() => commit('apiError'))
+  },
+  setGraphRuns ({ commit }) {
+    return graph.getGraphRuns()
+      .then(({ data }) => commit('setGraphRuns', data))
+      .then(() => commit('apiSuccess'))
+      .catch(() => commit('apiError'))
   }
 }
 
@@ -81,6 +89,27 @@ const mutations = {
   setCurrentGraphTitle (state, graphTitle) {
     // console.log('asdf : ' + graphTitle)
     state.currentGraphTitle = graphTitle
+  },
+  setGraphRuns (state, data) {
+    var newData = []
+    data.forEach(function (item) {
+      var row = {
+        'id': item.content,
+        'graph': item.graph.title,
+        'start_time': item.created,
+        'status': item.state,
+        'actions': "<a id='" + item.content + "' href='api/downloadGraphRun?run=" + item.content + "' download>download</a>"
+      }
+      row.status = item.state === 0 ? 'Created'
+        : item.state === 1 ? 'Requested'
+          : item.state === 2 ? 'Queued'
+            : item.state === 3 ? 'Started'
+              : item.state === 4 ? 'Error'
+                : item.state === 5 ? 'Success'
+                  : item.state === 6 ? 'Error' : 'NA'
+      newData.push(row)
+    })
+    state.graphruns = newData
   }
 }
 

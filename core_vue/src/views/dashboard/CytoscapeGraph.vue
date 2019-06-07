@@ -39,6 +39,8 @@ export default {
       setCy: 'setCy',
       setLibHierarchy: 'setLibHierarchy',
       setFuncMeta: 'setFuncMeta',
+      setLibMeta: 'setLibMeta',
+      setLibUINames: 'setLibUINames',
       setInitGraph: 'setInitGraph'
     })
   },
@@ -52,7 +54,11 @@ export default {
   mounted: function () {
     let container = $('#cy')
     // getting cytoscape configutations
-    this.setLibHierarchy()
+    this.setLibHierarchy().then(() => {
+      console.log('updated lib hierarchy')
+    })
+    this.setLibMeta()
+    this.setLibUINames()
     this.setFuncMeta().then(() => {
       this.setCytoscapeInitConfig(container).then(() => {
         // registering cytoscape plugins
@@ -73,7 +79,7 @@ export default {
         })
       }).then(() => {
         this.setInitGraph(this).then(() => {
-          console.log(this.initGraph)
+          // console.log(this.initGraph)
           this.cy.json(JSON.parse(this.initGraph.content))
         })
       })

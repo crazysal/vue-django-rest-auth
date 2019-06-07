@@ -1,3 +1,6 @@
+import zipfile
+import os
+from io import StringIO
 from rest_framework.decorators import detail_route
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
@@ -10,6 +13,10 @@ from server.api.utils import parse_graph
 from server.api.tasks import run_cheml
 from collections import OrderedDict
 from celery.execute import send_task
+from server.api.models import *
+from shutil import make_archive
+from wsgiref.util import FileWrapper
+
 
 
 
@@ -24,9 +31,11 @@ from .models import (
 from .serializers import (
     UserSerializer,
     # PostSerializer,
-    GraphSerializer
+    GraphSerializer,
+    GraphRunSerializer
 )
 
+ws = "/home/tinto/Workspace/tmp/graph_executions/"
 
 class UserViewSet(ModelViewSet):
 
@@ -104,7 +113,8 @@ class RunGraph(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, format=None):
-        graph = Graph.objects.filter(author=self.request.user).filter(graph_id=request.data['graph_id'])
+        # //.filter(author=self.request.user)
+        graph = Graph.objects.filter(graph_id=request.data['graph_id'])
         context = {'request': request}
         serializer = GraphSerializer(graph, context=context, many=True)
         # cmls, dep_lists, comp_graph = parse_graph()
@@ -113,10 +123,116 @@ class RunGraph(APIView):
         # print(dep_lists)
         # print(comp_graph)
         # run_cheml.delay(cmls, dep_lists, comp_graph)
+
         print('calling celery task..')
-        send_task("tasks.run_cheml", [serializer.data[0]])
+        res = send_task("tasks.run_cheml", [serializer.data[0]])
+        result_id = res.id
+        run = GraphRun(
+            graph=graph.first(),
+            graph_name=graph.first().title,
+            state=GraphRunState.objects.filter(state_id=2).first(),
+            content=result_id
+        )
+        run.save()
+
+        # print("ready:")
+        # print(res.ready())
+        # print("state:")
+        # print(res.state)
+        # print("result:")
+        # print(res.result)
+        # print("id : " +res.id)
+        # res.collect()
+        res.get(10)
+        if res.ready():
+            if res.state == "STARTED":
+                run.state = GraphRunState.objects.filter(state_id=3).first()
+            if res.state == "FAILURE":
+                run.state = GraphRunState.objects.filter(state_id=4).first()
+            if res.state == "SUCCESS":
+                run.state = GraphRunState.objects.filter(state_id=5).first()
+            run.save()
+
+        # print("ready:")
+        # print(res.ready())
+        # print("state:")
+        # print(res.state)
+        # print("result:")
+        # print(res.result)
         # send_task("tasks.add", [2,6])
-        return Response({})
+        return Response({"run_id": run.run_id,
+                         "state": res.state})
 
 
+class GraphRuns(APIView):
+    """
+    View to list all graphs created by the current user in the system.
 
+    * Requires token authentication.
+    """
+    # authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, format=None):
+        """
+        Return a list of graphs.
+        """
+        graphs = GraphRun.objects.filter(graph__author=self.request.user)
+        serializer = GraphRunSerializer(graphs, context={'request': request}, many=True)
+        return Response(serializer.data)
+
+
+class DownloadGraphRun(APIView):
+    """
+    View to list all graphs created by the current user in the system.
+
+    * Requires token authentication.
+    """
+    # authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, format=None):
+        folder = request.GET.get('run', '')
+        filepath = os.path.join(ws,folder)
+        path_to_zip = make_archive(filepath, "zip", filepath)
+        response = HttpResponse(FileWrapper(open(path_to_zip, 'rb')), content_type='application/zip')
+        response['Content-Disposition'] = 'attachment; filename="{filename}.zip"'.format(
+            filename=folder.replace(" ", "_")
+        )
+        return response
+
+
+def getfiles(request):
+    # Files (local path) to put in the .zip
+    # FIXME: Change this (get paths from DB etc)
+    filenames = ["/tmp/file1.txt", "/tmp/file2.txt"]
+
+    # Folder name in ZIP archive which contains the above files
+    # E.g [thearchive.zip]/somefiles/file2.txt
+    # FIXME: Set this to something better
+    zip_subdir = "somefiles"
+    zip_filename = "%s.zip" % zip_subdir
+
+    # Open StringIO to grab in-memory ZIP contents
+    s = StringIO.StringIO()
+
+    # The zip compressor
+    zf = zipfile.ZipFile(s, "w")
+
+    for fpath in filenames:
+        # Calculate path for file in zip
+        fdir, fname = os.path.split(fpath)
+        zip_path = os.path.join(zip_subdir, fname)
+
+        # Add file, at correct path
+        zf.write(fpath, zip_path)
+
+    # Must close zip for all contents to be written
+    zf.close()
+
+    # Grab ZIP file from in-memory, make response with correct MIME-type
+    resp = HttpResponse(s.getvalue(), mimetype = "application/x-zip-compressed")
+    # ..and correct content-disposition
+    resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
+
+    return resp

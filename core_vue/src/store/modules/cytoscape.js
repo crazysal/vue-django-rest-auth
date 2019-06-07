@@ -1,20 +1,24 @@
 import cytoscape from '../../api/cytoscape'
 import session from '../../api/session'
 import _utils from './_utils'
+import _ from 'lodash'
 
 // initial state
 const state = {
   cytoscapeConfig: {},
   edgehandlesConfig: {},
   contextMenusConfig: {},
+  funcMeta: {},
+  libMeta: {},
+  libUINames: {},
   cy: {},
   cyClickPos: {
     x: 20,
     y: 20
   },
   libHierarchy: {},
+  wizHierarchy: {},
   selectedNode: {},
-  funcMeta: {},
   selectedEdge: {},
   initGraph: {}
 }
@@ -24,13 +28,16 @@ const getters = {
   cytoscapeConfig: state => state.cytoscapeConfig,
   edgehandlesConfig: state => state.edgehandlesConfig,
   contextMenusConfig: state => state.contextMenusConfig,
+  libHierarchy: state => state.libHierarchy,
+  wizHierarchy: state => state.wizHierarchy,
+  funcMeta: state => state.funcMeta,
+  libMeta: state => state.libMeta,
+  libUINames: state => state.libUINames,
   elements: state => state.cy.elements,
   cy: state => state.cy,
   cyClickPos: state => state.cyClickPos,
-  libHierarchy: state => state.libHierarchy,
   selectedNode: state => state.selectedNode,
   selectedEdge: state => state.selectedEdge,
-  funcMeta: state => state.funcMeta,
   initGraph: state => state.initGraph
 }
 
@@ -60,6 +67,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       cytoscape.getLibHierarchy(libHierarchy => {
         commit('setLibHierarchy', libHierarchy)
+        commit('setWizHierarchy', libHierarchy)
         resolve()
       })
     })
@@ -69,6 +77,24 @@ const actions = {
     return new Promise((resolve, reject) => {
       cytoscape.getFuncMeta(funcMeta => {
         commit('setFuncMeta', funcMeta)
+        resolve()
+      })
+    })
+  },
+
+  setLibMeta ({ commit }) {
+    return new Promise((resolve, reject) => {
+      cytoscape.getLibMeta(libMeta => {
+        commit('setLibMeta', libMeta)
+        resolve()
+      })
+    })
+  },
+
+  setLibUINames ({ commit }) {
+    return new Promise((resolve, reject) => {
+      cytoscape.getlibUINames(libUINames => {
+        commit('setLibUINames', libUINames)
         resolve()
       })
     })
@@ -121,8 +147,19 @@ const mutations = {
   setLibHierarchy (state, libHierarchy) {
     state.libHierarchy = libHierarchy
   },
+  setWizHierarchy (state, libHierarchy) {
+    let wizHierarchy = _.cloneDeep(libHierarchy)
+    wizHierarchy['Finish'] = 'finish'
+    state.wizHierarchy = wizHierarchy
+  },
   setFuncMeta (state, funcMeta) {
     state.funcMeta = funcMeta
+  },
+  setLibMeta (state, libMeta) {
+    state.libMeta = libMeta
+  },
+  setLibUINames (state, libUINames) {
+    state.libUINames = libUINames
   },
   setContextMenusConfig (state, contextMenusConfig) {
     state.contextMenusConfig = contextMenusConfig
