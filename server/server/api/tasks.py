@@ -22,6 +22,6 @@ def xsum(numbers):
 
 @shared_task
 def run_cheml(data):
-    # print(data)
+    print("in server.api.tasks.run_cheml ---------!!", )
     cmls, dep_lists, comp_graph = parse_graph(data)
     return cmls.__str__()

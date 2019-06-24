@@ -9,11 +9,13 @@ app = Celery('server', backend='db+sqlite:////home/tinto/Workspace/CUBS/vue-djan
 app.conf.update(
     result_persistent=True
 )
-ws = "/home/tinto/Workspace/tmp/graph_executions/"
+# ws = "/home/tinto/Workspace/tmp/graph_executions/"
+ws = "/home/sahmed9/Documents/reps/tmp/graph_executions/"
 
 
 @app.task
 def run_cheml(data, task_id=None):
+    print("in chemml_scheduler.run_chemmmml", data)
     task_id = run_cheml.request.id
     cmls, dep_lists, comp_graph = parse_graph(data)
     file = generate_and_write_script(cmls, dep_lists, comp_graph, ws, task_id)

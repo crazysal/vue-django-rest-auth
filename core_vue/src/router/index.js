@@ -8,6 +8,7 @@ import store from '../store'
 import Full from '@/containers/Full'
 
 // Views
+import Landing from '@/views/Landing'
 import Dashboard from '@/views/Dashboard'
 import Results from '@/views/Results'
 
@@ -31,10 +32,18 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/dashboard',
+      redirect: '/Landing',
       name: 'Home',
       component: Full,
       children: [
+        {
+          path: 'landing',
+          name: 'Landing',
+          component: Landing,
+          meta: {
+            requiresAuth: true
+          }
+        },
         {
           path: 'dashboard',
           name: 'Dashboard',

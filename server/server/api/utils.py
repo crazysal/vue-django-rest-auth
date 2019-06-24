@@ -3,7 +3,7 @@ import json
 
 
 def parse_graph(data):
-    # print(data)
+    print("DATA IN PARSE GRAPH ", data)
     jsondata = json.loads(data['content'])
     nodes = jsondata['elements']['nodes']
 

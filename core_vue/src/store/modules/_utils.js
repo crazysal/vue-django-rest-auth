@@ -54,6 +54,7 @@ function getAddNodeOnClickFunction (self) {
 
 function getEdgeDropFunction (self) {
   return function (sourceNode, targetNode, addedEles) {
+    console.log(sourceNode, targetNode, addedEles)
     if (typeof addedEles !== 'undefined') {
       // console.log(addedEles.data().source + '-' + addedEles.data().target)
       // console.log(addedEles)

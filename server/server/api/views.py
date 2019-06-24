@@ -35,7 +35,8 @@ from .serializers import (
     GraphRunSerializer
 )
 
-ws = "/home/tinto/Workspace/tmp/graph_executions/"
+# ws = "/home/tinto/Workspace/tmp/graph_executions/"
+ws = "/home/sahmed9/Documents/reps/tmp/graph_executions/"
 
 class UserViewSet(ModelViewSet):
 
@@ -124,8 +125,9 @@ class RunGraph(APIView):
         # print(comp_graph)
         # run_cheml.delay(cmls, dep_lists, comp_graph)
 
-        print('calling celery task..')
-        res = send_task("tasks.run_cheml", [serializer.data[0]])
+        print('calling celery task.. okookok', request)
+        res = send_task("server.api.tasks.run_cheml", [serializer.data[0]])
+        print('here, after send_task' , res)
         result_id = res.id
         run = GraphRun(
             graph=graph.first(),
@@ -135,13 +137,13 @@ class RunGraph(APIView):
         )
         run.save()
 
-        # print("ready:")
-        # print(res.ready())
-        # print("state:")
-        # print(res.state)
-        # print("result:")
-        # print(res.result)
-        # print("id : " +res.id)
+        print("ready:")
+        print(res.ready())
+        print("state:")
+        print(res.state)
+        print("result:")
+        print(res.result)
+        print("id : " +res.id)
         # res.collect()
         res.get(10)
         if res.ready():
