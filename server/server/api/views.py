@@ -16,7 +16,9 @@ from celery.execute import send_task
 from server.api.models import *
 from shutil import make_archive
 from wsgiref.util import FileWrapper
-
+from .dash_apps import fileUpload,columnStats,lineplot,scatterPlot,barPlot
+import pandas as pd
+from django.shortcuts import render,render_to_response
 
 
 
@@ -36,7 +38,23 @@ from .serializers import (
 )
 
 # ws = "/home/tinto/Workspace/tmp/graph_executions/"
-ws = "/home/sahmed9/Documents/reps/tmp/graph_executions/"
+ws = "/Users/shara/Desktop/Summer/VisualisationModule/tmp/graph_executions/"
+
+
+fileUpload()
+#comment out the following line
+lineplot()
+scatterPlot()
+barPlot()
+def statistics(request):
+    stats=columnStats()   
+    context={
+        'stats':stats
+    }     
+    return render(request, 'statistics.html',context)
+
+
+
 
 class UserViewSet(ModelViewSet):
 
@@ -238,3 +256,6 @@ def getfiles(request):
     resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
 
     return resp
+
+
+
