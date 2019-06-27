@@ -1,0 +1,40 @@
+
+html{
+    overflow-y: scroll
+}#sidebar{
+    background: #1565C0;
+    color: white;
+    min-height: -webkit-fill-available;
+}
+
+#upload-data{
+    background: #c5d7e6;
+    width: 90%;
+    height: 5%;
+    border-radius: 5px;
+    margin:2% 2% 2% 0;
+    text-align: center;
+    padding: 10%;
+    font-size: larger;
+  
+}
+#output-data-upload{
+    color:black;
+}
+#visualize{
+    background:  #1565C0;
+    border-color: #1565C0;
+    margin:2% 2% 2% 0;
+}
+
+.content{
+    margin-top:3%;
+}
+
+#my-graph .svg-container {
+    height:500px !important;
+}
+
+#sidebar a{
+    color:white;
+}

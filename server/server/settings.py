@@ -15,7 +15,8 @@ CELERY_BROKER_URL = 'pyamqp://guest@localhost//'
 # CELERY_ACCEPT_CONTENT = ['json']
 
 # CELERY_RESULT_BACKEND = 'db+sqlite:////home/tinto/Workspace/CUBS/vue-django-rest-auth/server/results.sqlite'
-CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/chemml/web/vue-django-rest-auth/server/results.sqlite'
+# CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/chemml/web/vue-django-rest-auth/server/results.sqlite'
+CELERY_RESULT_BACKEND = 'db+sqlite:////results.sqlite'
 
 # CELERY_RESULT_BACKEND = 'redis://localhost'
 # CELERY_TASK_SERIALIZER = 'json'
@@ -53,7 +54,7 @@ ALLOWED_HOSTS = ['localhost', '10.84.69.48', '128.205.33.82']
 
 INSTALLED_APPS = (
     'django.contrib.admin',
-
+    
     'django.contrib.auth',              # Django auth
     'django.contrib.contenttypes',      # Django auth
 
@@ -71,6 +72,7 @@ INSTALLED_APPS = (
     'rest_auth.registration',
     'server.api',
     'django_celery_results',
+    'django_plotly_dash.apps.DjangoPlotlyDashConfig'
 )
 
 MIDDLEWARE = (
@@ -85,6 +87,7 @@ MIDDLEWARE = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
+    'django_plotly_dash.middleware.BaseMiddleware'
 )
 
 # For backwards compatibility for Django 1.8

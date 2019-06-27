@@ -10,7 +10,7 @@ app.conf.update(
     result_persistent=True
 )
 # ws = "/home/tinto/Workspace/tmp/graph_executions/"
-ws = "/home/sahmed9/Documents/reps/tmp/graph_executions/"
+ws = "/Users/shara/Desktop/Summer/VisualisationModule/tmp/graph_executions/"
 
 
 @app.task

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{%load plotly_dash%}
+{%block sidebar%}
+<div class="container">
+    <p><b>Choose the plot for exploratory data analysis.</b></p>
+    <div><li><a href="line">Line Plot</a></li></div>
+    <div><li><a href="scatter">Scatter Plot</a></li></div>
+    <div><li><a href="bar">Bar Plot</a></li></div>
+</div>
+{%endblock sidebar%}
+{% block content %}
+{%plotly_direct name="barPlot"%}
+{% endblock content %}
