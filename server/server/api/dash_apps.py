@@ -11,15 +11,14 @@ import pandas as pd
 import plotly.graph_objs as go
 import random
 import numpy as np
+
+
 original_df=pd.DataFrame()
 
-#parameter df from stats function
-def lineplot():
-    #uncomment the below 2lines
-    # global original_df
-    # df = original_df
-    #comment out the below line
-    df=pd.read_csv('https://raw.githubusercontent.com/saranyailla/cheml-gui/master/test.csv')
+
+def lineplot(df):
+    global original_df
+    df=original_df
     numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
     df = df.select_dtypes(include=numerics)
     lab=[]
@@ -29,9 +28,9 @@ def lineplot():
         labels["value"]=i
         lab.append(labels)
     df = df.dropna()
-    app =DjangoDash("SimpleExample2")
+    app =DjangoDash("LinePlot")
     app.layout = html.Div([
-                        html.Div([html.P('Choose axes to plot the linearity'),dcc.Dropdown(id="first-value",value=lab[0]['value'],
+                        html.Div([dcc.Dropdown(id="first-value",value=lab[0]['value'],
                                                 options=lab,placeholder="Select X-Axis"),
                                 dcc.Dropdown(id="second-value",value=lab[0]['value'],options=lab,placeholder="Select Y-Axis")],
                                     style={"display": "block", "width": "30%"}),
@@ -48,11 +47,11 @@ def lineplot():
                                 marker={'size': 8, "opacity": 0.6, "line": {'width': 0.5}}, ))
         return {"data": trace,
                 "layout": go.Layout(title=first+" over "+second, colorway=[random.choice(['#fdae61', '#abd9e9', '#2c7bb6'])],
-                                    yaxis={"title": first}, xaxis={"title": second})}
+                                    yaxis={"title": first}, xaxis={"title": second},paper_bgcolor='rgb(228, 229, 230)',plot_bgcolor='rgb(228, 229, 230)')}
 
 #File upload and table
 def fileUpload():
-    app =DjangoDash("SimpleExample")
+    app =DjangoDash("FileUpload")
     app.layout = html.Div([
         dcc.Upload(
             id='upload-data',
@@ -60,11 +59,14 @@ def fileUpload():
                 'Drag and Drop or ',
                 html.A('Select Files',
                 style={
-                    "color": "#0a6892",
+                    "color": "rgb(102, 169, 222)",
                     "font-weight": "700",
                     "cursor": "pointer"
                 })
-            ]),
+            ], style={
+                    "color": "#fff",
+                    
+                }),
             # Allow multiple files to be uploaded
             multiple=True
         ),
@@ -83,20 +85,25 @@ def fileUpload():
                     io.StringIO(decoded.decode('utf-8')))
                 global original_df
                 original_df=df
+                df=df.round(decimals=2)
+                df=df.head(5)
                
             elif 'xls' in filename:
                 # Assume that the user uploaded an excel file
                 df = pd.read_excel(io.BytesIO(decoded))
                 original_df=df
+            else:
+                return html.Div([
+                'We support only csv/xls files at this moment'
+                ],className='uploadText')      
+
         except Exception as e:
-            print(e)
-            return html.Div([
-                'There was an error processing this file.'
-            ])
-        df=df.head(5)
+            err=e
+            return html.Div([''+str(e)+''])
+       
         return html.Div([
             html.Div([html.A('Lets go',id='visualize',className='btn btn-primary',href='statistics'),
-            html.Div(['Please note that the following are only the first 5 rows of your uploaded file: ',html.B(filename)])
+            html.Div([html.P('First 5 rows of your uploaded file (rounded to 2 values) : ',className='uploadText',style={"font-size":"18px"}),html.B(filename)])
             ]),
             dash_table.DataTable(
                 data=df.to_dict('records'),
@@ -122,9 +129,12 @@ def columnStats():
     global original_df
     numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
     num_columns = original_df.select_dtypes(include=numerics)
-    # uncomment the following line
-    # lineplot(num_columns)
-    b=dict()
+    
+    #Computing the plots before calling them
+    lineplot(original_df)
+    barPlot(original_df)
+    scatterPlot(original_df)
+    b=dict()    
     for i in num_columns:
         a=dict()
         a['Mean']=round(num_columns[i].mean(),2)
@@ -137,10 +147,7 @@ def columnStats():
 
 
 #Scatterplot
-#pass df parameter from stats function,use global df
-def scatterPlot():
-    # global original_df
-    df = pd.read_csv('https://raw.githubusercontent.com/saranyailla/cheml-gui/master/test.csv')
+def scatterPlot(df):
     numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
     num_columns = df.select_dtypes(include=numerics) 
     app =DjangoDash("scatterPlot")
@@ -188,12 +195,13 @@ def scatterPlot():
                 yaxis={'title': second},
                 margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
                 legend={'x': 0, 'y': 1},
-                hovermode='closest'
+                hovermode='closest',
+                paper_bgcolor='rgb(228, 229, 230)',
+                plot_bgcolor='rgb(228, 229, 230)'
             )}
         
 #bar plot
-def barPlot():
-    df = pd.read_csv('https://raw.githubusercontent.com/saranyailla/cheml-gui/master/test.csv')
+def barPlot(df):
     numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
     df = df.select_dtypes(include=numerics)
     num_lab=[]
@@ -225,7 +233,8 @@ def barPlot():
         trace=[{'x':bins , 'y':d['bins'].to_list(), 'type': 'bar', 'name': column}]
         return {"data": trace,
                 "layout":{
-                     'title': "Bins at "+str(bins)
+                     'title': "Bins at "+str(bins),
+                     "paper_bgcolor":'rgb(228, 229, 230)',"plot_bgcolor":'rgb(228, 229, 230)'
                     }
                 }
     

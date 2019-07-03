@@ -7,6 +7,7 @@ import auth from './modules/auth'
 import password from './modules/password'
 import signup from './modules/signup'
 import graph from './modules/graph'
+import parameters from './modules/parameters'
 // import products from './modules/products'
 // import createLogger from '../../../src/plugins/logger'
 
@@ -22,7 +23,8 @@ export default new Vuex.Store({
     auth,
     password,
     signup,
-    graph
+    graph,
+    parameters
     // products
   }
   // strict: debug,

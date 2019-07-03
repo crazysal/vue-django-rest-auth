@@ -66,7 +66,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',         # token authentication
     'rest_auth',
-
+    'corsheaders',
     'allauth',
     'allauth.account',
     'rest_auth.registration',
@@ -85,7 +85,7 @@ MIDDLEWARE = (
 
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django_plotly_dash.middleware.BaseMiddleware'
 )
@@ -165,5 +165,6 @@ REST_FRAMEWORK = {
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
+CORS_ORIGIN_ALLOW_ALL = True   
 
 
