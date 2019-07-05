@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {%load plotly_dash%} 
-{%block heading%}<div class='uploadText'>Column wise statistics of the numeric fields in your uploaded file.</div>{%endblock heading%}
+{%block heading%}<h4>Column wise statistics of the numeric fields in your uploaded file.</h4>{%endblock heading%}
 {%block sidebar%}
     <ul>
     <li><a href="line">Line Plot</a></li>
@@ -10,8 +10,7 @@
 {%endblock sidebar%}
 
     {% block content%} 
-      
-    <!-- <sp>Doing stats for only the numeric fields. Issue : Presence of ID (numeric)</p>  -->
+    {% if stats.items %}
         <div class='row col-lg-12'>
             <div class="row col-lg-10">
                 {% for key,value in stats.items %}
@@ -37,6 +36,9 @@
                 <div><li><a href="bar">Bar Plot</a></li></div>
                 {%endblock menu%}
             </div>
-
     </div>
+   
+    {% else %}
+        <div class='uploadText'>There are no numeric fields in the uploaded file.</div>
+    {%endif%}
     {% endblock content%}

@@ -97,13 +97,17 @@ a:focus {
     color: #fff;
     background: #20a8d8;
 }
-
+/* 
 #sidebar ul li a:active
 {
     color: #fff;
     background: #33444c;
+} */
+.active
+{
+    color: #fff;
+    background: #33444c;
 }
-
 .dropdown-item svg {
     display: inline-block;
     width: 20px;

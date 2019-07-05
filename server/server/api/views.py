@@ -47,7 +47,8 @@ fileUpload()
 # scatterPlot()
 # barPlot()
 def statistics(request):
-    stats=columnStats()   
+    stats=columnStats() 
+    print(len(stats))  
     context={
         'stats':stats
     }     

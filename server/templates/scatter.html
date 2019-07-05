@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {%load plotly_dash%}
+{%block heading%}<h4>Scatter Plot</h4>{%endblock heading%}
 {%block sidebar%}
     <ul>
     <li><a href="line">Line Plot</a></li>
-    <li><a href="scatter">Scatter Plot</a></li>
+    <li><a href="scatter" class='active'>Scatter Plot</a></li>
     <li><a href="bar">Bar Plot</a></li>
     </ul>
 {%endblock sidebar%}
