@@ -40,7 +40,8 @@ body{
     position: fixed;
     width: 100%;
     z-index: 1;
-    height: 8%;
+    height: 9%;
+    background: #fff;
 }
 .box-shadow-menu {
     position: relative;
@@ -141,6 +142,19 @@ i{
     text-align: center;
 }
 
+ .logo {
+    display: inline-block;
+    width: 155px;
+    height: 55px;
+    padding: 0.5rem 1rem;
+    margin-right: 0;
+    background-color: #fff;
+    background-image: url(../img/ub-logo.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70px auto;
+    /* border-bottom: 1px solid #a4b7c1; */
+}
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */

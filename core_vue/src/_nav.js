@@ -17,7 +17,7 @@ export default {
       icon: 'icon-direction'
     },
     {
-      name: 'visualizations',
+      name: 'Visualizations',
       url: dashUrl,
       icon: 'icon-pie-chart'
     }
