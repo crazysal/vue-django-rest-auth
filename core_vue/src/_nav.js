@@ -1,4 +1,4 @@
-// let dashUrl = 'http://localhost:8000/'
+let dashUrl = 'http://localhost:8000/'
 export default {
   items: [
     {
@@ -18,7 +18,7 @@ export default {
     },
     {
       name: 'visualizations',
-      url: '/visualizations',
+      url: dashUrl,
       icon: 'icon-pie-chart'
     }
   ]

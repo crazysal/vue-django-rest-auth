@@ -18,11 +18,5 @@ export default {
   },
   getGraphRuns () {
     return session.get('/api/graphruns/')
-  },
-  getTableJson () {
-    return session.get('/api/table/')
-  },
-  getColumnJson () {
-    return session.get('/api/columns/')
   }
 }

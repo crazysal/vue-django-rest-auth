@@ -11,7 +11,6 @@ import Full from '@/containers/Full'
 import Landing from '@/views/Landing'
 import Dashboard from '@/views/Dashboard'
 import Results from '@/views/Results'
-import Visualizations from '@/views/Visualizations'
 // Views - Pages
 import Page404 from '@/views/pages/Page404'
 import Page500 from '@/views/pages/Page500'
@@ -27,12 +26,13 @@ const redirectLogout = (to, from, next) => {
 
 const router = new Router({
   mode: 'hash',
+  base: __dirname,
   linkActiveClass: 'open active',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     {
       path: '/',
-      redirect: '/Landing',
+      // redirect: '/',
       name: 'Home',
       component: Full,
       children: [
@@ -59,11 +59,6 @@ const router = new Router({
           meta: {
             requiresAuth: true
           }
-        },
-        {
-          path: 'visualizations',
-          name: 'Visualizations',
-          component: Visualizations
         }
       ]
     },

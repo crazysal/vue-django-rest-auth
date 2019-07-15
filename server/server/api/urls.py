@@ -26,8 +26,8 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'rungraph', RunGraph.as_view(), name='run-graph'),
     url(r'graphruns', GraphRuns.as_view(), name='graph-runs'),
-    url(r'downloadGraphRun', DownloadGraphRun.as_view(), name='download-graphrun'),
-    url(r'table', TableView.as_view(), name='table'),
-    url(r'columns', ColumnView.as_view(), name='columns')
+    url(r'downloadGraphRun', DownloadGraphRun.as_view(), name='download-graphrun')
+    # ,    url(r'table', TableView.as_view(), name='table'),
+    # url(r'columns', ColumnView.as_view(), name='columns')
    
 ]

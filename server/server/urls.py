@@ -8,12 +8,10 @@ urlpatterns = [
     url(r'^auth/', include('rest_auth.urls')),
     url(r'^registration/', include('rest_auth.registration.urls')),
     url(r'^admin/', admin.site.urls),
-    path('demo', TemplateView.as_view(template_name='demo.html')),
     path('', TemplateView.as_view(template_name='home.html')),
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
     path('line', TemplateView.as_view(template_name='line.html')),
     path('scatter', TemplateView.as_view(template_name='scatter.html')),
     path('bar', TemplateView.as_view(template_name='bar.html')),
     re_path(r'^statistics',views.statistics)
-    # url(r'^$', TemplateView.as_view(template_name="index.html"), name='index'),
 ]

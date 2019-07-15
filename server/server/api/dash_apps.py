@@ -249,4 +249,3 @@ def barPlot(df):
         app.layout =html.Div([html.P('Missing numeric fields in your uploaded file. Bar Plot needs one or more numeric fileds',className='uploadText')])
 
 
-
