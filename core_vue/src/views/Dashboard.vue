@@ -3,14 +3,14 @@
     <b-card>
       <b-row>
         <b-col sm="5">
-          <h4 id="graph" class="card-title mb-0">Graph</h4>
+          <h4 id="graph" class="card-title mb-0">Model Graph</h4>
           <!-- <div class="small text-muted">November 2017</div> -->
         </b-col>
         <b-col sm="7" class="d-md-block">
-          <b-button type="button" variant="danger" class="float-right" style="margin-left: 3px" v-on:click="handleRun()"><i class="fa fa-play"></i></b-button>
-          <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px" v-on:click="handleSave()"><i class="fa fa-save"></i></b-button>
-          <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px"  v-on:click="handleLoad()"><i class="fa fa-folder-open"></i></b-button>
-          <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px"  v-on:click="handleShowWizard()"><i class="fa fa-folder"></i></b-button>
+          <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px" v-on:click="handleHelp()" title="Help" ><i class="fa fa-question"></i></b-button>
+          <b-button type="button" variant="danger" class="float-right" style="margin-left: 3px" v-on:click="handleRun()" title="Run Graph" ><i class="fa fa-play"></i></b-button>
+          <b-button type="button" variant="primary" class="float-right" style="margin-left: 3px" v-on:click="handleSave()" title="Save Graph"><i class="fa fa-save"></i></b-button>
+          <!-- <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px"  v-on:click="handleShowWizard()"><i class="fa fa-folder"></i></b-button> -->
           <b-dropdown right split variant="primary" class="float-right" style="margin-left: 3px"  v-on:click="handleResetLayout('dagre')" title="Set Layout">
             <template slot="button-content">
               <i class="fa fa-sitemap"  title="DAG Layout"></i>
@@ -23,6 +23,7 @@
             <b-dropdown-item v-on:click="handleResetLayout('cose')">CoSE Layout</b-dropdown-item>
             <b-dropdown-item v-on:click="handleResetLayout('random')">Random Layout</b-dropdown-item>
           </b-dropdown>
+          <b-button type="button" variant="success" class="float-right" style="margin-left: 3px"  v-on:click="handleLoad()" title="Load Template"><i class="fa fa-folder-open"></i></b-button>
           <!-- <b-button-toolbar class="float-right" aria-label="Toolbar with buttons group">
             <b-form-radio-group class="mr-3" id="radiosBtn" buttons button-variant="outline-secondary" v-model="selected" name="radiosBtn">
               <b-form-radio class="mx-0" value="Day">Day</b-form-radio>
@@ -33,35 +34,37 @@
         </b-col>
       </b-row>
       <cytoscape-graph class="chart-wrapper" style="height:600px;margin-top:40px;" height="600"></cytoscape-graph>
-      <!-- <div slot="footer">
+       <div slot="footer">
+        <div class="text-muted">Template MetaData</div>
+            
         <ul>
           <li>
-            <div class="text-muted">Visits</div>
-            <strong>29.703 Users (40%)</strong>
+            <div class="text-muted">Authors</div>
+            <strong>Higgins et al</strong>
             <b-progress height={} class="progress-xs mt-2" :precision="1" variant="success" :value="40"></b-progress>
           </li>
           <li class="d-none d-md-table-cell">
-            <div class="text-muted">Unique</div>
-            <strong>24.093 Users (20%)</strong>
+            <div class="text-muted">Publication</div>
+            <strong>Neurips 2019</strong>
             <b-progress height={} class="progress-xs mt-2" :precision="1" variant="info" :value="20"></b-progress>
           </li>
           <li>
-            <div class="text-muted">Pageviews</div>
-            <strong>78.706 Views (60%)</strong>
+            <div class="text-muted">Tags</div>
+            <strong>Disentanglement, Graphs, Unsupervised Learning</strong>
             <b-progress height={} class="progress-xs mt-2" :precision="1" variant="warning" :value="60"></b-progress>
           </li>
           <li class="d-none d-md-table-cell">
-            <div class="text-muted">New Users</div>
-            <strong>22.123 Users (80%)</strong>
+            <div class="text-muted">Title</div>
+            <strong>Challenging Common Assumptions in the</strong> </br> <strong>Unsupervised Learning of </br> Disentangled Representations</strong>
             <b-progress height={} class="progress-xs mt-2" :precision="1" variant="danger" :value="80"></b-progress>
           </li>
-          <li class="d-none d-md-table-cell">
+<!--           <li class="d-none d-md-table-cell">
             <div class="text-muted">Bounce Rate</div>
             <strong>40.15%</strong>
             <b-progress height={} class="progress-xs mt-2" :precision="1" :value="40"></b-progress>
           </li>
-        </ul>
-      </div> -->
+ -->        </ul>
+      </div>
     </b-card>
     <modals></modals>
   </div>
@@ -90,7 +93,8 @@ export default {
       showLoad: 'showLoadGraph',
       showSave: 'showSaveGraph',
       showUpdate: 'showUpdateGraph',
-      showWizard: 'showWizard'
+      showWizard: 'showWizard',
+      showHelp: 'showHelp'
     }),
     ...mapActions({
       updateRootGraphs: 'graph/updateRootGraphs',
@@ -99,6 +103,9 @@ export default {
     }),
     handleRun: function () {
       this.runCurrentGraph()
+    },
+    handleHelp: function () {
+      this.showHelp()
     },
     handleLoad: function () {
       this.updateRootGraphs()

@@ -30,7 +30,7 @@ const _cytoscapeInitConfig = {
         // 'content': 'df',
         'curve-style': 'bezier',
         'width': 4,
-        'target-arrow-shape': 'triangle',
+        'target-arrow-shape': 'ellipse',
         'line-color': '#9dbaea',
         'target-arrow-color': '#9dbaea'
       }
