@@ -4,22 +4,36 @@
 
       <strong>Node Type</strong>
       <template v-for='(lib, key1) in selectedNode.elem.data.info'>
+        
         <b-form-group
           :label="key1"
           label-for="radios"
           :label-cols="3"
           :horizontal="true">
-          <b-form-radio-group
-            id="radios"
-            name="funcRadios">
-            <div v-for='func in lib' class="custom-control custom-radio custom-control-inline">
-              <input type="radio" :id=func name="funcRadios" class="custom-control-input" :value=func v-on:click="handleFuncChange(key1,func)">
-              <label class="custom-control-label" for="radiosInline">{{func}}</label>
-            </div>
-          </b-form-radio-group>
+          <!-- <div v-for='func in lib.name' class="custom-control custom-radio custom-control-inline"> -->
+              <b-form-radio-group
+                id="radios"
+                name="funcRadios">
+                <div v-for='func in lib.name' class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" :id=func name="funcRadios" class="custom-control-input" :value=func v-on:click="handleFuncChange(key1,func, lib.functions[lib.name.indexOf(func)])">
+                  <label class="custom-control-label" for="radiosInline">{{func}}</label>
+                </div>
+              </b-form-radio-group>
+          <!-- </div> -->
         </b-form-group>
       </template>
 
+      <strong v-if='meths.length>0'>Select Class Method</strong>
+      <template v-for='param in meths'>
+        <b-form-radio-group
+        id="radiosmeths"
+        name="methRadios">
+         <input type="radio" :id=param name="methRadios" :value=param v-on:click="handleMethChange(param)">
+         <label class="custom-control-label" for="radiosInline">{{param}}</label>
+        </b-form-radio-group>
+      </template>
+      <br/>
+<!-- 
       <strong v-if='wparams.length>0'>Wrapper Params</strong>
       <template v-for='param in wparams'>
         <b-form-group>
@@ -27,15 +41,20 @@
           <b-form-input type="text" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
         </b-form-group>
       </template>
-      <br/>
-      <strong v-if='fparams.length>0'>Function Params</strong>
-      <template v-for='param in fparams'>
-        <b-form-group>
-          <label :for=param.name>{{param.name}}</label>
-          <b-form-input type="text" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
-        </b-form-group>
-      </template>
-
+      <br/> -->
+      {{isHidden}}
+      <div v-if='fparams.length>0' >
+        <button class='btn btn-success'  v-on:click="isHidden = !isHidden">Click to Set Base Parameter Values</button>
+      </div>
+          <!-- <button class="primary">Show more</button> -->
+        <!-- <div v-if="!isHidden"> -->
+          <template v-if="!isHidden" v-for='param in fparams'>
+            <b-form-group>
+              <label :for=param.name>{{param.name}}</label>
+              <b-form-input type="text" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
+            </b-form-group>
+          </template>
+        <!-- </div> -->
     </div>
 
   </b-modal>
@@ -52,7 +71,9 @@ export default {
     return {
       host: '',
       func: '',
+      meths: [],
       wparams: [],
+      isHidden: true,
       fparams: []
     }
   },
@@ -82,9 +103,20 @@ export default {
       hide: 'hideEditNode',
       resetSelectedNode: 'resetSelectedNode'
     }),
-    handleFuncChange: function (host, func) {
+    handleFuncChange: function (host, func, meths) {
       this.host = host
       this.func = func
+      this.meths = meths
+      this.isHidden = true
+      // alert(meths, host, func)
+      this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
+      this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
+    },
+    handleMethChange: function (host, func, meths) {
+      this.host = host
+      this.func = func
+      this.meths = meths
+      // alert(meths, host, func)
       this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
       this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
     },

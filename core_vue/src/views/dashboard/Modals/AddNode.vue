@@ -1,6 +1,6 @@
 <template>
   <b-modal title="Add Node" v-model="myModal" @ok="handleOk()" @cancel="hide()" hide-header-close>
-    <div>
+    <!-- <div>
       <template v-for='(stage, key1) in libHierarchy'>
         <b-form-group
           :label="key1"
@@ -12,6 +12,27 @@
             name="radiosInline">
             <div v-for='(element, key2) in stage' class="custom-control custom-radio custom-control-inline">
               <input type="radio" :id=key2 name="radiosInline" class="custom-control-input" :value=JSON.stringify(element) :key1=key1 :key2=key2>
+              <label class="custom-control-label" for="radiosInline">{{key2}}</label>
+            </div>
+          </b-form-radio-group>
+        </b-form-group>
+      </template>
+    </div> -->
+
+    <div>
+      <template v-for='(stage, key1) in libHierarchy'>
+        <b-form-group
+          :label="key1"
+          label-for="radios"
+          :label-cols="3"
+          :horizontal="true">
+          <b-form-radio-group
+            id="radios"
+            name="radiosInline">
+            <div v-for='(element, key2) in stage' class="custom-control custom-radio custom-control-inline">
+              {{stage["name"]}}
+              <input type="radio" :id=key2 name="radiosInline" class="custom-control-input" :value=JSON.stringify(element) :key1=key1 :key2=key2>
+              
               <label class="custom-control-label" for="radiosInline">{{key2}}</label>
             </div>
           </b-form-radio-group>
