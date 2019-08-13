@@ -1,5 +1,5 @@
 <template>
-  <b-modal title="Edit Node" v-model="myModal" @ok="handleOk" @cancel="handleCancel" no-close-on-esc no-close-on-backdrop hide-header-close >
+  <b-modal title="Edit Node" v-model="myModal" @ok="handleOk" @cancel="handleCancel">
     <div v-if="selectedNode.hasOwnProperty('elem')">
 
       <strong>Node Type</strong>
@@ -33,28 +33,27 @@
         </b-form-radio-group>
       </template>
       <br/>
-<!-- 
-      <strong v-if='wparams.length>0'>Wrapper Params</strong>
-      <template v-for='param in wparams'>
-        <b-form-group>
-          <label :for=param.name>{{param.name}}</label>
-          <b-form-input type="text" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
-        </b-form-group>
-      </template>
-      <br/> -->
-      {{isHidden}}
-      <div v-if='fparams.length>0' >
+
+      <div v-if='fparams.length>0'>
         <button class='btn btn-success'  v-on:click="isHidden = !isHidden">Click to Set Base Parameter Values</button>
+        <b-button class='btn btn-outline-info'   v-on:click="isHidden2 = !isHidden2"><i class="fa fa-question"></i></b-button>
       </div>
-          <!-- <button class="primary">Show more</button> -->
-        <!-- <div v-if="!isHidden"> -->
-          <template v-if="!isHidden" v-for='param in fparams'>
+          
+            
+          
+          <template v-if='!isHidden' v-for='param in fparams'>
             <b-form-group>
-              <label :for=param.name>{{param.name}}</label>
+              
+              <div v-if='param.is_optional' class="form-group required"><label :for=param.name class="control-label"> {{param.is_optional}}{{param.name}}</label></div>
+              <div v-else><label :for=param.name>{{param.name}}</label></div>
+              <div v-if='!isHidden2'>
+                  <dl class="row">
+                    <dd class="alert alert-light">{{param.desc}}</dd>
+                  </dl>
+              </div>
               <b-form-input type="text" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
             </b-form-group>
           </template>
-        <!-- </div> -->
     </div>
 
   </b-modal>
@@ -74,6 +73,7 @@ export default {
       meths: [],
       wparams: [],
       isHidden: true,
+      isHidden2: true,
       fparams: []
     }
   },
@@ -108,17 +108,19 @@ export default {
       this.func = func
       this.meths = meths
       this.isHidden = true
+      this.isHidden2 = true
       // alert(meths, host, func)
       this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
       this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
     },
-    handleMethChange: function (host, func, meths) {
-      this.host = host
-      this.func = func
-      this.meths = meths
-      // alert(meths, host, func)
-      this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
-      this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
+    handleMethChange: function (param) {
+      alert('In methchange', param)
+      // this.host = host
+      // this.func = func
+      // this.meths = meths
+      // // alert(meths, host, func)
+      // this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
+      // this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
     },
     handleOk: function () {
       let node = this.selectedNode
