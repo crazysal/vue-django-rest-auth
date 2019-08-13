@@ -267,7 +267,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0)'
+          default_value: '0'
         },
         {
           name: 'return_path',
@@ -293,7 +293,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False)'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -412,7 +412,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0)'
+          default_value: '0'
         },
         {
           name: 'return_path',
@@ -438,7 +438,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False)'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -852,7 +852,7 @@ export default {
           name: 'y',
           docstring: 'Target values',
           param_type: ['array'],
-          expected_shape: '= [n_samples] or [n_samples, n_targets]',
+          expected_shape: '[n_samples] or [n_samples, n_targets]',
           is_optional: false,
           default_value: null
         },
@@ -1163,7 +1163,7 @@ export default {
               docstring:
                 'Training vector, where n_samples in the number of samples and n_features is the number of features.',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -1172,7 +1172,7 @@ export default {
               docstring:
                 "Target values (integers). Will be cast to X's dtype if necessary",
               param_type: ['array'],
-              expected_shape: '= [n_samples]',
+              expected_shape: '[n_samples]',
               is_optional: false,
               default_value: null
             }
@@ -1212,7 +1212,7 @@ export default {
               name: 'X',
               docstring: 'Samples.',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -1252,7 +1252,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -1260,7 +1260,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -1268,7 +1268,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -1567,7 +1567,7 @@ export default {
               name: 'X',
               docstring: 'Samples.',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -1607,7 +1607,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -1615,7 +1615,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -1623,7 +1623,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -1764,7 +1764,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'cyclic'"
+          default_value: 'cyclic'
         }
       ],
       outputs: [
@@ -1884,7 +1884,7 @@ export default {
               param_type: ['bool'],
               expected_shape: null,
               is_optional: true,
-              default_value: '=True)'
+              default_value: 'True'
             }
           ],
           outputs: []
@@ -2111,7 +2111,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -2119,7 +2119,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -2127,7 +2127,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -2303,7 +2303,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'cyclic'"
+          default_value: 'cyclic'
         }
       ],
       outputs: [
@@ -2644,7 +2644,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -2652,7 +2652,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -2660,7 +2660,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -3054,7 +3054,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -3062,7 +3062,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -3070,7 +3070,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -3184,7 +3184,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False)'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -3376,7 +3376,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -3384,7 +3384,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -3392,7 +3392,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -3523,7 +3523,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False)'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -3717,7 +3717,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -3725,7 +3725,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -3733,7 +3733,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -3803,7 +3803,7 @@ export default {
           param_type: ['LIST_VALID_OPTIONS', 'array'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'copy_X',
@@ -3865,7 +3865,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'cyclic'"
+          default_value: 'cyclic'
         }
       ],
       outputs: [
@@ -3985,7 +3985,7 @@ export default {
               param_type: ['bool'],
               expected_shape: null,
               is_optional: true,
-              default_value: '=True)'
+              default_value: 'True'
             }
           ],
           outputs: []
@@ -4212,7 +4212,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -4220,7 +4220,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -4228,7 +4228,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -4394,7 +4394,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'cyclic'"
+          default_value: 'cyclic'
         }
       ],
       outputs: [
@@ -4717,7 +4717,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -4725,7 +4725,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -4733,7 +4733,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -4854,7 +4854,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False)'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -5046,7 +5046,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -5054,7 +5054,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -5062,7 +5062,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -5192,7 +5192,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False)'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -5386,7 +5386,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -5394,7 +5394,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -5402,7 +5402,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -5514,7 +5514,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False)'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -5699,7 +5699,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -5707,7 +5707,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -5715,7 +5715,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -5937,7 +5937,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -5945,7 +5945,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -5953,7 +5953,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -6366,7 +6366,7 @@ export default {
               name: 'X',
               docstring: '',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             }
@@ -6390,7 +6390,7 @@ export default {
               name: 'X',
               docstring: '',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             }
@@ -6414,7 +6414,7 @@ export default {
               name: 'X',
               docstring: 'Test samples.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -6422,7 +6422,7 @@ export default {
               name: 'y',
               docstring: 'True labels for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -6430,7 +6430,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -6844,7 +6844,7 @@ export default {
               name: 'X',
               docstring: '',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             }
@@ -6868,7 +6868,7 @@ export default {
               name: 'X',
               docstring: '',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             }
@@ -6892,7 +6892,7 @@ export default {
               name: 'X',
               docstring: 'Test samples.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -6900,7 +6900,7 @@ export default {
               name: 'y',
               docstring: 'True labels for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples,)',
+              expected_shape: '(n_samples,)',
               is_optional: false,
               default_value: null
             },
@@ -6908,7 +6908,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -7103,7 +7103,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'cyclic'"
+          default_value: 'cyclic'
         }
       ],
       outputs: [
@@ -7435,7 +7435,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -7443,7 +7443,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -7451,7 +7451,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -7608,7 +7608,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'cyclic'"
+          default_value: 'cyclic'
         }
       ],
       outputs: [
@@ -7949,7 +7949,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -7957,7 +7957,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -7965,7 +7965,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -8078,7 +8078,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'cyclic'"
+          default_value: 'cyclic'
         }
       ],
       outputs: [
@@ -8410,7 +8410,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -8418,7 +8418,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -8426,7 +8426,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -8574,7 +8574,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'cyclic'"
+          default_value: 'cyclic'
         }
       ],
       outputs: [
@@ -8891,7 +8891,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -8899,7 +8899,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -8907,7 +8907,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -8986,7 +8986,7 @@ export default {
           param_type: ['LIST_VALID_OPTIONS'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'auto'"
+          default_value: 'auto'
         }
       ],
       outputs: [
@@ -9135,7 +9135,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -9143,7 +9143,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -9151,7 +9151,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -9398,7 +9398,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -9406,7 +9406,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -9414,7 +9414,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -9465,7 +9465,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'max_iter',
@@ -9492,7 +9492,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'validation_fraction',
@@ -9501,7 +9501,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0.1'
+          default_value: '0.1'
         },
         {
           name: 'n_iter_no_change',
@@ -9510,7 +9510,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=5'
+          default_value: '5'
         },
         {
           name: 'shuffle',
@@ -9519,7 +9519,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'verbose',
@@ -9762,7 +9762,7 @@ export default {
               name: 'X',
               docstring: 'Training data',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -9779,7 +9779,7 @@ export default {
               docstring:
                 'The initial coefficients to warm-start the optimization.',
               param_type: ['array'],
-              expected_shape: '= [n_classes,n_features]',
+              expected_shape: '[n_classes,n_features]',
               is_optional: false,
               default_value: null
             },
@@ -9788,7 +9788,7 @@ export default {
               docstring:
                 'The initial intercept to warm-start the optimization.',
               param_type: ['array'],
-              expected_shape: '= [n_classes]',
+              expected_shape: '[n_classes]',
               is_optional: false,
               default_value: null
             }
@@ -9828,7 +9828,7 @@ export default {
               name: 'X',
               docstring: 'Subset of the training data',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -9845,7 +9845,7 @@ export default {
               docstring:
                 "Classes across all calls to partial_fit. Can be obtained by via `np.unique(y_all)`, where y_all is the target vector of the entire dataset. This argument is required for the first call to partial_fit and can be omitted in the subsequent calls. Note that y doesn't need to contain all labels in `classes`.",
               param_type: ['array'],
-              expected_shape: '= [n_classes]',
+              expected_shape: '[n_classes]',
               is_optional: false,
               default_value: null
             }
@@ -9884,7 +9884,7 @@ export default {
               name: 'X',
               docstring: 'Test samples.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -9892,7 +9892,7 @@ export default {
               name: 'y',
               docstring: 'True labels for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -9900,7 +9900,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -9984,7 +9984,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'validation_fraction',
@@ -9993,7 +9993,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0.1'
+          default_value: '0.1'
         },
         {
           name: 'n_iter_no_change',
@@ -10002,7 +10002,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=5'
+          default_value: '5'
         },
         {
           name: 'shuffle',
@@ -10011,7 +10011,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'verbose',
@@ -10230,7 +10230,7 @@ export default {
               name: 'X',
               docstring: 'Training data',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -10247,7 +10247,7 @@ export default {
               docstring:
                 'The initial coefficients to warm-start the optimization.',
               param_type: ['array'],
-              expected_shape: '= [n_features]',
+              expected_shape: '[n_features]',
               is_optional: false,
               default_value: null
             },
@@ -10256,7 +10256,7 @@ export default {
               docstring:
                 'The initial intercept to warm-start the optimization.',
               param_type: ['array'],
-              expected_shape: '= [1]',
+              expected_shape: '[1]',
               is_optional: false,
               default_value: null
             }
@@ -10296,7 +10296,7 @@ export default {
               name: 'X',
               docstring: 'Subset of training data',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -10344,7 +10344,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -10352,7 +10352,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -10360,7 +10360,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -10498,7 +10498,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'validation_fraction',
@@ -10507,7 +10507,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0.1'
+          default_value: '0.1'
         },
         {
           name: 'n_iter_no_change',
@@ -10516,7 +10516,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=5'
+          default_value: '5'
         },
         {
           name: 'class_weight',
@@ -10855,7 +10855,7 @@ export default {
               name: 'X',
               docstring: 'Test samples.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -10863,7 +10863,7 @@ export default {
               name: 'y',
               docstring: 'True labels for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -10871,7 +10871,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -11106,7 +11106,7 @@ export default {
               name: 'y',
               docstring: 'Target values.',
               param_type: ['array'],
-              expected_shape: '= [n_samples] or [n_samples, n_targets]',
+              expected_shape: '[n_samples] or [n_samples, n_targets]',
               is_optional: false,
               default_value: null
             },
@@ -11115,7 +11115,7 @@ export default {
               docstring:
                 'Individual weights for each sample raises error if sample_weight is passed and base_estimator fit method does not support it.',
               param_type: ['array'],
-              expected_shape: '= [n_samples]',
+              expected_shape: '[n_samples]',
               is_optional: false,
               default_value: null
             }
@@ -11186,7 +11186,7 @@ export default {
               name: 'y',
               docstring: 'Target values.',
               param_type: ['array'],
-              expected_shape: '= [n_samples] or [n_samples, n_targets]',
+              expected_shape: '[n_samples] or [n_samples, n_targets]',
               is_optional: false,
               default_value: null
             }
@@ -11368,7 +11368,7 @@ export default {
               name: 'X',
               docstring: 'Training data',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -11376,7 +11376,7 @@ export default {
               name: 'y',
               docstring: 'Target values',
               param_type: ['array'],
-              expected_shape: '= [n_samples] or [n_samples, n_targets]',
+              expected_shape: '[n_samples] or [n_samples, n_targets]',
               is_optional: false,
               default_value: null
             },
@@ -11448,7 +11448,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -11456,7 +11456,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -11464,7 +11464,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -11561,7 +11561,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -11646,7 +11646,7 @@ export default {
               docstring:
                 'Training data. If using GCV, will be cast to float64 if necessary.',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -11655,7 +11655,7 @@ export default {
               docstring:
                 "Target values. Will be cast to X's dtype if necessary",
               param_type: ['array'],
-              expected_shape: '= [n_samples] or [n_samples, n_targets]',
+              expected_shape: '[n_samples] or [n_samples, n_targets]',
               is_optional: false,
               default_value: null
             },
@@ -11727,7 +11727,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -11735,7 +11735,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -11743,7 +11743,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -11966,7 +11966,7 @@ export default {
               name: 'X',
               docstring: 'Training data',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= [n_samples,n_features]',
+              expected_shape: '[n_samples,n_features]',
               is_optional: false,
               default_value: null
             },
@@ -11974,7 +11974,7 @@ export default {
               name: 'y',
               docstring: 'Target values',
               param_type: ['array'],
-              expected_shape: '= [n_samples]',
+              expected_shape: '[n_samples]',
               is_optional: false,
               default_value: null
             },
@@ -12046,7 +12046,7 @@ export default {
               name: 'X',
               docstring: 'Test samples.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -12054,7 +12054,7 @@ export default {
               name: 'y',
               docstring: 'True labels for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -12062,7 +12062,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -12159,7 +12159,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -12356,7 +12356,7 @@ export default {
               name: 'X',
               docstring: 'Test samples.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -12364,7 +12364,7 @@ export default {
               name: 'y',
               docstring: 'True labels for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -12372,7 +12372,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -12415,7 +12415,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: ": 'hinge'"
+          default_value: 'hinge'
         },
         {
           name: 'penalty',
@@ -12549,7 +12549,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'validation_fraction',
@@ -12558,7 +12558,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0.1'
+          default_value: '0.1'
         },
         {
           name: 'n_iter_no_change',
@@ -12567,7 +12567,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=5'
+          default_value: '5'
         },
         {
           name: 'class_weight',
@@ -12939,7 +12939,7 @@ export default {
               name: 'X',
               docstring: 'Test samples.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -12947,7 +12947,7 @@ export default {
               name: 'y',
               docstring: 'True labels for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -12955,7 +12955,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -13004,7 +13004,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: ": 'squared_loss'"
+          default_value: 'squared_loss'
         },
         {
           name: 'penalty',
@@ -13129,7 +13129,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'validation_fraction',
@@ -13138,7 +13138,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0.1'
+          default_value: '0.1'
         },
         {
           name: 'n_iter_no_change',
@@ -13147,7 +13147,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=5'
+          default_value: '5'
         },
         {
           name: 'warm_start',
@@ -13475,7 +13475,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -13483,7 +13483,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -13491,7 +13491,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }
@@ -13836,7 +13836,7 @@ export default {
               docstring:
                 'Test samples. For some estimators this may be a precomputed kernel matrix instead, shape = (n_samples, n_samples_fitted], where n_samples_fitted is the number of samples used in the fitting for the estimator.',
               param_type: ['array'],
-              expected_shape: '= (n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -13844,7 +13844,7 @@ export default {
               name: 'y',
               docstring: 'True values for X.',
               param_type: ['array'],
-              expected_shape: '= (n_samples) or (n_samples, n_outputs)',
+              expected_shape: '(n_samples) or (n_samples, n_outputs)',
               is_optional: false,
               default_value: null
             },
@@ -13852,7 +13852,7 @@ export default {
               name: 'sample_weight',
               docstring: 'Sample weights.',
               param_type: ['array'],
-              expected_shape: '= [n_samples], optional',
+              expected_shape: '[n_samples], optional',
               is_optional: true,
               default_value: null
             }

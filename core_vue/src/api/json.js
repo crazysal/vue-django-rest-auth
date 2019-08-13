@@ -3,6 +3,8 @@ import sklearnDec from './jsons/sklearnDecomposition'
 import sklearnPrep from './jsons/sklearnPreprocessing'
 import sklearnSvm from './jsons/sklearnSvm'
 import sklearnLinear from './jsons/sklearnLinearModel'
+import pands from './jsons/pandasAbbrv'
+
 let lh = {
   'Enter': {},
   'Represent': {},
@@ -16,6 +18,12 @@ let lh = {
 
 let fp = {}
 
+lh['Enter']['UploadData'] = {
+  'pandas': {
+    'name': [],
+    'functions': []
+  }
+}
 lh['Search']['model_selection'] = {
   'sklearn': {
     'name': [],
@@ -131,6 +139,29 @@ for (let i = 0; i < sklearnModelSelection['nodes'].length; i++) {
     }
   }
   lh['Search']['model_selection']['sklearn']['functions'].push(nf)
+}
+
+console.log('"*****"', pands)
+for (let i = 0; i < pands['node_functions'].length; i++) {
+  let node = pands['node_functions'][i]
+  console.log('"*****"', node)
+  lh['Enter']['UploadData']['pandas']['name'].push(node['name'])
+  nf = []
+  fp[node['name']] = {
+    'FParameters': [],
+    'Methods': {}
+  }
+  for (let i = 0; i < node['inputs'].length; i++) {
+    let inp = node['inputs'][i]
+    fp[node['name']]['FParameters'].push({
+      'param_type': inp['param_type'],
+      'display_name': inp['name'],
+      'name': inp['name'],
+      'value': inp['default_value'],
+      'desc': inp['docstring'],
+      'is_optional': inp['is_optional']
+    })
+  }
 }
 
 for (let i = 0; i < sklearnDec['nodes'].length; i++) {

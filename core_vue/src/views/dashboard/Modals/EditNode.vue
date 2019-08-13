@@ -43,15 +43,24 @@
           
           <template v-if='!isHidden' v-for='param in fparams'>
             <b-form-group>
-              
-              <div v-if='param.is_optional' class="form-group required"><label :for=param.name class="control-label"> {{param.is_optional}}{{param.name}}</label></div>
-              <div v-else><label :for=param.name>{{param.name}}</label></div>
-              <div v-if='!isHidden2'>
-                  <dl class="row">
-                    <dd class="alert alert-light">{{param.desc}}</dd>
-                  </dl>
-              </div>
-              <b-form-input type="text" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
+              <dl class="row">
+                <dt class="col-sm-4 ">
+                  <div v-if='!param.is_optional' class='form-group required'>
+                    <label :for=param.name class='control-label'>{{param.name}}</label>
+                  </div>
+                  <div v-else>
+                    <label :for=param.name>{{param.name}}</label>
+                  </div>
+                </dt>
+                <dd class="col-sm-7">
+                  <div class='alert alert-light' v-if='!isHidden2'>
+                    {{param.desc}}
+                  </div>
+                </dd>
+                <dd class="col-sm-12">
+                  <b-form-input type="text" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
+                </dd>
+              </dl>
             </b-form-group>
           </template>
     </div>

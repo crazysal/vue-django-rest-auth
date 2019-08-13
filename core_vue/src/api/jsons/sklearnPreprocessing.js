@@ -97,7 +97,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 0)'
+          default_value: '0'
         },
         {
           name: 'pos_label',
@@ -105,7 +105,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 1)'
+          default_value: '1'
         },
         {
           name: 'sparse_output',
@@ -114,7 +114,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: ''
+          default_value: null
         }
       ],
       outputs: [
@@ -146,7 +146,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ')'
+          default_value: ''
         },
         {
           name: 'copy',
@@ -179,7 +179,7 @@ export default {
           param_type: ['tuple'],
           expected_shape: null,
           is_optional: true,
-          default_value: ''
+          default_value: null
         },
         {
           name: 'axis',
@@ -188,7 +188,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ')'
+          default_value: ''
         },
         {
           name: 'copy',
@@ -297,7 +297,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'copy',
@@ -338,7 +338,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0)'
+          default_value: '0'
         },
         {
           name: 'n_quantiles',
@@ -424,7 +424,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ')'
+          default_value: ''
         },
         {
           name: 'with_centering',
@@ -484,7 +484,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ')'
+          default_value: ''
         },
         {
           name: 'with_mean',
@@ -737,7 +737,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'kw_args',
@@ -1134,7 +1134,7 @@ export default {
               name: 'X',
               docstring: 'The input data to complete.',
               param_type: ['LIST_VALID_OPTIONS', 'array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             }
@@ -1156,7 +1156,7 @@ export default {
           param_type: ['array', 'int'],
           expected_shape: '(n_features,) (default=5)',
           is_optional: true,
-          default_value: '=5)'
+          default_value: '5'
         },
         {
           name: 'encode',
@@ -1165,7 +1165,7 @@ export default {
           param_type: ['LIST_VALID_OPTIONS'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='onehot')"
+          default_value: 'onehot'
         },
         {
           name: 'strategy',
@@ -1174,7 +1174,7 @@ export default {
           param_type: ['LIST_VALID_OPTIONS'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='quantile')"
+          default_value: 'quantile'
         }
       ],
       outputs: [
@@ -1523,7 +1523,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 0)'
+          default_value: '0'
         },
         {
           name: 'pos_label',
@@ -1531,7 +1531,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 1)'
+          default_value: '1'
         },
         {
           name: 'sparse_output',
@@ -1540,7 +1540,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': False)'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -2122,7 +2122,7 @@ export default {
           param_type: ['tuple'],
           expected_shape: null,
           is_optional: true,
-          default_value: ''
+          default_value: null
         },
         {
           name: 'copy',
@@ -2371,7 +2371,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: ''
+          default_value: null
         }
       ],
       outputs: [
@@ -2752,7 +2752,7 @@ export default {
           param_type: ['array', 'list'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='auto'."
+          default_value: 'auto.'
         },
         {
           name: 'drop',
@@ -2761,7 +2761,7 @@ export default {
           param_type: ['array', 'list', null],
           expected_shape: '(n_features,), default=None.',
           is_optional: true,
-          default_value: '=None.'
+          default_value: 'None.'
         },
         {
           name: 'sparse',
@@ -2770,7 +2770,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'dtype',
@@ -2778,7 +2778,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=np.float'
+          default_value: 'np.float'
         },
         {
           name: 'handle_unknown',
@@ -2787,7 +2787,7 @@ export default {
           param_type: [null],
           expected_shape: null,
           is_optional: true,
-          default_value: "='error'."
+          default_value: 'error.'
         },
         {
           name: 'n_values',
@@ -2796,7 +2796,7 @@ export default {
           param_type: ['array', 'int'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='auto'"
+          default_value: 'auto'
         },
         {
           name: 'categorical_features',
@@ -2805,7 +2805,7 @@ export default {
           param_type: ['array'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='all'"
+          default_value: 'all'
         }
       ],
       outputs: [
@@ -3327,7 +3327,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '= False'
+          default_value: 'False'
         },
         {
           name: 'include_bias',
@@ -3345,7 +3345,7 @@ export default {
           param_type: ['LIST_VALID_OPTIONS', 'str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'C'"
+          default_value: 'C'
         }
       ],
       outputs: [
@@ -3544,7 +3544,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='yeo-johnson')"
+          default_value: 'yeo-johnson'
         },
         {
           name: 'standardize',
@@ -3553,7 +3553,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'copy',

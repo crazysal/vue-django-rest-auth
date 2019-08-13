@@ -568,7 +568,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': True'
+          default_value: 'True'
         },
         {
           name: 'solver',
@@ -586,7 +586,7 @@ export default {
           param_type: ['float', 'str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'frobenius'"
+          default_value: 'frobenius'
         },
         {
           name: 'tol',
@@ -594,7 +594,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 1e-4'
+          default_value: '1e-4'
         },
         {
           name: 'max_iter',
@@ -602,7 +602,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 200'
+          default_value: '200'
         },
         {
           name: 'alpha',
@@ -610,7 +610,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 0.'
+          default_value: '0.'
         },
         {
           name: 'l1_ratio',
@@ -619,7 +619,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 0.'
+          default_value: '0.'
         },
         {
           name: 'regularization',
@@ -645,7 +645,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 0'
+          default_value: '0'
         },
         {
           name: 'shuffle',
@@ -654,7 +654,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': False'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -706,7 +706,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: 'is 10)'
+          default_value: '10'
         },
         {
           name: 'n_iter',
@@ -715,7 +715,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: "is 'auto')"
+          default_value: 'auto'
         },
         {
           name: 'power_iteration_normalizer',
@@ -724,7 +724,7 @@ export default {
           param_type: [null],
           expected_shape: null,
           is_optional: true,
-          default_value: "'"
+          default_value: null
         },
         {
           name: 'transpose',
@@ -733,7 +733,7 @@ export default {
           param_type: [null],
           expected_shape: null,
           is_optional: true,
-          default_value: ')'
+          default_value: ''
         },
         {
           name: 'flip_sign',
@@ -742,7 +742,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: ')'
+          default_value: ''
         },
         {
           name: 'random_state',
@@ -782,7 +782,7 @@ export default {
           name: 'gram',
           docstring: "Precomputed Gram matrix, dictionary * dictionary'",
           param_type: ['array'],
-          expected_shape: '=(n_components, n_components)',
+          expected_shape: '(n_components, n_components)',
           is_optional: false,
           default_value: null
         },
@@ -790,7 +790,7 @@ export default {
           name: 'cov',
           docstring: "Precomputed covariance, dictionary' * X",
           param_type: ['array'],
-          expected_shape: '=(n_components, n_samples)',
+          expected_shape: '(n_components, n_samples)',
           is_optional: false,
           default_value: null
         },
@@ -1249,7 +1249,7 @@ export default {
           docstring:
             'The initial guess of the noise variance for each feature. If None, it defaults to np.ones(n_features)',
           param_type: ['LIST_VALID_OPTIONS', 'array', null],
-          expected_shape: '=(n_features,)',
+          expected_shape: '(n_features,)',
           is_optional: false,
           default_value: null
         },
@@ -1876,7 +1876,7 @@ export default {
           param_type: ['int', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None)'
+          default_value: 'None'
         },
         {
           name: 'whiten',
@@ -1894,7 +1894,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True)'
+          default_value: 'True'
         },
         {
           name: 'batch_size',
@@ -1903,7 +1903,7 @@ export default {
           param_type: ['int', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None)'
+          default_value: 'None'
         }
       ],
       outputs: [
@@ -2206,7 +2206,7 @@ export default {
           param_type: ['int', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None'
+          default_value: 'None'
         },
         {
           name: 'kernel',
@@ -2223,7 +2223,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=1/n_features'
+          default_value: '1/n_features'
         },
         {
           name: 'degree',
@@ -2231,7 +2231,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=3'
+          default_value: '3'
         },
         {
           name: 'coef0',
@@ -2240,7 +2240,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=1'
+          default_value: '1'
         },
         {
           name: 'kernel_params',
@@ -2249,7 +2249,7 @@ export default {
           param_type: ['str', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None'
+          default_value: 'None'
         },
         {
           name: 'alpha',
@@ -2258,7 +2258,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=1.0'
+          default_value: '1.0'
         },
         {
           name: 'fit_inverse_transform',
@@ -2267,7 +2267,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'eigen_solver',
@@ -2276,7 +2276,7 @@ export default {
           param_type: ['LIST_VALID_OPTIONS', 'str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='auto'"
+          default_value: 'auto'
         },
         {
           name: 'tol',
@@ -2285,7 +2285,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=0'
+          default_value: '0'
         },
         {
           name: 'max_iter',
@@ -2294,7 +2294,7 @@ export default {
           param_type: ['int', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None'
+          default_value: 'None'
         },
         {
           name: 'remove_zero_eig',
@@ -2303,7 +2303,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'random_state',
@@ -2321,7 +2321,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'n_jobs',
@@ -2573,7 +2573,7 @@ export default {
           param_type: ['LIST_VALID_OPTIONS'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='batch'"
+          default_value: 'batch'
         },
         {
           name: 'learning_decay',
@@ -2653,7 +2653,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=100)'
+          default_value: '100'
         },
         {
           name: 'n_jobs',
@@ -2719,7 +2719,7 @@ export default {
               name: 'X',
               docstring: 'Document word matrix.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -2728,7 +2728,7 @@ export default {
               docstring:
                 'Document topic distribution. In the literature, this is called gamma.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_components)',
+              expected_shape: '(n_samples, n_components)',
               is_optional: false,
               default_value: null
             },
@@ -2782,7 +2782,7 @@ export default {
               name: 'X',
               docstring: 'Document word matrix.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -2832,7 +2832,7 @@ export default {
               name: 'X',
               docstring: 'Document word matrix.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -2908,7 +2908,7 @@ export default {
               docstring:
                 'Document topic distribution. If it is None, it will be generated by applying transform on X.',
               param_type: ['array', null],
-              expected_shape: '=(n_samples, n_components)',
+              expected_shape: '(n_samples, n_components)',
               is_optional: false,
               default_value: null
             }
@@ -2931,7 +2931,7 @@ export default {
               name: 'X',
               docstring: 'Document word matrix.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             }
@@ -2954,7 +2954,7 @@ export default {
               name: 'X',
               docstring: 'Document word matrix.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -3040,7 +3040,7 @@ export default {
               name: 'X',
               docstring: 'Document word matrix.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -3102,7 +3102,7 @@ export default {
               name: 'X',
               docstring: 'Document word matrix.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             },
@@ -3147,7 +3147,7 @@ export default {
               name: 'X',
               docstring: 'Document word matrix.',
               param_type: ['array'],
-              expected_shape: '=(n_samples, n_features)',
+              expected_shape: '(n_samples, n_features)',
               is_optional: false,
               default_value: null
             }
@@ -3819,7 +3819,7 @@ export default {
           param_type: ['float', 'str'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'frobenius'"
+          default_value: 'frobenius'
         },
         {
           name: 'tol',
@@ -3827,7 +3827,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 1e-4'
+          default_value: '1e-4'
         },
         {
           name: 'max_iter',
@@ -3835,7 +3835,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 200'
+          default_value: '200'
         },
         {
           name: 'random_state',
@@ -3853,7 +3853,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 0.'
+          default_value: '0.'
         },
         {
           name: 'l1_ratio',
@@ -3862,7 +3862,7 @@ export default {
           param_type: ['float'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': 0.'
+          default_value: '0.'
         },
         {
           name: 'verbose',
@@ -3870,7 +3870,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'shuffle',
@@ -3879,7 +3879,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: ': False'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -4116,7 +4116,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: 'True)'
+          default_value: 'True'
         },
         {
           name: 'whiten',
@@ -4152,7 +4152,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: "'auto')"
+          default_value: 'auto'
         },
         {
           name: 'random_state',
@@ -4996,7 +4996,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '= 2'
+          default_value: '2'
         },
         {
           name: 'algorithm',
@@ -5005,7 +5005,7 @@ export default {
           param_type: ['str'],
           expected_shape: null,
           is_optional: true,
-          default_value: '= "randomized"'
+          default_value: '"randomized"'
         },
         {
           name: 'n_iter',

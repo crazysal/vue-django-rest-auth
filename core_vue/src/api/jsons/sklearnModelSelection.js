@@ -305,7 +305,7 @@ export default {
           param_type: ['str', 'dict', 'list', 'tuple', 'callable', null],
           expected_shape: null,
           is_optional: true,
-          default_value: ': None'
+          default_value: 'None'
         },
         {
           name: 'cv',
@@ -357,7 +357,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         },
         {
           name: 'return_estimator',
@@ -795,7 +795,7 @@ export default {
           param_type: ['int', 'float', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None)'
+          default_value: 'None'
         },
         {
           name: 'random_state',
@@ -822,7 +822,7 @@ export default {
           param_type: ['array', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None)'
+          default_value: 'None'
         }
       ],
       outputs: [
@@ -1078,7 +1078,7 @@ export default {
           param_type: ['str', 'dict', 'list', 'tuple', 'callable', null],
           expected_shape: null,
           is_optional: true,
-          default_value: ': None'
+          default_value: 'None'
         },
         {
           name: 'n_jobs',
@@ -1105,7 +1105,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='warn'"
+          default_value: 'warn'
         },
         {
           name: 'cv',
@@ -1123,7 +1123,7 @@ export default {
           param_type: ['bool', 'str', 'callable'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'verbose',
@@ -1149,7 +1149,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -1274,7 +1274,7 @@ export default {
               docstring:
                 'Training vector, where n_samples is the number of samples and n_features is the number of features.',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -1283,8 +1283,7 @@ export default {
               docstring:
                 'Target relative to X for classification or regression; None for unsupervised learning.',
               param_type: ['array'],
-              expected_shape:
-                '= [n_samples] or [n_samples, n_output], optional',
+              expected_shape: '[n_samples] or [n_samples, n_output], optional',
               is_optional: true,
               default_value: null
             },
@@ -1411,7 +1410,7 @@ export default {
               docstring:
                 'Input data, where n_samples is the number of samples and n_features is the number of features.',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -1420,8 +1419,7 @@ export default {
               docstring:
                 'Target relative to X for classification or regression; None for unsupervised learning.',
               param_type: ['array'],
-              expected_shape:
-                '= [n_samples] or [n_samples, n_output], optional',
+              expected_shape: '[n_samples] or [n_samples, n_output], optional',
               is_optional: true,
               default_value: null
             }
@@ -1481,7 +1479,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=3'
+          default_value: '3'
         }
       ],
       outputs: [],
@@ -1607,7 +1605,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '5)'
+          default_value: '5'
         },
         {
           name: 'test_size',
@@ -1625,7 +1623,7 @@ export default {
           param_type: ['int', 'float', null],
           expected_shape: null,
           is_optional: true,
-          default_value: 'is None'
+          default_value: 'None'
         },
         {
           name: 'random_state',
@@ -1754,7 +1752,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=3'
+          default_value: '3'
         },
         {
           name: 'shuffle',
@@ -2600,7 +2598,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=10'
+          default_value: '10'
         },
         {
           name: 'scoring',
@@ -2609,7 +2607,7 @@ export default {
           param_type: ['str', 'dict', 'list', 'tuple', 'callable', null],
           expected_shape: null,
           is_optional: true,
-          default_value: ': None'
+          default_value: 'None'
         },
         {
           name: 'n_jobs',
@@ -2636,7 +2634,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: "='warn'"
+          default_value: 'warn'
         },
         {
           name: 'cv',
@@ -2654,7 +2652,7 @@ export default {
           param_type: ['bool', 'str', 'callable'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=True'
+          default_value: 'True'
         },
         {
           name: 'verbose',
@@ -2689,7 +2687,7 @@ export default {
           param_type: ['bool'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=False'
+          default_value: 'False'
         }
       ],
       outputs: [
@@ -2814,7 +2812,7 @@ export default {
               docstring:
                 'Training vector, where n_samples is the number of samples and n_features is the number of features.',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -2823,8 +2821,7 @@ export default {
               docstring:
                 'Target relative to X for classification or regression; None for unsupervised learning.',
               param_type: ['array'],
-              expected_shape:
-                '= [n_samples] or [n_samples, n_output], optional',
+              expected_shape: '[n_samples] or [n_samples, n_output], optional',
               is_optional: true,
               default_value: null
             },
@@ -2951,7 +2948,7 @@ export default {
               docstring:
                 'Input data, where n_samples is the number of samples and n_features is the number of features.',
               param_type: ['array'],
-              expected_shape: '= [n_samples, n_features]',
+              expected_shape: '[n_samples, n_features]',
               is_optional: false,
               default_value: null
             },
@@ -2960,8 +2957,7 @@ export default {
               docstring:
                 'Target relative to X for classification or regression; None for unsupervised learning.',
               param_type: ['array'],
-              expected_shape:
-                '= [n_samples] or [n_samples, n_output], optional',
+              expected_shape: '[n_samples] or [n_samples, n_output], optional',
               is_optional: true,
               default_value: null
             }
@@ -3020,7 +3016,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=5'
+          default_value: '5'
         },
         {
           name: 'n_repeats',
@@ -3028,7 +3024,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=10'
+          default_value: '10'
         },
         {
           name: 'random_state',
@@ -3153,7 +3149,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=5'
+          default_value: '5'
         },
         {
           name: 'n_repeats',
@@ -3161,7 +3157,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=10'
+          default_value: '10'
         },
         {
           name: 'random_state',
@@ -3170,7 +3166,7 @@ export default {
           param_type: ['int', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None'
+          default_value: 'None'
         }
       ],
       outputs: [],
@@ -3295,7 +3291,7 @@ export default {
           param_type: ['int', 'float', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None'
+          default_value: 'None'
         },
         {
           name: 'train_size',
@@ -3304,7 +3300,7 @@ export default {
           param_type: ['int', 'float', null],
           expected_shape: null,
           is_optional: true,
-          default_value: '=None'
+          default_value: 'None'
         },
         {
           name: 'random_state',
@@ -3433,7 +3429,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=3'
+          default_value: '3'
         },
         {
           name: 'shuffle',
@@ -3599,7 +3595,7 @@ export default {
           param_type: ['int', 'float', null],
           expected_shape: null,
           is_optional: true,
-          default_value: 'is None'
+          default_value: 'None'
         },
         {
           name: 'random_state',
@@ -3727,7 +3723,7 @@ export default {
           param_type: ['int'],
           expected_shape: null,
           is_optional: true,
-          default_value: '=3'
+          default_value: '3'
         },
         {
           name: 'max_train_size',
@@ -3852,10 +3848,3 @@ export default {
   library: 'sklearn',
   module: 'model_selection'
 }
-
-// export default {
-//   getSklearnModelSelection (cb) {
-//     let temp = _sklearn
-//     setTimeout(() => cb(temp), 5)
-//   }
-// }

@@ -130,7 +130,7 @@ const actions = {
 
   setInitGraph ({ commit }) {
     return new Promise((resolve, reject) => {
-      session.get('/api/graphs/5/')
+      session.get('/api/graphs/3/')
         .then(result => {
           commit('setInitGraph', result.data)
           resolve()
