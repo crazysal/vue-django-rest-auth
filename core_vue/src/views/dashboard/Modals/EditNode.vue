@@ -23,7 +23,7 @@
         </b-form-group>
       </template>
 
-      <strong v-if='meths.length>0'>Select Class Method</strong>
+      <strong v-if='meths !==undefined'>Select Class Method</strong>
       <template v-for='param in meths'>
         <b-form-radio-group
         id="radiosmeths"
@@ -118,7 +118,7 @@ export default {
       this.meths = meths
       this.isHidden = true
       this.isHidden2 = true
-      // alert(meths, host, func)
+      alert('funchange', meths, host, func)
       this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
       this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
     },
