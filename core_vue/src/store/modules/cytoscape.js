@@ -2,6 +2,8 @@ import cytoscape from '../../api/cytoscape'
 import session from '../../api/session'
 import _utils from './_utils'
 import _ from 'lodash'
+// import get_sklearn_linear from '../../api/jsons/sklearn_linear_model'
+// import sklearnModelSelection from '../../api/jsons/sklearnModelSelection'
 
 // initial state
 const state = {
@@ -65,6 +67,11 @@ const actions = {
 
   setLibHierarchy ({ commit }) {
     return new Promise((resolve, reject) => {
+      // sklearnModelSelection.getSklearnModelSelection(libHierarchy => {
+      //   commit('setLibHierarchy', libHierarchy)
+      //   commit('setWizHierarchy', libHierarchy)
+      //   resolve()
+      // })
       cytoscape.getLibHierarchy(libHierarchy => {
         commit('setLibHierarchy', libHierarchy)
         commit('setWizHierarchy', libHierarchy)
@@ -123,7 +130,7 @@ const actions = {
 
   setInitGraph ({ commit }) {
     return new Promise((resolve, reject) => {
-      session.get('/api/graphs/1/')
+      session.get('/api/graphs/3/')
         .then(result => {
           commit('setInitGraph', result.data)
           resolve()

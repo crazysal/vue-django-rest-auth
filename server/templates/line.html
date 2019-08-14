@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {%load plotly_dash%} 
-{%block heading%}Line plots of the numeric fields.{%endblock heading%}
+{%block heading%}<h4>Line Plot</h4>{%endblock heading%}
 {%block sidebar%}
-<div class="container">
-    <p><b>Choose the plot for exploratory data analysis.</b></p>
-    <div><li><a href="line">Line Plot</a></li></div>
-    <div><li><a href="scatter">Scatter Plot</a></li></div>
-    <div><li><a href="bar">Bar Plot</a></li></div>
-</div>
+<ul>
+<li><a href="line" class='active'>Line Plot</a></li>
+<li><a href="scatter">Scatter Plot</a></li>
+<li><a href="bar">Bar Plot</a></li>
+</ul>
 {%endblock sidebar%}
 {% block content %}
-{%plotly_direct name="SimpleExample2"%}
+{%plotly_direct name="LinePlot"%}
 {% endblock content %}

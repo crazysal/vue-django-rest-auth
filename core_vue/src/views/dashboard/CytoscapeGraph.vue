@@ -67,6 +67,7 @@ export default {
         cytoscapeContextMenu(cytoscape, $)
         // cytoscape init
         // this.cy = cytoscape(Object.assign(this.cytoscapeConfig))
+        // console.log('"**********************************************************************************"', this.cytoscapeConfig)
         this.setCy(cytoscape(Object.assign(this.cytoscapeConfig)))
         // edgehandles init
         this.setEdgehandlesConfig(this).then(() => {

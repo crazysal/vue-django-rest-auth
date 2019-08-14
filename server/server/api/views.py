@@ -43,18 +43,37 @@ ws = "/Users/shara/Desktop/Summer/VisualisationModule/tmp/graph_executions/"
 
 fileUpload()
 #comment out the following line
-lineplot()
-scatterPlot()
-barPlot()
+# lineplot()
+# scatterPlot()
+# barPlot()
 def statistics(request):
-    stats=columnStats()   
+    stats=columnStats() 
+    print(len(stats))  
     context={
         'stats':stats
     }     
     return render(request, 'statistics.html',context)
 
-
-
+from django.http import JsonResponse
+import json
+class TableView(APIView):
+    def get(self, request, format=None):
+        df=pd.read_csv('https://raw.githubusercontent.com/saranyailla/cheml-gui/master/test.csv')
+        # df=df.head(5)
+        numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+        df = df.select_dtypes(include=numerics)
+        data=df.to_json(orient='table')
+        h=json.loads(data)
+        # print(h)
+        return JsonResponse(h,safe=False)
+class ColumnView(APIView):
+    def get(self, request, format=None):
+        df=pd.read_csv('https://raw.githubusercontent.com/saranyailla/cheml-gui/master/test.csv')
+        df=df.head(5)
+        data=df.to_json(orient='columns')
+        h=json.loads(data)
+        # print(h)
+        return JsonResponse(h,safe=False)
 
 class UserViewSet(ModelViewSet):
 

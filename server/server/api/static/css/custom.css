@@ -1,14 +1,10 @@
 
 html{
     overflow-y: scroll
-}#sidebar{
-    background: #1565C0;
-    color: white;
-    min-height: -webkit-fill-available;
 }
 
 #upload-data{
-    background: #c5d7e6;
+    background: #29363d;
     width: 90%;
     height: 5%;
     border-radius: 5px;
@@ -22,19 +18,211 @@ html{
     color:black;
 }
 #visualize{
-    background:  #1565C0;
-    border-color: #1565C0;
+    background: #29363d;
+    border-color: #29363d;
     margin:2% 2% 2% 0;
-}
-
-.content{
-    margin-top:3%;
 }
 
 #my-graph .svg-container {
     height:500px !important;
 }
+body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #151b1e;
+    text-align: left;
+    background-color: #e4e5e6;
+}
+#head{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    height: 9%;
+    background: #fff;
+}
+.box-shadow-menu {
+    position: relative;
+    padding-left: 1.25em;
+  }
+  .box-shadow-menu:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 1.2em;
+    height: 0.10em;
+    background: black;
+    box-shadow: 
+      0 0.25em 0 0 black,
+      0 0.5em 0 0 black;
+  }
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
 
-#sidebar a{
-    color:white;
+#sidebar {
+    /* position: fixed; */
+    width:200px;
+    flex-direction: column;
+    padding: 0;
+    color: #fff;
+    background: #29363d;
+    transition: all 0.3s;
+    position: fixed;
+    width: 200px;
+    min-height: -webkit-fill-available;
+    top:7%
+
+}
+#sidebar.active {
+    margin-left: -200px;
+}
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #20a8d8;
+}
+/* 
+#sidebar ul li a:active
+{
+    color: #fff;
+    background: #33444c;
+} */
+.active
+{
+    color: #fff;
+    background: #33444c;
+}
+.dropdown-item svg {
+    display: inline-block;
+    width: 20px;
+    margin-right: 10px;
+    margin-left: -10px;
+    color: #c2cfd6;
+    text-align: center;
+}
+
+#sidebar .components{
+    width: 200px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-height: 100%;
+}
+.components{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+i{
+    display: inline-block;
+    width: 20px;
+    margin: 0 0.5rem 0 0;
+    font-size: 14px;
+    color: #536c79;
+    text-align: center;
+}
+
+ .logo {
+    display: inline-block;
+    width: 155px;
+    height: 55px;
+    padding: 0.5rem 1rem;
+    margin-right: 0;
+    background-color: #fff;
+    background-image: url(../img/ub-logo.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70px auto;
+    /* border-bottom: 1px solid #a4b7c1; */
+}
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+   
+    padding:5%;
+    width: calc(100% - 250px);  
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;    
+    right: 0;
+}
+
+#content.active {
+    width: 100%;
+}
+
+/* ---------------------------------------------------
+    TABLES
+----------------------------------------------------- */
+
+.dash-spreadsheet-container .dash-spreadsheet-inner th {
+    background-color: #29363d!important;
+    color: white !important;
+    padding: 20px !important;
+    text-align: center!important;
+}
+.dash-spreadsheet-container .dash-spreadsheet-inner td{
+    padding:20px !important;
+    text-align: center!important;
+    height: 0;
+}
+
+.uploadText{
+    font-size:18px
+}
+.card{
+    background-color: #e4e5e6;
+    border: 1px solid rgb(41, 54, 61);
+    margin:2%
+}
+.card:hover{
+    background-color: #29363d!important;
+    color: #e4e5e6;
+}
+
+.Select.has-value.is-clearable.is-searchable.Select--single{
+margin:2% !important;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -200px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
 }

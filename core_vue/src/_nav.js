@@ -1,4 +1,5 @@
 let dashUrl = 'http://localhost:8000/'
+
 export default {
   items: [
     {
@@ -17,7 +18,12 @@ export default {
       icon: 'icon-direction'
     },
     {
-      name: 'Visualisation',
+      name: 'Analysis',
+      url: '/analysis',
+      icon: 'icon-globe'
+    },
+    {
+      name: 'Visualizations',
       url: dashUrl,
       icon: 'icon-pie-chart'
     }

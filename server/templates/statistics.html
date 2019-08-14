@@ -1,30 +1,44 @@
 {% extends "base.html" %}
 {%load plotly_dash%} 
-{%block heading%}Column wise statistics of the numeric fields in your uploaded file.{%endblock heading%}
+{%block heading%}<h4>Column wise statistics of the numeric fields in your uploaded file.</h4>{%endblock heading%}
 {%block sidebar%}
-<div class="container">
-    <p><b>Choose the plot for exploratory data analysis.</b></p>
-    <div><li><a href="line">Line Plot</a></li></div>
-    <div><li><a href="scatter">Scatter Plot</a></li></div>
-    <div><li><a href="bar">Bar Plot</a></li></div>
-</div>
+    <ul>
+    <li><a href="line">Line Plot</a></li>
+    <li><a href="scatter">Scatter Plot</a></li>
+    <li><a href="bar">Bar Plot</a></li>
+    </ul>
 {%endblock sidebar%}
-    {% block content%}   
-    <p>Doing stats for only the numeric fields. Issue : Presence of ID (numeric)</p> 
-        <div class="row col-lg-12">
-            {% for key,value in stats.items %}
-                <div class="card col-lg-3">             
-                    <div class="card-body">                                               
-                        <h5 class="card-title">{{key}}</h5>
-                        <p class="card-text">
-                            {% for i,j in value.items%}
-                            <p> <b>{{i}}</b> : {{j}} </p>
-                         
-                            {%endfor%}                    
-                        </p> 
+
+    {% block content%} 
+    {% if stats.items %}
+        <div class='row col-lg-12'>
+            <div class="row col-lg-10">
+                {% for key,value in stats.items %}
+                    <div class="card col-lg-3">             
+                        <div class="card-body">                                               
+                            <h5 class="card-title">{{key}}</h5>
+                            <p class="card-text">
+                                {% for i,j in value.items%}
+                                <p> <b>{{i}}</b> : {{j}} </p>
+                            
+                                {%endfor%}                    
+                            </p> 
+                        </div>
+                    
                     </div>
-                
-                </div>
-            {% endfor %}
-        </div>         
+                {% endfor %}
+            </div>
+            <div class="col-lg-2">
+                {%block menu%}
+                <p><b> Chooose the plot !</b></p>
+                <div><li><a href="line">Line Plot</a></li></div>
+                <div><li><a href="scatter">Scatter Plot</a></li></div>
+                <div><li><a href="bar">Bar Plot</a></li></div>
+                {%endblock menu%}
+            </div>
+    </div>
+   
+    {% else %}
+        <div class='uploadText'>There are no numeric fields in the uploaded file.</div>
+    {%endif%}
     {% endblock content%}

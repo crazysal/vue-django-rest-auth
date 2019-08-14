@@ -6,6 +6,7 @@ const state = {
   editEdgeVisible: false,
   loadGraphVisible: false,
   saveGraphVisible: false,
+  helpVisible: false,
   updateGraphVisible: false,
   wizardVisible: false
 }
@@ -18,7 +19,8 @@ const getters = {
   loadGraphVisible: state => state.loadGraphVisible,
   saveGraphVisible: state => state.saveGraphVisible,
   updateGraphVisible: state => state.updateGraphVisible,
-  wizardVisible: state => state.wizardVisible
+  wizardVisible: state => state.wizardVisible,
+  helpVisible: state => state.helpVisible
 }
 
 // actions
@@ -73,6 +75,12 @@ const mutations = {
   },
   showSaveGraph (state) {
     state.saveGraphVisible = true
+  },
+  showHelp (state) {
+    state.helpVisible = true
+  },
+  hideHelp (state) {
+    state.helpVisible = false
   },
   showLoadGraph (state) {
     state.loadGraphVisible = true

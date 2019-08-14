@@ -1,7 +1,21 @@
 {% extends "base.html" %}
 {%load plotly_dash%}
-
 {% block content %}
-{%plotly_direct name="SimpleExample"%}
+<div class='row col-lg-12'>
+        <div class="col-lg-8">
+                {%block menu%}
+                <ul>
+                  <li>Files of format .csv and .xls are only supported. </li>
+                  <li>Make sure that the uploaded file has a sheader. </li>
+                  <li>Only <b>','</b> (comma) delimited files are supported.</li>
+                </ul>
+                {%endblock menu%}
+        </div>
+        <div class="col-lg-12">               
+                {%plotly_direct name="FileUpload"%}
+        </div>
+
+
+</div>
 {% endblock content %}
 

@@ -54,7 +54,7 @@ ALLOWED_HOSTS = ['localhost', '10.84.69.48', '128.205.33.82']
 
 INSTALLED_APPS = (
     'django.contrib.admin',
-    
+   
     'django.contrib.auth',              # Django auth
     'django.contrib.contenttypes',      # Django auth
 
@@ -62,11 +62,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
     'rest_framework',
     'rest_framework.authtoken',         # token authentication
     'rest_auth',
-
     'allauth',
     'allauth.account',
     'rest_auth.registration',
@@ -85,7 +83,7 @@ MIDDLEWARE = (
 
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django_plotly_dash.middleware.BaseMiddleware'
 )
@@ -118,6 +116,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
+VUE_URL='http://localhost:8080'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(CLIENT_DIST_DIR, 'static')]
 
@@ -137,9 +136,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_settings_export.settings_export',
             ],
         },
     },
+]
+SETTINGS_EXPORT = [
+    'VUE_URL'
 ]
 
 REST_SESSION_LOGIN = True
@@ -165,5 +168,6 @@ REST_FRAMEWORK = {
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
+CORS_ORIGIN_ALLOW_ALL = True   
 
 
