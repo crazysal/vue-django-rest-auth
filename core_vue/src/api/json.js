@@ -55,7 +55,7 @@ lh['Model']['linear_model'] = {
   }
 }
 
-console.log(sklearnSvm, lh, fp)
+// console.log(sklearnSvm, lh, fp)
 for (let i = 0; i < sklearnSvm['nodes'].length; i++) {
   let node = sklearnSvm['nodes'][i]
   lh['Search']['svm']['sklearn']['name'].push(node['name'])
@@ -78,10 +78,12 @@ for (let i = 0; i < sklearnSvm['nodes'].length; i++) {
   }
 
   for (let f = 0; f < node['node_functions'].length; f++) {
+    var lf = []
     var mf = []
     let func = node['node_functions'][f]
     let n = func['name'].split('')[0]
     if (n !== '_') {
+      fp[node['name']]['Methods'][func['name']] = {}
       nf.push(func['name'])
       for (let m = 0; m < func['inputs'].length; m++) {
         let methinp = func['inputs'][m]
@@ -89,11 +91,20 @@ for (let i = 0; i < sklearnSvm['nodes'].length; i++) {
           'name': methinp['name'],
           'docstring': methinp['docstring'],
           'param_type': methinp['param_type'],
-          'expected_shape': methinp['expected_shape'],
           'is_optional': methinp['is_optional']
         })
       }
-      fp[node['name']]['Methods'][func['name']] = mf
+      for (let m = 0; m < func['outputs'].length; m++) {
+        let methop = func['outputs'][m]
+        lf.push({
+          'name': methop['name'],
+          'docstring': methop['docstring'],
+          'param_type': methop['param_type'],
+          'is_optional': methop['is_optional']
+        })
+      }
+      fp[node['name']]['Methods'][func['name']]['inputs'] = mf
+      fp[node['name']]['Methods'][func['name']]['outputs'] = lf
     }
   }
   lh['Search']['svm']['sklearn']['functions'].push(nf)
@@ -122,8 +133,10 @@ for (let i = 0; i < sklearnModelSelection['nodes'].length; i++) {
   for (let f = 0; f < node['node_functions'].length; f++) {
     let func = node['node_functions'][f]
     let n = func['name'].split('')[0]
+    lf = []
     mf = []
     if (n !== '_') {
+      fp[node['name']]['Methods'][func['name']] = {}
       nf.push(func['name'])
       for (let m = 0; m < func['inputs'].length; m++) {
         let methinp = func['inputs'][m]
@@ -131,20 +144,29 @@ for (let i = 0; i < sklearnModelSelection['nodes'].length; i++) {
           'name': methinp['name'],
           'docstring': methinp['docstring'],
           'param_type': methinp['param_type'],
-          'expected_shape': methinp['expected_shape'],
           'is_optional': methinp['is_optional']
         })
       }
-      fp[node['name']]['Methods'][func['name']] = mf
+      for (let m = 0; m < func['outputs'].length; m++) {
+        let methop = func['outputs'][m]
+        lf.push({
+          'name': methop['name'],
+          'docstring': methop['docstring'],
+          'param_type': methop['param_type'],
+          'is_optional': methop['is_optional']
+        })
+      }
+      fp[node['name']]['Methods'][func['name']]['inputs'] = mf
+      fp[node['name']]['Methods'][func['name']]['outputs'] = lf
     }
   }
   lh['Search']['model_selection']['sklearn']['functions'].push(nf)
 }
 
-console.log('"*****"', pands)
+// PANDADADADNANDANDNADNADN
 for (let i = 0; i < pands['node_functions'].length; i++) {
   let node = pands['node_functions'][i]
-  console.log('"*****"', node)
+  // console.log('"*****"', node)
   lh['Enter']['UploadData']['pandas']['name'].push(node['name'])
   nf = []
   fp[node['name']] = {
@@ -186,8 +208,10 @@ for (let i = 0; i < sklearnDec['nodes'].length; i++) {
   for (let f = 0; f < node['node_functions'].length; f++) {
     let func = node['node_functions'][f]
     let n = func['name'].split('')[0]
+    lf = []
     mf = []
     if (n !== '_') {
+      fp[node['name']]['Methods'][func['name']] = {}
       nf.push(func['name'])
       for (let m = 0; m < func['inputs'].length; m++) {
         let methinp = func['inputs'][m]
@@ -195,11 +219,20 @@ for (let i = 0; i < sklearnDec['nodes'].length; i++) {
           'name': methinp['name'],
           'docstring': methinp['docstring'],
           'param_type': methinp['param_type'],
-          'expected_shape': methinp['expected_shape'],
           'is_optional': methinp['is_optional']
         })
       }
-      fp[node['name']]['Methods'][func['name']] = mf
+      for (let m = 0; m < func['outputs'].length; m++) {
+        let methop = func['outputs'][m]
+        lf.push({
+          'name': methop['name'],
+          'docstring': methop['docstring'],
+          'param_type': methop['param_type'],
+          'is_optional': methop['is_optional']
+        })
+      }
+      fp[node['name']]['Methods'][func['name']]['inputs'] = mf
+      fp[node['name']]['Methods'][func['name']]['outputs'] = lf
     }
   }
   lh['Represent']['decomposition']['sklearn']['functions'].push(nf)
@@ -227,20 +260,31 @@ for (let i = 0; i < sklearnPrep['nodes'].length; i++) {
   for (let f = 0; f < node['node_functions'].length; f++) {
     let func = node['node_functions'][f]
     let n = func['name'].split('')[0]
+    lf = []
     mf = []
     if (n !== '_') {
       nf.push(func['name'])
+      fp[node['name']]['Methods'][func['name']] = {}
       for (let m = 0; m < func['inputs'].length; m++) {
         let methinp = func['inputs'][m]
         mf.push({
           'name': methinp['name'],
           'docstring': methinp['docstring'],
           'param_type': methinp['param_type'],
-          'expected_shape': methinp['expected_shape'],
           'is_optional': methinp['is_optional']
         })
       }
-      fp[node['name']]['Methods'][func['name']] = mf
+      for (let m = 0; m < func['outputs'].length; m++) {
+        let methop = func['outputs'][m]
+        lf.push({
+          'name': methop['name'],
+          'docstring': methop['docstring'],
+          'param_type': methop['param_type'],
+          'is_optional': methop['is_optional']
+        })
+      }
+      fp[node['name']]['Methods'][func['name']]['inputs'] = mf
+      fp[node['name']]['Methods'][func['name']]['outputs'] = lf
     }
   }
   lh['Prepare']['preprocessing']['sklearn']['functions'].push(nf)
@@ -269,7 +313,9 @@ for (let i = 0; i < sklearnLinear['nodes'].length; i++) {
     let func = node['node_functions'][f]
     let n = func['name'].split('')[0]
     mf = []
+    lf = []
     if (n !== '_') {
+      fp[node['name']]['Methods'][func['name']] = {}
       nf.push(func['name'])
       for (let m = 0; m < func['inputs'].length; m++) {
         let methinp = func['inputs'][m]
@@ -277,14 +323,23 @@ for (let i = 0; i < sklearnLinear['nodes'].length; i++) {
           'name': methinp['name'],
           'docstring': methinp['docstring'],
           'param_type': methinp['param_type'],
-          'expected_shape': methinp['expected_shape'],
           'is_optional': methinp['is_optional']
         })
       }
-      fp[node['name']]['Methods'][func['name']] = mf
+      for (let m = 0; m < func['outputs'].length; m++) {
+        let methop = func['outputs'][m]
+        lf.push({
+          'name': methop['name'],
+          'docstring': methop['docstring'],
+          'param_type': methop['param_type'],
+          'is_optional': methop['is_optional']
+        })
+      }
+      fp[node['name']]['Methods'][func['name']]['inputs'] = mf
+      fp[node['name']]['Methods'][func['name']]['outputs'] = lf
     }
   }
   lh['Model']['linear_model']['sklearn']['functions'].push(nf)
 }
-// console.log('idhar', lh)
+console.log('idhar', fp)
 export default {lh, fp}

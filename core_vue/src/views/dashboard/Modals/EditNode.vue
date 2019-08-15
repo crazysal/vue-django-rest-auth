@@ -79,6 +79,9 @@ export default {
     return {
       host: '',
       func: '',
+      funcm: '',
+      funcminputs: [],
+      funcmoutputs: [],
       meths: [],
       wparams: [],
       isHidden: true,
@@ -118,22 +121,20 @@ export default {
       this.meths = meths
       this.isHidden = true
       this.isHidden2 = true
-      alert('funchange', meths, host, func)
+      // console.log('funchange', meths, host, func)
       this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
       this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
     },
     handleMethChange: function (param) {
-      alert('In methchange', param)
-      // this.host = host
-      // this.func = func
-      // this.meths = meths
-      // // alert(meths, host, func)
-      // this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
-      // this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
+      // console.log('In methchange', param, this.func)
+      // console.log(this.funcMeta[this.func]['Methods'][param])
+      this.funcm = param
+      this.funcmoutputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['outputs'])
+      this.funcminputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['inputs'])
     },
     handleOk: function () {
       let node = this.selectedNode
-      node.elem.data.params = {wparams: this.wparams, fparams: this.fparams}
+      node.elem.data.params = {wparams: this.wparams, fparams: this.fparams, meths: this.meths, funcm: this.funcm, inp: this.funcminputs, op: this.funcmoutputs}
       node.elem.data.func = this.func
       node.elem.data.host = this.host
       this.cy.add(node.elem)
