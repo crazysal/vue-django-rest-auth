@@ -1,7 +1,7 @@
 <template>
   <b-modal title="Edit Edge" v-model="myModal" @ok="handleOk()" @cancel="hide()" hide-header-close>
 
-    <strong v-if='inputs.length>0'>Inputs</strong>
+    <strong v-if='inputs.length>0'>Source Node Outputs</strong>
     <template v-for='input in inputs'>
       <b-form-group>
         <label :for=input.name>{{input.name}}</label>
@@ -9,7 +9,7 @@
       </b-form-group>
     </template>
     <br/>
-    <strong v-if='outputs.length>0'>Outputs</strong>
+    <strong v-if='outputs.length>0'>Target Node Inputs</strong>
     <template v-for='output in outputs'>
       <b-form-group>
         <label :for=output.name>{{output.name}}</label>
@@ -67,6 +67,10 @@ export default {
   },
   watch: {
     selectedEdge: function (newVal, oldVal) {
+      // console.log('selectedEdge watch')
+      // console.log(newVal)
+      // console.log(oldVal)
+
       if (newVal.data.hasOwnProperty('inputs')) {
         this.inputs = newVal.data.inputs
         this.outputs = newVal.data.outputs
@@ -77,7 +81,8 @@ export default {
     }
   },
   mounted () {
-    // this.show()
+    console.log('selectedEdge mounted')
+    console.log(this.selectedEdge)
   }
 }
 </script>

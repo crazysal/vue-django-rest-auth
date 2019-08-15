@@ -112,6 +112,8 @@ export default {
     // }
 
     // save state
+    // console.log('from main mounted of CytoscapeGraph.vue')
+    // console.log(this.$el)
   }
 }
 </script>

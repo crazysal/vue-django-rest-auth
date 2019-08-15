@@ -54,18 +54,23 @@ function getAddNodeOnClickFunction (self) {
 
 function getEdgeDropFunction (self) {
   return function (sourceNode, targetNode, addedEles) {
-    console.log('"from mere"', sourceNode, targetNode, addedEles)
+    // console.log('"from mere"')
+    // console.log(sourceNode.data())
+    // console.log(targetNode.data())
+    // console.log(addedEles.data())
     if (typeof addedEles !== 'undefined') {
       // console.log(addedEles.data().source + '-' + addedEles.data().target)
       // console.log(addedEles)
-      let sFunc = sourceNode.data().func
-      let tFunc = targetNode.data().func
+      let sFunc = sourceNode.data().params.op
+      console.log(sFunc)
+      let tFunc = targetNode.data().params.inp
+      console.log(tFunc)
       let edge = {
         group: 'edges',
         data: addedEles.data()
       }
-      edge.data.inputs = _.cloneDeep(self.funcMeta[sFunc].output)
-      edge.data.outputs = _.cloneDeep(self.funcMeta[tFunc].input)
+      edge.data.inputs = _.cloneDeep(sFunc)
+      edge.data.outputs = _.cloneDeep(tFunc)
 
       self.$store.commit('setSelectedEdge', edge)
       self.$store.commit('showEditEdge')
