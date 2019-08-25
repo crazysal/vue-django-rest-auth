@@ -5,14 +5,21 @@ name = "pypi"
 
 [packages]
 django-rest-auth = "==0.9.2"
-djangorestframework = ">=3.7.0"
+djangorestframework = "==3.9.4"
 django-allauth = ">=0.24.1"
 six = "==1.9.0"
-Django = ">=1.9.0"
+Django = "==2.2.2"
+celery = "*" 
+django-celery-results = "*"
+django-plotly-dash = "*"
+pandas = "*"
+django-cors-headers = "*"
+sqlalchemy = "*"
+django-settings-export = "*"
 
 [dev-packages]
 factory-boy = "*"
 faker = "*"
 
 [requires]
-python_version = ">=3.6"
+python_version = "3.7.3"

@@ -59,14 +59,14 @@ const _cytoscapeInitConfig = {
       selector: '.eh-source',
       style: {
         'border-width': 2,
-        'border-color': 'red'
+        'border-color': 'green'
       }
     },
     {
       selector: '.eh-target',
       style: {
         'border-width': 2,
-        'border-color': 'red'
+        'border-color': 'blue'
       }
     },
     {

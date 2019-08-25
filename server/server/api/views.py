@@ -162,7 +162,7 @@ class RunGraph(APIView):
         # print(comp_graph)
         # run_cheml.delay(cmls, dep_lists, comp_graph)
 
-        print('calling celery task.. okookok', request)
+        print('In rungraph API', serializer.data[0])
         res = send_task("server.api.tasks.run_cheml", [serializer.data[0]])
         print('here, after send_task' , res)
         result_id = res.id

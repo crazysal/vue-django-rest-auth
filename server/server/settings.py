@@ -15,8 +15,8 @@ CELERY_BROKER_URL = 'pyamqp://guest@localhost//'
 # CELERY_ACCEPT_CONTENT = ['json']
 
 # CELERY_RESULT_BACKEND = 'db+sqlite:////home/tinto/Workspace/CUBS/vue-django-rest-auth/server/results.sqlite'
-# CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/chemml/web/vue-django-rest-auth/server/results.sqlite'
-CELERY_RESULT_BACKEND = 'db+sqlite:////results.sqlite'
+CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/web/vue-django-rest-auth/server/results.sqlite'
+# CELERY_RESULT_BACKEND = 'db+sqlite:////results.sqlite'
 
 # CELERY_RESULT_BACKEND = 'redis://localhost'
 # CELERY_TASK_SERIALIZER = 'json'

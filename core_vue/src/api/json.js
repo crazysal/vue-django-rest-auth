@@ -64,7 +64,7 @@ for (let i = 0; i < sklearnSvm['nodes'].length; i++) {
     'Methods': {}
   }
 
-  var nf = []
+  var nf = ['obj']
   for (let i = 0; i < node['inputs'].length; i++) {
     let inp = node['inputs'][i]
     fp[node['name']]['FParameters'].push({
@@ -114,7 +114,7 @@ for (let i = 0; i < sklearnSvm['nodes'].length; i++) {
 for (let i = 0; i < sklearnModelSelection['nodes'].length; i++) {
   let node = sklearnModelSelection['nodes'][i]
   lh['Search']['model_selection']['sklearn']['name'].push(node['name'])
-  nf = []
+  nf = ['obj']
   fp[node['name']] = {
     'FParameters': [],
     'Methods': {}
@@ -168,7 +168,7 @@ for (let i = 0; i < pands['node_functions'].length; i++) {
   let node = pands['node_functions'][i]
   // console.log('"*****"', node)
   lh['Enter']['UploadData']['pandas']['name'].push(node['name'])
-  nf = []
+  nf = ['obj']
   fp[node['name']] = {
     'FParameters': [],
     'Methods': {}
@@ -189,7 +189,7 @@ for (let i = 0; i < pands['node_functions'].length; i++) {
 for (let i = 0; i < sklearnDec['nodes'].length; i++) {
   let node = sklearnDec['nodes'][i]
   lh['Represent']['decomposition']['sklearn']['name'].push(node['name'])
-  nf = []
+  nf = ['obj']
   fp[node['name']] = {
     'FParameters': [],
     'Methods': {}
@@ -241,7 +241,7 @@ for (let i = 0; i < sklearnDec['nodes'].length; i++) {
 for (let i = 0; i < sklearnPrep['nodes'].length; i++) {
   let node = sklearnPrep['nodes'][i]
   lh['Prepare']['preprocessing']['sklearn']['name'].push(node['name'])
-  nf = []
+  nf = ['obj']
   fp[node['name']] = {
     'FParameters': [],
     'Methods': {}
@@ -293,7 +293,7 @@ for (let i = 0; i < sklearnPrep['nodes'].length; i++) {
 for (let i = 0; i < sklearnLinear['nodes'].length; i++) {
   let node = sklearnLinear['nodes'][i]
   lh['Model']['linear_model']['sklearn']['name'].push(node['name'])
-  nf = []
+  nf = ['obj']
   fp[node['name']] = {
     'FParameters': [],
     'Methods': {}
