@@ -23,21 +23,33 @@
         </b-form-group>
       </template>
 
-      <strong v-if='meths !==undefined'>Select Class Method</strong>
-      <template v-for='param in meths'>
-        <b-form-radio-group
-        id="radiosmeths"
-        name="methRadios">
-         <input type="radio" :id=param name="methRadios" :value=param v-on:click="handleMethChange(param)">
-         <label class="custom-control-label" for="radiosInline">{{param}}</label>
-        </b-form-radio-group>
-      </template>
-      <br/>
-
-      <div v-if='fparams.length>0'>
-        <button class='btn btn-success'  v-on:click="isHidden = !isHidden">Click to Set Base Parameter Values</button>
-        <b-button class='btn btn-outline-info'   v-on:click="isHidden2 = !isHidden2"><i class="fa fa-question"></i></b-button>
+      <!-- 
+      <div class="row">
+      <div class="col-sm-6">
+        <b-button :class=btnclass1  v-on:click="handleBtnClick(1)">Use Class Object Instance</b-button>
       </div>
+      <div class="col-sm-6">
+        <b-button :class=btnclass2   v-on:click="handleBtnClick(2)">Use Class Method Function</b-button>
+      </div>
+      </div> -->
+
+      <!-- <div v-if='!selec2ted'> -->
+        <strong v-if='meths !==undefined'>Select Class Method</strong>
+        <template v-for='param in meths'>
+          <b-form-radio-group
+          id="radiosmeths"
+          name="methRadios">
+           <input type="radio" :id=param name="methRadios" :value=param v-on:click="handleMethChange(param)">
+           <label class="custom-control-label" for="radiosInline">{{param}}</label>
+          </b-form-radio-group>
+        </template>
+        <br/>
+
+        <div v-if='fparams.length>0'>
+          <button class='btn btn-success'  v-on:click="isHidden = !isHidden">Click to Set Base Parameter Values</button>
+          <b-button class='btn btn-outline-info'   v-on:click="isHidden2 = !isHidden2"><i class="fa fa-question"></i></b-button>
+        </div>
+      <!-- </div> -->
           
             
           
@@ -86,6 +98,9 @@ export default {
       wparams: [],
       isHidden: true,
       isHidden2: true,
+      selec2ted: true,
+      btnclass1: 'btn btn-outline-primary',
+      btnclass2: 'btn btn-outline-primary',
       fparams: []
     }
   },
@@ -125,12 +140,37 @@ export default {
       this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
       this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
     },
+    // handleBtnClick: function (param) {
+    //   console.log('In btnclcik', param, this.func)
+    //   console.log(this.funcMeta[this.func]['Methods'][param])
+    //   if (param === 1) {
+    //     this.selec2ted = true
+    //     this.isHidden = true
+    //     this.isHidden2 = true
+    //     this.funcm = 'obj'
+    //     this.funcmoutputs = this.fparams
+    //     this.funcminputs = []
+
+    //     this.btnclass1 = 'btn btn-success'
+    //     this.btnclass2 = 'btn btn-outline-primary'
+    //   } else {
+    //     this.selec2ted = false
+    //     this.btnclass2 = 'btn btn-success'
+    //     this.btnclass1 = 'btn btn-outline-primary'
+    //   }
+    // },
     handleMethChange: function (param) {
-      // console.log('In methchange', param, this.func)
-      // console.log(this.funcMeta[this.func]['Methods'][param])
-      this.funcm = param
-      this.funcmoutputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['outputs'])
-      this.funcminputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['inputs'])
+      console.log('In methchange', param, this.func)
+      console.log(this.funcMeta[this.func]['Methods'][param])
+      if (param === 'obj') {
+        this.funcm = 'obj'
+        this.funcmoutputs = this.fparams
+        this.funcminputs = this.fparams
+      } else {
+        this.funcm = param
+        this.funcmoutputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['outputs'])
+        this.funcminputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['inputs'])
+      }
     },
     handleOk: function () {
       let node = this.selectedNode

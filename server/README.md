@@ -15,6 +15,10 @@ pipenv shell
 
 # run development server
 ./manage.py runserver --settings=server.settings
+
+#Start celcery to manage workers 
+sudo rabbitmq-server --detached 
+celery -A server worker
 ```
 
 **Note:** You should install [pipenv](https://docs.pipenv.org/) before installing any python dependencies.

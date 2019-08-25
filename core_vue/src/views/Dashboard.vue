@@ -35,7 +35,7 @@
       </b-row>
       <cytoscape-graph class="chart-wrapper" style="height:600px;margin-top:40px;" height="600"></cytoscape-graph>
        <div slot="footer">
-        <div class="text-muted">Template MetaData</div>
+        <!-- <div class="text-muted">Template MetaData</div>
             
         <ul>
           <li>
@@ -57,8 +57,8 @@
             <div class="text-muted">Title</div>
             <strong>Challenging Common Assumptions in the</strong> </br> <strong>Unsupervised Learning of </br> Disentangled Representations</strong>
             <b-progress height={} class="progress-xs mt-2" :precision="1" variant="danger" :value="80"></b-progress>
-          </li>
-<!--           <li class="d-none d-md-table-cell">
+          </li> 
+                    <li class="d-none d-md-table-cell">
             <div class="text-muted">Bounce Rate</div>
             <strong>40.15%</strong>
             <b-progress height={} class="progress-xs mt-2" :precision="1" :value="40"></b-progress>
