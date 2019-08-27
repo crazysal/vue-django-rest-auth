@@ -446,7 +446,7 @@ export default {
       ],
       outputs: [
         {
-          name: '',
+          name: 'DataFrame',
           docstring:
             'A comma-separated values (csv) file is returned as two-dimensional data structure with labeled axes.',
           param_type: [null],
@@ -896,7 +896,7 @@ export default {
       ],
       outputs: [
         {
-          name: '',
+          name: 'DataFrame',
           docstring:
             'A comma-separated values (csv) file is returned as two-dimensional data structure with labeled axes.',
           param_type: [null],

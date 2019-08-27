@@ -136,7 +136,10 @@ export default {
       this.meths = meths
       this.isHidden = true
       this.isHidden2 = true
-      // console.log('funchange', meths, host, func)
+      if (this.meths === undefined) {
+        this.meths = ['DataFrame']
+      }
+      console.log('funchange', this.host, this.func, this.meths)
       this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
       this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
     },
@@ -193,18 +196,25 @@ export default {
       if (this.selectedNode.hasOwnProperty('elem')) {
         if (this.selectedNode.elem.data.hasOwnProperty('params')) {
           this.func = this.selectedNode.elem.data.func
+          this.funcm = this.selectedNode.elem.data.params.funcm
+          console.log('selected node data', this.selectedNode.elem.data)
           setTimeout(function () {
           // alert(this.func)
             let ele = document.getElementById(this.func)
             ele.checked = true
+            let ele2 = document.getElementById(this.funcm)
+            ele2.checked = true
           }.bind(this), 500)
           this.wparams = this.selectedNode.elem.data.params.wparams
           this.fparams = this.selectedNode.elem.data.params.fparams
+          this.meths = this.selectedNode.elem.data.params.meths
         }
       } else {
         this.func = ''
+        this.funcm = ''
         this.wparams = []
         this.fparams = []
+        this.meths = []
       }
     }
   },
