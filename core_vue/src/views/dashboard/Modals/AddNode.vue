@@ -77,11 +77,98 @@ export default {
     },
     addNode: function (elem, key1, key2) {
       const name = key1 + ' : ' + key2
-      const newNode = {
-        group: 'nodes',
-        data: {id: utils.guid(), name: name, info: elem},
-        position: {x: this.clickPos.x, y: this.clickPos.y}
+      var newNode = {}
+      if (key2 === 'UploadData') {
+        newNode = {
+          group: 'nodes',
+          data: {id: utils.guid(), name: name, info: elem},
+          style: {
+            'content': 'data(name)',
+            'text-opacity': 0.5,
+            'text-valign': 'center',
+            'text-halign': 'right',
+            'background-color': '#000000'
+          },
+          position: {x: this.clickPos.x, y: this.clickPos.y}
+
+        }
       }
+      if (key2 === 'decomposition') {
+        newNode = {
+          group: 'nodes',
+          data: {id: utils.guid(), name: name, info: elem},
+          style: {
+            'content': 'data(name)',
+            'text-opacity': 0.5,
+            'text-valign': 'center',
+            'text-halign': 'right',
+            'background-color': '#aa0000'
+          },
+          position: {x: this.clickPos.x, y: this.clickPos.y}
+
+        }
+      }
+      if (key2 === 'preprocessing') {
+        newNode = {
+          group: 'nodes',
+          data: {id: utils.guid(), name: name, info: elem},
+          style: {
+            'content': 'data(name)',
+            'text-opacity': 0.5,
+            'text-valign': 'center',
+            'text-halign': 'right',
+            'background-color': '#0000aa'
+          },
+          position: {x: this.clickPos.x, y: this.clickPos.y}
+
+        }
+      }
+      if (key2 === 'linear_model') {
+        newNode = {
+          group: 'nodes',
+          data: {id: utils.guid(), name: name, info: elem},
+          style: {
+            'content': 'data(name)',
+            'text-opacity': 0.5,
+            'text-valign': 'center',
+            'text-halign': 'right',
+            'background-color': '#aaaa00'
+          },
+          position: {x: this.clickPos.x, y: this.clickPos.y}
+
+        }
+      }
+      if (key2 === 'model_selection') {
+        newNode = {
+          group: 'nodes',
+          data: {id: utils.guid(), name: name, info: elem},
+          style: {
+            'content': 'data(name)',
+            'text-opacity': 0.5,
+            'text-valign': 'center',
+            'text-halign': 'right',
+            'background-color': '#00aa00'
+          },
+          position: {x: this.clickPos.x, y: this.clickPos.y}
+
+        }
+      }
+      if (key2 === 'svm') {
+        newNode = {
+          group: 'nodes',
+          data: {id: utils.guid(), name: name, info: elem},
+          style: {
+            'content': 'data(name)',
+            'text-opacity': 0.5,
+            'text-valign': 'center',
+            'text-halign': 'right',
+            'background-color': '#aa00aa'
+          },
+          position: {x: this.clickPos.x, y: this.clickPos.y}
+
+        }
+      }
+
       this.setSelectedNodeId(newNode.data.id)
       this.setSelectedNodeElem(newNode)
       this.cy.add(newNode)

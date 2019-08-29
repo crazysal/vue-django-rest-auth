@@ -100,7 +100,30 @@ export default {
         graph = this.usergraphs.find(this.FindGraphById, graphId)
       }
       let graphData = JSON.parse(graph.content)
+      for (var nodekey in graphData.elements.nodes) {
+        var key2 = graphData.elements.nodes[nodekey]['data']['name'].split(':')[1]
+        console.log('sskey2', key2)
+        if (key2 === ' UploadData') {
+          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#000'}
+        }
+        if (key2 === ' decomposition') {
+          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#a00'}
+        }
+        if (key2 === ' preprocessing') {
+          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#00a'}
+        }
+        if (key2 === ' linear_model') {
+          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#aa0'}
+        }
+        if (key2 === ' model_selection') {
+          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#0a0'}
+        }
+        if (key2 === ' svm') {
+          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#a0a'}
+        }
+      }
       this.cy.json(graphData)
+      console.log('frm load', graphData)
       this.setCurrentGraphId(graphId)
       this.setCurrentGraphType(type)
       this.setCurrentGraphTitle(graph.title)

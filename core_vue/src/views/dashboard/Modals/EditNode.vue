@@ -136,12 +136,14 @@ export default {
       this.meths = meths
       this.isHidden = true
       this.isHidden2 = true
-      if (this.meths === undefined) {
-        this.meths = ['DataFrame']
-      }
-      console.log('funchange', this.host, this.func, this.meths)
       this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
       this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
+      if (this.meths === undefined) {
+        this.meths = ['data', 'obj']
+      }
+      console.log('funchange', host, func, meths)
+      console.log('funchange', this.host, this.func, this.meths)
+      console.log('funchange', this.funcMeta[func])
     },
     // handleBtnClick: function (param) {
     //   console.log('In btnclcik', param, this.func)
@@ -167,13 +169,14 @@ export default {
       console.log(this.funcMeta[this.func]['Methods'][param])
       if (param === 'obj') {
         this.funcm = 'obj'
-        this.funcmoutputs = this.fparams
-        this.funcminputs = this.fparams
+        this.funcmoutputs = [{'name': 'obj'}] // this.fparams
+        this.funcminputs = [{'name': 'obj'}] // this.fparams
       } else {
         this.funcm = param
         this.funcmoutputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['outputs'])
         this.funcminputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['inputs'])
       }
+      console.log(this.funcminputs, this.funcmoutputs)
     },
     handleOk: function () {
       let node = this.selectedNode

@@ -60,12 +60,12 @@ function getEdgeDropFunction (self) {
     console.log(addedEles.data())
     if (addedEles) {
       // console.log(addedEles.data().source + '-' + addedEles.data().target)
-      if (sourceNode.data().params.op.length === 0) {
-        sourceNode.data().params.op.push({'name': 'obj'})
-      }
-      if (targetNode.data().params.inp.length === 0) {
-        targetNode.data().params.inp.push({'name': 'obj'})
-      }
+      // if (sourceNode.data().params.op.length === 0) {
+      //   sourceNode.data().params.op.push({'name': 'obj'})
+      // }
+      // if (targetNode.data().params.inp.length === 0) {
+      //   targetNode.data().params.inp.push({'name': 'obj'})
+      // }
       console.log('source node data', sourceNode.data().params)
       console.log('target node data', targetNode.data().params)
       let sFunc = sourceNode.data().params.op

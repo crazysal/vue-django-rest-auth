@@ -140,7 +140,7 @@ def parse_graph(data):
         base_op = {}
         if lib == 'pandas':
             module = ''
-            base_op = {"DataFrame" : True} 
+            base_op = {"data" : True} 
             mthd = {}
             base_inp= {'filepath_or_buffer': node['data']['params']['fparams'][0]['value']}
             cmls['nodes'][_id]= get_new_node(name, lib, module, base_inp, base_op, mthd)
@@ -156,11 +156,13 @@ def parse_graph(data):
     
             if len(node['data']['params']['inp']) > 0:   
                 for key in node['data']['params']['inp'] :
-                    mthd['inputs'][key['name']] = None
+                    if key['name'] != 'obj':
+                        mthd['inputs'][key['name']] = None
     
             if len(node['data']['params']['op']) > 0:   
                 for key in node['data']['params']['op'] :
-                    mthd['outputs'][key['name']] = False
+                    if key['name'] != 'obj':
+                        mthd['outputs'][key['name']] = False
 
             cmls['nodes'][_id] = get_new_node(name, lib, module, base_inp, base_op, mthd)
 
@@ -197,15 +199,28 @@ def get_iop(cmls, edges, idseq, dep_lists):
             curr_id = edge['data']['id']
             s_id = edge['data']['source']
             t_id = edge['data']['target']
+            print("sid", s_id)
+            print("src nd", cmls['nodes'][s_id])
+            print("tid", t_id)
+            print("t node", cmls['nodes'][t_id])
             inp_str = ""
             for op in outputs:
                 if 'value' in op :
+                    print("edge ops", op['name'], op['value'])
+
                     inp_str +='@'+s_id+'@'+op['value']
-                    cmls['nodes'][t_id]['method']['inputs'][op['name']] = inp_str
+                    if op['name'] =='obj':
+                        cmls['nodes'][t_id]['inputs'][op['name']] = inp_str
+                    else:
+                        cmls['nodes'][t_id]['method']['inputs'][op['name']] = inp_str
                 else:
                     continue
-
- 
+            for ip in inputs:
+                if 'value' in ip and cmls['nodes'][s_id]['library'] != 'pandas':
+                    print("edge ips", ip['name'], ip['value'])
+                    cmls['nodes'][s_id]['method']['outputs'][ip['name']] = True
+                else:
+                    continue 
     return cmls
 
 

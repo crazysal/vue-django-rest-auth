@@ -169,7 +169,7 @@ for (let i = 0; i < sklearnModelSelection['nodes'].length; i++) {
 // PANDADADADNANDANDNADNADN
 for (let i = 0; i < pands['node_functions'].length; i++) {
   let node = pands['node_functions'][i]
-  // console.log('"*****"', node)
+  // console.log('"*****"', node)/
   lh['Enter']['UploadData']['pandas']['name'].push(node['name'])
   // nf = ['obj']
   fp[node['name']] = {
@@ -187,15 +187,16 @@ for (let i = 0; i < pands['node_functions'].length; i++) {
       'is_optional': inp['is_optional']
     })
   }
-  for (let i = 0; i < node['outputs'].length; i++) {
-    let op = node['outputs'][i]
-    fp[node['name']]['Methods'][op['name']] = {}
-    fp[node['name']]['Methods'][op['name']]['outputs'] = [{
-      // 'display_name': op['name'],
-      // 'desc': op['docstring'],
-      'name': op['name']
-    }]
-  }
+  // for (let i = 0; i < node['outputs'].length; i++) {
+  let op0 = node['outputs'][0]
+  let op1 = node['outputs'][1]
+  fp[node['name']]['Methods'][op0['name']] = {}
+  fp[node['name']]['Methods'][op0['name']]['outputs'] = [{
+    // 'display_name': op['name'],
+    // 'desc': op['docstring'],
+    'name': op0['name']
+  }, {'name': op1['name']}]
+  // }
 }
 
 // SKLEARN DECOMPOSITION
@@ -356,5 +357,5 @@ for (let i = 0; i < sklearnLinear['nodes'].length; i++) {
   }
   lh['Model']['linear_model']['sklearn']['functions'].push(nf)
 }
-console.log('idhar', fp)
+console.log('idhar', fp, lh)
 export default {lh, fp}

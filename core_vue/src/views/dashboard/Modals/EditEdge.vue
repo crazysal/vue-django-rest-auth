@@ -1,15 +1,15 @@
 <template>
   <b-modal title="Edit Edge" v-model="myModal" @ok="handleOk()" @cancel="hide()" hide-header-close>
 
-<!--     <strong v-if='inputs.length>0'>Source Node Outputs</strong>
+    <strong v-if='inputs.length>0'>Source Node Outputs</strong>
     <template v-for='input in inputs'>
       <b-form-group>
         <label :for=input.name>{{input.name}}</label>
-        <b-form-input type="text" :id=input.name placeholder="Enter Value" v-model="input.value"></b-form-input>
+        <b-form-checkbox type="" :id=input.name placeholder="Enter Value" v-model="input.value" value=true unchecked-value=false></b-form-checkbox>
       </b-form-group>
     </template>
     <br/>
- -->
+
   <strong v-if='outputs.length>0'>Target Node Inputs</strong>
   <br>
   <small v-if='outputs.length>0'> Select unique values for each from dropdown output of previous node</small>
