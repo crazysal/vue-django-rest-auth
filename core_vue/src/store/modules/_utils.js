@@ -57,14 +57,21 @@ function getEdgeDropFunction (self) {
     // console.log('"from mere"')
     // console.log(sourceNode.data())
     // console.log(targetNode.data())
-    // console.log(addedEles.data())
-    if (typeof addedEles !== 'undefined') {
+    console.log(addedEles.data())
+    if (addedEles) {
       // console.log(addedEles.data().source + '-' + addedEles.data().target)
-      // console.log(addedEles)
+      // if (sourceNode.data().params.op.length === 0) {
+      //   sourceNode.data().params.op.push({'name': 'obj'})
+      // }
+      // if (targetNode.data().params.inp.length === 0) {
+      //   targetNode.data().params.inp.push({'name': 'obj'})
+      // }
+      console.log('source node data', sourceNode.data().params)
+      console.log('target node data', targetNode.data().params)
       let sFunc = sourceNode.data().params.op
-      console.log(sFunc)
       let tFunc = targetNode.data().params.inp
-      console.log(tFunc)
+      console.log('sfunc', sFunc)
+      console.log('tfnc', tFunc)
       let edge = {
         group: 'edges',
         data: addedEles.data()

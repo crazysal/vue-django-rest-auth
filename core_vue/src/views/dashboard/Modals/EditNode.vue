@@ -136,9 +136,14 @@ export default {
       this.meths = meths
       this.isHidden = true
       this.isHidden2 = true
-      // console.log('funchange', meths, host, func)
       this.wparams = _.cloneDeep(this.funcMeta[func].WParameters)
       this.fparams = _.cloneDeep(this.funcMeta[func].FParameters)
+      if (this.meths === undefined) {
+        this.meths = ['data', 'obj']
+      }
+      console.log('funchange', host, func, meths)
+      console.log('funchange', this.host, this.func, this.meths)
+      console.log('funchange', this.funcMeta[func])
     },
     // handleBtnClick: function (param) {
     //   console.log('In btnclcik', param, this.func)
@@ -164,13 +169,14 @@ export default {
       console.log(this.funcMeta[this.func]['Methods'][param])
       if (param === 'obj') {
         this.funcm = 'obj'
-        this.funcmoutputs = this.fparams
-        this.funcminputs = this.fparams
+        this.funcmoutputs = [{'name': 'obj'}] // this.fparams
+        this.funcminputs = [{'name': 'obj'}] // this.fparams
       } else {
         this.funcm = param
         this.funcmoutputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['outputs'])
         this.funcminputs = _.cloneDeep(this.funcMeta[this.func]['Methods'][param]['inputs'])
       }
+      console.log(this.funcminputs, this.funcmoutputs)
     },
     handleOk: function () {
       let node = this.selectedNode
@@ -193,18 +199,25 @@ export default {
       if (this.selectedNode.hasOwnProperty('elem')) {
         if (this.selectedNode.elem.data.hasOwnProperty('params')) {
           this.func = this.selectedNode.elem.data.func
+          this.funcm = this.selectedNode.elem.data.params.funcm
+          console.log('selected node data', this.selectedNode.elem.data)
           setTimeout(function () {
           // alert(this.func)
             let ele = document.getElementById(this.func)
             ele.checked = true
+            let ele2 = document.getElementById(this.funcm)
+            ele2.checked = true
           }.bind(this), 500)
           this.wparams = this.selectedNode.elem.data.params.wparams
           this.fparams = this.selectedNode.elem.data.params.fparams
+          this.meths = this.selectedNode.elem.data.params.meths
         }
       } else {
         this.func = ''
+        this.funcm = ''
         this.wparams = []
         this.fparams = []
+        this.meths = []
       }
     }
   },

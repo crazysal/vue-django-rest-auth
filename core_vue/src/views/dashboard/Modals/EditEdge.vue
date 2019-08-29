@@ -5,18 +5,26 @@
     <template v-for='input in inputs'>
       <b-form-group>
         <label :for=input.name>{{input.name}}</label>
-        <b-form-input type="text" :id=input.name placeholder="Enter Value" v-model="input.value"></b-form-input>
+        <b-form-checkbox type="" :id=input.name placeholder="Enter Value" v-model="input.value" value=true unchecked-value=false></b-form-checkbox>
       </b-form-group>
     </template>
     <br/>
-    <strong v-if='outputs.length>0'>Target Node Inputs</strong>
+
+  <strong v-if='outputs.length>0'>Target Node Inputs</strong>
+  <br>
+  <small v-if='outputs.length>0'> Select unique values for each from dropdown output of previous node</small>
     <template v-for='output in outputs'>
       <b-form-group>
         <label :for=output.name>{{output.name}}</label>
-        <b-form-input type="text" :id=output.name placeholder="Enter Value" v-model="output.value"></b-form-input>
+        <b-form-select :id=output.name v-model="output.value" >
+          <option v-for='input in inputs' :value="input.name">
+            {{input.name}}
+          </option>
+        </b-form-select>
       </b-form-group>
     </template>
 
+        <!-- <b-form-input type="text" :id=output.name placeholder="Enter Value" v-model="output.value"></b-form-input> -->
   </b-modal>
 </template>
 

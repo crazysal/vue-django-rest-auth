@@ -25,7 +25,13 @@
           </ol>
         </p>  
       </b-col><!--/.col-->
-    </b-row><!--/.row-->
+    </b-row>
+    <b-row>
+      <b-col lg="10">
+        <b-img height=280 src="static/img/banner.png" rounded alt="Banner"></b-img>
+      </b-col>  
+    </b-row>
+    <!--/.row-->
 
   </div>
 

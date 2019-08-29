@@ -54,6 +54,7 @@ export default {
     }),
     handleOk: function () {
       let data = JSON.stringify(this.cy.json())
+      // let style = JSON.stringify(this.cy.style())
       this.saveCurrentUserGraph({'title': this.newGraphTitle, 'content': data})
       this.hide()
     },

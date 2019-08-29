@@ -17,6 +17,7 @@ django-cors-headers = "*"
 sqlalchemy = "*"
 django-settings-export = "*"
 
+
 [dev-packages]
 factory-boy = "*"
 faker = "*"
