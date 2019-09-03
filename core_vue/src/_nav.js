@@ -18,11 +18,6 @@ export default {
       icon: 'icon-direction'
     },
     {
-      name: 'Analysis',
-      url: '/analysis',
-      icon: 'icon-globe'
-    },
-    {
       name: 'Visualizations',
       url: dashUrl,
       icon: 'icon-pie-chart'

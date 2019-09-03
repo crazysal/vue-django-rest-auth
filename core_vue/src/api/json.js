@@ -4,6 +4,7 @@ import sklearnPrep from './jsons/sklearnPreprocessing'
 import sklearnSvm from './jsons/sklearnSvm'
 import sklearnLinear from './jsons/sklearnLinearModel'
 import pands from './jsons/pandasAbbrv'
+import chemmlwrapperprep from './jsons/chemmlWrapperPreprocessing_ui'
 
 let lh = {
   'Enter': {},
@@ -44,6 +45,10 @@ lh['Represent']['decomposition'] = {
 }
 lh['Prepare']['preprocessing'] = {
   'sklearn': {
+    'name': [],
+    'functions': []
+  },
+  'chemml': {
     'name': [],
     'functions': []
   }
@@ -303,6 +308,59 @@ for (let i = 0; i < sklearnPrep['nodes'].length; i++) {
     }
   }
   lh['Prepare']['preprocessing']['sklearn']['functions'].push(nf)
+}
+
+// Chemml Wrapper PREPROCESSING
+for (let i = 0; i < chemmlwrapperprep['nodes'].length; i++) {
+  let node = chemmlwrapperprep['nodes'][i]
+  lh['Prepare']['preprocessing']['chemml']['name'].push(node['name'])
+  nf = ['obj']
+  fp[node['name']] = {
+    'FParameters': [],
+    'Methods': {}
+  }
+  for (let i = 0; i < node['inputs'].length; i++) {
+    let inp = node['inputs'][i]
+    fp[node['name']]['FParameters'].push({
+      // 'param_type': inp['param_type'],
+      // 'display_name': inp['name'],
+      'name': inp['name'],
+      'value': inp['default_value'],
+      // 'desc': inp['docstring'],
+      'is_optional': inp['is_optional']
+    })
+  }
+  for (let f = 0; f < node['node_functions'].length; f++) {
+    let func = node['node_functions'][f]
+    let n = func['name'].split('')[0]
+    lf = []
+    mf = []
+    if (n !== '_') {
+      nf.push(func['name'])
+      fp[node['name']]['Methods'][func['name']] = {}
+      for (let m = 0; m < func['inputs'].length; m++) {
+        let methinp = func['inputs'][m]
+        mf.push({
+          'name': methinp['name'],
+          // 'docstring': methinp['docstring'],
+          // 'param_type': methinp['param_type'],
+          'is_optional': methinp['is_optional']
+        })
+      }
+      for (let m = 0; m < func['outputs'].length; m++) {
+        let methop = func['outputs'][m]
+        lf.push({
+          'name': methop['name'],
+          // 'docstring': methop['docstring'],
+          // 'param_type': methop['param_type'],
+          'is_optional': methop['is_optional']
+        })
+      }
+      fp[node['name']]['Methods'][func['name']]['inputs'] = mf
+      fp[node['name']]['Methods'][func['name']]['outputs'] = lf
+    }
+  }
+  lh['Prepare']['preprocessing']['chemml']['functions'].push(nf)
 }
 
 // SKLEARN LINEAR MODEL

@@ -70,7 +70,8 @@
                   </div>
                 </dd>
                 <dd class="col-sm-12">
-                  <b-form-input type="text" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
+                  <b-form-file v-if="param.name === 'filepath_or_buffer'" :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-file>
+                  <b-form-input type="text" v-else :id=param.name placeholder="Enter Value" v-model="param.value"></b-form-input>
                 </dd>
               </dl>
             </b-form-group>

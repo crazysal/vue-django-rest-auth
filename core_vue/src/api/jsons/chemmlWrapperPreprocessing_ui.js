@@ -11,7 +11,7 @@ export default {
         '\n    Write pandas DataFrame to a comma-seprated-values(CSV) file.',
       inputs: [
         {
-          name: 'file_path',
+          name: 'filepath_or_buffer',
           docstring: 'The path for the CSV file',
           param_type: ['str'],
           expected_shape: null,
@@ -94,7 +94,7 @@ export default {
         '\n    Write any input data to a file in string format.\n    This is good for making text files and keeping track of intermediate data.',
       inputs: [
         {
-          name: 'file_path',
+          name: 'filepath_or_buffer',
           docstring: 'The path for the CSV file',
           param_type: ['str'],
           expected_shape: null,
