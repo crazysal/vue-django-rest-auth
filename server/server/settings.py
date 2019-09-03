@@ -116,7 +116,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-VUE_URL='http://localhost:8080'
+# VUE_URL='http://localhost:8080'
+VUE_URL='https://madeatub.buffalo.edu/mltoolkit'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(CLIENT_DIST_DIR, 'static')]
 
