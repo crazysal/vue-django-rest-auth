@@ -15,7 +15,8 @@ CELERY_BROKER_URL = 'pyamqp://guest@localhost//'
 # CELERY_ACCEPT_CONTENT = ['json']
 
 # CELERY_RESULT_BACKEND = 'db+sqlite:////home/tinto/Workspace/CUBS/vue-django-rest-auth/server/results.sqlite'
-CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/web/vue-django-rest-auth/server/results.sqlite'
+# CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/web/vue-django-rest-auth/server/results.sqlite'
+CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/vue-django-rest-auth/server/results.sqlite'
 # CELERY_RESULT_BACKEND = 'db+sqlite:////results.sqlite'
 
 # CELERY_RESULT_BACKEND = 'redis://localhost'
@@ -38,7 +39,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 CLIENT_DIST_DIR = os.path.join(BASE_DIR, '..', 'client', 'dist')
-
+print(CLIENT_DIST_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
