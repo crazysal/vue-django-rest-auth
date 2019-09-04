@@ -76,9 +76,10 @@ export default {
       this.shownext()
     },
     addNode: function (elem, key1, key2) {
+      console.log('addnode', elem, key1, key2)
       const name = key1 + ' : ' + key2
       var newNode = {}
-      if (key2 === 'UploadData') {
+      if (key2 === 'CSV' || key2 === 'Chemical') {
         newNode = {
           group: 'nodes',
           data: {id: utils.guid(), name: name, info: elem},
@@ -93,7 +94,7 @@ export default {
 
         }
       }
-      if (key2 === 'decomposition') {
+      if (key2 === 'Dimensionality Reduction') {
         newNode = {
           group: 'nodes',
           data: {id: utils.guid(), name: name, info: elem},
@@ -108,7 +109,7 @@ export default {
 
         }
       }
-      if (key2 === 'preprocessing') {
+      if (key2 === 'Preprocessing' || key2 === 'Data Splitting') {
         newNode = {
           group: 'nodes',
           data: {id: utils.guid(), name: name, info: elem},
@@ -123,7 +124,7 @@ export default {
 
         }
       }
-      if (key2 === 'linear_model') {
+      if (key2 === 'Linear' || key2 === 'Neural Network' || key2 === 'Support Vector Machines') {
         newNode = {
           group: 'nodes',
           data: {id: utils.guid(), name: name, info: elem},
@@ -138,7 +139,7 @@ export default {
 
         }
       }
-      if (key2 === 'model_selection') {
+      if (key2 === 'Selection') {
         newNode = {
           group: 'nodes',
           data: {id: utils.guid(), name: name, info: elem},
@@ -153,7 +154,7 @@ export default {
 
         }
       }
-      if (key2 === 'svm') {
+      if (key2 === 'Store Data') {
         newNode = {
           group: 'nodes',
           data: {id: utils.guid(), name: name, info: elem},
