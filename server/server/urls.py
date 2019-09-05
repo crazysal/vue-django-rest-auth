@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'.registration/', include('rest_auth.registration.urls')),
     url(r'.admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html')),
+    path('/', TemplateView.as_view(template_name='index.html')),
     path('.visualize/', TemplateView.as_view(template_name='home.html')),
     path('.django_plotly_dash/', include('django_plotly_dash.urls')),
     path('.line', TemplateView.as_view(template_name='line.html')),
