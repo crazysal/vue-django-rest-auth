@@ -61,9 +61,15 @@ var menu = {
       }
     }
   },
-  Optimize: {
-    Selection: {
-      sklearn: {
+  'Optimize': {
+    'Selection': {
+      'sklearn': {
+        name: [],
+        functions: []
+      }
+    },
+    'Metrics': {
+      'sklearn': {
         name: [],
         functions: []
       }

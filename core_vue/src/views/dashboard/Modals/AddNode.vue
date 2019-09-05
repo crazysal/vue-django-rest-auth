@@ -139,7 +139,7 @@ export default {
 
         }
       }
-      if (key2 === 'Selection') {
+      if (key2 === 'Selection' || key2 === 'Metrics') {
         newNode = {
           group: 'nodes',
           data: {id: utils.guid(), name: name, info: elem},

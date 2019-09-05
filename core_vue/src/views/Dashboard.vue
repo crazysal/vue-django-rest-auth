@@ -7,7 +7,7 @@
           <!-- <div class="small text-muted">November 2017</div> -->
         </b-col>
         <b-col sm="7" class="d-md-block">
-          <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px" v-on:click="handleHelp()" title="Help" ><i class="fa fa-question"></i></b-button>
+          <!-- <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px" v-on:click="handleHelp()" title="Help" ><i class="fa fa-question"></i></b-button> -->
           <b-button type="button" variant="danger" class="float-right" style="margin-left: 3px" v-on:click="handleRun()" title="Run Graph" ><i class="fa fa-play"></i></b-button>
           <b-button type="button" variant="primary" class="float-right" style="margin-left: 3px" v-on:click="handleSave()" title="Save Graph"><i class="fa fa-save"></i></b-button>
           <!-- <b-button type="button" variant="secondary" class="float-right" style="margin-left: 3px"  v-on:click="handleShowWizard()"><i class="fa fa-folder"></i></b-button> -->

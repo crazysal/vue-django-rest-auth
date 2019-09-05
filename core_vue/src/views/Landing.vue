@@ -1,10 +1,16 @@
 <template>
   <div class="animated fadeIn">
+    <!--/.row-->
 
     <b-row>
       <b-col lg="12">
         <h1>MaDE@UB Machine Learning Toolkit</h1>
 <h3>A toolkit to train and test statistical models from user defined data flows with a focus on data and methods from chemical and materials sciences.</h3>
+    <b-row>
+      <b-col sm="4">
+        <b-img height=250 src="https://madeatub.buffalo.edu/mltk/static/img/banner.png" rounded alt="Banner"></b-img>
+      </b-col>  
+    </b-row>
 <p>Welcome! Our ML Toolkit provides an online web application for desigining Machine Learning (ML) models without needing to have in-depth knowledge of programming.</p>
 <p>The app just needs a user to provide input data and define data processing operations via nodes and edges on a graph. Each node corresponds to a module that takes in data as input, performs an operation and emits processed data as output. Connections between modules (edges) enable transfer of data.</p>
 <p>Modules are taken from popular third-party machine learning packages such as <a href="https://scikit-learn.org/stable/">scikit-learn</a>, <a href="https://keras.io/">keras</a> and <a href="https://www.tensorflow.org/">tensorflow</a>. Modules for organic/inorganic data come from RDKit, Dragon and Magpie. We use <a href="https://github.com/hachmannlab/chemml">ChemML</a> in the background to handle running the ML tasks.</p>
@@ -20,17 +26,8 @@
         </p>  
       </b-col><!--/.col-->
     </b-row>
-    <b-row>
-      <b-col lg="10">
-        <b-img height=280 src="static/img/banner.png" rounded alt="Banner"></b-img>
-      </b-col>  
-    </b-row>
-    <!--/.row-->
 
   </div>
 
 </template>
-
-<script>
-  console.log('from inside landing.vue')
-</script>
+ 
