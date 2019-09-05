@@ -6,8 +6,9 @@
         <h1>MaDE@UB Machine Learning Toolkit</h1>
 <h3>A toolkit to train and test statistical models from user defined data flows with a focus on data and methods from chemical and materials sciences.</h3>
 <p>Welcome! Our ML Toolkit provides an online web application for desigining Machine Learning (ML) models without needing to have in-depth knowledge of programming.</p>
-<p>This toolkit is built as a wrapper around existing third-party packages such as <a href="https://scikit-learn.org/stable/index.html/">scikit-learn (sklearn)</a>, <a href="https://keras.io/">Keras</a>, and a host of organic and inorganic descriptors such as RDKit, Dragon, Magpie via <a href="https://github.com/hachmannlab/chemml/">ChemML.</a></p>
-<p>The app just needs a user to provide input data and define data processing operations via nodes and edges on a graph. The user can then hit "run" and sit back while the results are computed. We provide resources to handle multiple experiments, so you can choose and compare from different ML models with a few clicks and see what works best for your data!</p>
+<p>The app just needs a user to provide input data and define data processing operations via nodes and edges on a graph. Each node corresponds to a module that takes in data as input, performs an operation and emits processed data as output. Connections between modules (edges) enable transfer of data.</p>
+<p>Modules are taken from popular third-party machine learning packages such as <a href="https://scikit-learn.org/stable/">scikit-learn</a>, <a href="https://keras.io/">keras</a> and <a href="https://www.tensorflow.org/">tensorflow</a>. Modules for organic/inorganic data come from RDKit, Dragon and Magpie. We use <a href="https://github.com/hachmannlab/chemml">ChemML</a> in the background to handle running the ML tasks.</p>
+<p>After completing a graph, the user can hit "run" and sit back while the results are computed. We provide resources to handle multiple experiments, so you can choose and compare from different ML models with a few clicks and see what works best for your data!</p>
 <p>To get started:</p>
 <ol>
 <li>Go to <a href="https://madeatub.buffalo.edu/mltoolkit/#/dashboard">Dashboard</a> by clicking the link on the left pane.</li>
