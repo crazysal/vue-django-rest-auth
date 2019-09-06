@@ -39,7 +39,7 @@ const router = new Router({
       children: [
         {
           path: 'landing',
-          name: 'Landing',
+          name: 'Toolkit',
           component: Landing,
           meta: {
             requiresAuth: true
