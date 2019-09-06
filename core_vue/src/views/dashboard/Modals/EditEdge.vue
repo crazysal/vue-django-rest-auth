@@ -10,12 +10,17 @@
     </template>
     <br/>
 
-  <strong v-if='outputs.length>0'>Target Node Inputs</strong>
+  <strong v-if='outputs.length>0'>Target Node Inputs</strong><b-button class='btn-xs btn-outline-info'   v-on:click="isHidden2 = !isHidden2"><i class="fa fa-question"></i></b-button>
+  
   <br>
   <small v-if='outputs.length>0'> Select unique values for each from dropdown output of previous node</small>
     <template v-for='output in outputs'>
       <b-form-group>
         <label :for=output.name>{{output.name}}</label>
+
+          <div class='alert alert-light' v-if='!isHidden2'>
+                    {{output.docstring}}
+                  </div>
         <b-form-select :id=output.name v-model="output.value" >
           <option v-for='input in inputs' :value="input.name">
             {{input.name}}
@@ -36,7 +41,8 @@ export default {
   data () {
     return {
       inputs: [],
-      outputs: []
+      outputs: [],
+      isHidden2: true
     }
   },
   computed: {
