@@ -154,7 +154,7 @@ export default {
 
         }
       }
-      if (key2 === 'Store Data') {
+      if (key2 === 'Store Plot' || key2 === 'Store Data') {
         newNode = {
           group: 'nodes',
           data: {id: utils.guid(), name: name, info: elem},
