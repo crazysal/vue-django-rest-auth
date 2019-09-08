@@ -67,6 +67,127 @@ export default {
   ],
   nodes: [
     {
+      name: 'train_test_split',
+      docstring:
+        'Split arrays or matrices into random train and test subsets\n\n    Quick utility that wraps input validation and\n    ``next(ShuffleSplit().split(X, y))`` and application to input data\n    into a single call for splitting (and optionally subsampling) data in a\n    oneliner.',
+      node_functions: [
+        {
+          name: 'split2',
+          docstring: 'None',
+          inputs: [
+            {
+              name: '*arrays',
+              docstring:
+                'Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.',
+              param_type: ['list'],
+              expected_shape: null,
+              is_optional: false,
+              default_value: null
+            },
+            {
+              name: 'test_size',
+              docstring:
+                'If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If ``train_size`` is also None, it will be set to 0.25.',
+              param_type: ['int', 'float', null],
+              expected_shape: null,
+              is_optional: true,
+              default_value: 'None'
+            },
+            {
+              name: 'train_size',
+              docstring:
+                'If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size.',
+              param_type: ['int', 'float', null],
+              expected_shape: null,
+              is_optional: true,
+              default_value: 'None'
+            },
+            {
+              name: 'shuffle',
+              docstring:
+                'Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.',
+              param_type: ['bool'],
+              expected_shape: null,
+              is_optional: true,
+              default_value: 'True'
+            },
+            {
+              name: 'stratify',
+              docstring:
+                'If not None, data is split in a stratified fashion, using this as the class labels.',
+              param_type: ['array', null],
+              expected_shape: null,
+              is_optional: true,
+              default_value: 'None'
+            }
+          ],
+          outputs: [
+            {
+              name: 'splitting',
+              docstring: 'List containing train-test split of inputs.',
+              param_type: ['array', 'list'],
+              returned: true
+            }
+          ]
+        }
+      ],
+      inputs: [
+        {
+          name: '*arrays',
+          docstring:
+            'Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.',
+          param_type: ['list'],
+          expected_shape: null,
+          is_optional: false,
+          default_value: null
+        },
+        {
+          name: 'test_size',
+          docstring:
+            'If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. If ``train_size`` is also None, it will be set to 0.25.',
+          param_type: ['int', 'float', null],
+          expected_shape: null,
+          is_optional: true,
+          default_value: 'None'
+        },
+        {
+          name: 'train_size',
+          docstring:
+            'If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size.',
+          param_type: ['int', 'float', null],
+          expected_shape: null,
+          is_optional: true,
+          default_value: 'None'
+        },
+        {
+          name: 'shuffle',
+          docstring:
+            'Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.',
+          param_type: ['bool'],
+          expected_shape: null,
+          is_optional: true,
+          default_value: 'True'
+        },
+        {
+          name: 'stratify',
+          docstring:
+            'If not None, data is split in a stratified fashion, using this as the class labels.',
+          param_type: ['array', null],
+          expected_shape: null,
+          is_optional: true,
+          default_value: 'None'
+        }
+      ],
+      outputs: [
+        {
+          name: 'splitting',
+          docstring: 'List containing train-test split of inputs.',
+          param_type: ['array', 'list'],
+          returned: true
+        }
+      ]
+    },
+    {
       name: 'GridSearchCV',
       docstring:
         'Exhaustive search over specified parameter values for an estimator.\n\n    Important members are fit, predict.\n\n    GridSearchCV implements a "fit" and a "score" method.\n    It also implements "predict", "predict_proba", "decision_function",\n    "transform" and "inverse_transform" if they are implemented in the\n    estimator used.\n\n    The parameters of the estimator used to apply these methods are optimized\n    by cross-validated grid-search over a parameter grid.',

@@ -504,12 +504,13 @@ for (let i = 0; i < sklearnLinear['nodes'].length; i++) {
   }
   lh['Model']['Linear']['sklearn']['functions'].push(nf)
 }
+
 // sklearn metrics
-for (let i = 0; i < sklearnMetrics['node_functions'].length; i++) {
-  let node = sklearnMetrics['node_functions'][i]
-  // console.log('"*****"', node)/
+
+for (let i = 0; i < sklearnMetrics['nodes'].length; i++) {
+  let node = sklearnMetrics['nodes'][i]
   lh['Optimize']['Metrics']['sklearn']['name'].push(node['name'])
-  // nf = ['obj']
+  nf = ['obj']
   fp[node['name']] = {
     'FParameters': [],
     'Methods': {}
@@ -517,24 +518,47 @@ for (let i = 0; i < sklearnMetrics['node_functions'].length; i++) {
   for (let i = 0; i < node['inputs'].length; i++) {
     let inp = node['inputs'][i]
     fp[node['name']]['FParameters'].push({
-      // 'param_type': inp['param_type'],
-      // 'display_name': inp['name'],
+      'param_type': inp['param_type'],
+      'display_name': inp['name'],
       'name': inp['name'],
       'value': inp['default_value'],
       'desc': inp['docstring'],
       'is_optional': inp['is_optional']
     })
   }
-  for (let i = 0; i < node['outputs'].length; i++) {
-    let op = node['outputs'][i]
-    fp[node['name']]['Methods'][op['name']] = {}
-    fp[node['name']]['Methods'][op['name']]['outputs'] = [{
-      // 'display_name': op['name'],
-      'desc': op['docstring'],
-      'name': op['name']
-    }]
+  for (let f = 0; f < node['node_functions'].length; f++) {
+    let func = node['node_functions'][f]
+    let n = func['name'].split('')[0]
+    mf = []
+    lf = []
+    if (n !== '_') {
+      fp[node['name']]['Methods'][func['name']] = {}
+      nf.push(func['name'])
+      for (let m = 0; m < func['inputs'].length; m++) {
+        let methinp = func['inputs'][m]
+        mf.push({
+          'name': methinp['name'],
+          'docstring': methinp['docstring'],
+          'param_type': methinp['param_type'],
+          'is_optional': methinp['is_optional']
+        })
+      }
+      for (let m = 0; m < func['outputs'].length; m++) {
+        let methop = func['outputs'][m]
+        lf.push({
+          'name': methop['name'],
+          'docstring': methop['docstring'],
+          'param_type': methop['param_type'],
+          'is_optional': methop['is_optional']
+        })
+      }
+      fp[node['name']]['Methods'][func['name']]['inputs'] = mf
+      fp[node['name']]['Methods'][func['name']]['outputs'] = lf
+    }
   }
+  lh['Optimize']['Metrics']['sklearn']['functions'].push(nf)
 }
+
 // SKLEARN MODEL SELECTION
 for (let i = 0; i < sklearnModelSelection['nodes'].length; i++) {
   let node = sklearnModelSelection['nodes'][i]
