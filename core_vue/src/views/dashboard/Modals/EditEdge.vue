@@ -5,6 +5,9 @@
     <template v-for='input in inputs'>
       <b-form-group>
         <label :for=input.name>{{input.name}}</label>
+         <div class='alert alert-light' v-if='!isHidden2'>
+                    {{input.docstring}}
+                  </div>
         <b-form-checkbox type="" :id=input.name placeholder="Enter Value" v-model="input.value" value=true unchecked-value=false></b-form-checkbox>
       </b-form-group>
     </template>
