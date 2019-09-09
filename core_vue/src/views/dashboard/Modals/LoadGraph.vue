@@ -101,25 +101,29 @@ export default {
       }
       let graphData = JSON.parse(graph.content)
       for (var nodekey in graphData.elements.nodes) {
-        var key2 = graphData.elements.nodes[nodekey]['data']['name'].split(':')[1]
-        console.log('sskey2', key2)
-        if (key2 === ' CSV' || key2 === ' Chemical') {
-          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#000'}
-        }
-        if (key2 === ' Dimensionality Reduction') {
-          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#a00'}
-        }
-        if (key2 === ' Preprocessing' || key2 === ' Data Splitting') {
-          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#00a'}
-        }
-        if (key2 === ' Linear' || key2 === ' Neural Network' || key2 === ' Support Vector Machines') {
-          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#aa0'}
-        }
-        if (key2 === ' Selection' || key2 === ' Metrics') {
-          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#0a0'}
-        }
-        if (key2 === ' Store Data' || key2 === ' Store Plot') {
-          graphData.elements.nodes[nodekey]['style'] = {'background-color': '#a0a'}
+        if (graphData.elements.nodes[nodekey]['data']['name']) {
+          var key2 = graphData.elements.nodes[nodekey]['data']['name'].split(':')[1]
+          console.log('sskey2', key2)
+          if (key2 === ' CSV' || key2 === ' Chemical') {
+            graphData.elements.nodes[nodekey]['style'] = {'background-color': '#000'}
+          }
+          if (key2 === ' Dimensionality Reduction') {
+            graphData.elements.nodes[nodekey]['style'] = {'background-color': '#a00'}
+          }
+          if (key2 === ' Preprocessing' || key2 === ' Data Splitting') {
+            graphData.elements.nodes[nodekey]['style'] = {'background-color': '#00a'}
+          }
+          if (key2 === ' Linear' || key2 === ' Neural Network' || key2 === ' Support Vector Machines') {
+            graphData.elements.nodes[nodekey]['style'] = {'background-color': '#aa0'}
+          }
+          if (key2 === ' Selection' || key2 === ' Metrics') {
+            graphData.elements.nodes[nodekey]['style'] = {'background-color': '#0a0'}
+          }
+          if (key2 === ' Store Data' || key2 === ' Store Plot') {
+            graphData.elements.nodes[nodekey]['style'] = {'background-color': '#a0a'}
+          }
+        } else {
+          continue
         }
       }
       this.cy.json(graphData)
