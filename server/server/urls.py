@@ -4,10 +4,14 @@ from django.views.generic import TemplateView
 from django.urls import path,re_path
 from server.api import views
 urlpatterns = [
-    url(r'.api/', include('server.api.urls')),
-    url(r'.auth/', include('rest_auth.urls')),
-    url(r'.registration/', include('rest_auth.registration.urls')),
-    url(r'.admin/', admin.site.urls),
+    url(r'^api/', include('server.api.urls')),
+    url(r'^auth/', include('rest_auth.urls')),
+    url(r'^registration/', include('rest_auth.registration.urls')),
+    url(r'^admin/', admin.site.urls),
+    url(r'^/api/', include('server.api.urls')),
+    url(r'^/auth/', include('rest_auth.urls')),
+    url(r'^/admin/', admin.site.urls),
+    url(r'^/registration/', include('rest_auth.registration.urls')),
     path('', TemplateView.as_view(template_name='index.html')),
     path('/', TemplateView.as_view(template_name='index.html')),
     path('.visualize/', TemplateView.as_view(template_name='home.html')),
