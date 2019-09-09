@@ -34,7 +34,8 @@
                 <div>
                   <h2>Sign up</h2>
                   <p> Register now to use the MaDE@UB Machine Learning Toolkit with interactive graphical user interface to perform machine learning tasks on your datasets.</p>
-                  <b-button variant="primary" class="active mt-3">Register Now!</b-button>
+                  <p> click below to send mail to our system administerators to create account</p>
+                  <a href="mailto:sahmed9@buffalo.edu"><b-button variant="primary" class="active mt-3">Register Now!</b-button></a>
                 </div>
               </b-card-body>
             </b-card>
