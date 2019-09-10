@@ -1,0 +1,89 @@
+{
+  "gui_format": {},
+  "nodes": {
+    "ID1": {
+      "inputs": {},
+      "library": "chemml",
+      "method": {},
+      "module": "datasets",
+      "name": "load_xyz_polarizability",
+      "outputs": {
+        "molecules": true,
+        "pol": true
+      }
+    },
+    "ID2": {
+      "inputs": {
+        "cm_type": "SC",
+        "n_jobs": 1
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "molecules": "@ID1@molecules"
+        },
+        "name": "represent",
+        "outputs": {
+          "features": true
+        }
+      },
+      "module": "chem",
+      "name": "CoulombMatrix",
+      "outputs": {}
+    },
+    "ID3": {
+      "inputs": {
+        "n_jobs": 1
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "molecules": "@ID1@molecules"
+        },
+        "name": "represent",
+        "outputs": {
+          "features": true
+        }
+      },
+      "module": "chem",
+      "name": "BagofBonds",
+      "outputs": {}
+    },
+    "ID4": {
+      "inputs": {
+        "file_path": "3d/coulmat.csv"
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "X": "@ID2@features"
+        },
+        "name": "write",
+        "outputs": {}
+      },
+      "module": "wrapper.preprocessing",
+      "name": "SaveCSV",
+      "outputs": {}
+    },
+    "ID5": {
+      "inputs": {
+        "file_path": "3d/bagofbond.csv"
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "X": "@ID3@features"
+        },
+        "name": "write",
+        "outputs": {}
+      },
+      "module": "wrapper.preprocessing",
+      "name": "SaveCSV",
+      "outputs": {}
+    }
+  },
+  "template": {
+    "description": "A template workflow for calculating 3D descriptors for organic molecules.",
+    "id": 1
+  }
+}

@@ -23,11 +23,11 @@ def xsum(numbers):
 
 @shared_task
 def run_cheml(data):
-    print("in server.api.tasks.run_cheml ---------!!", )
+    print("in server.api.tasks.run_cheml ---------!!",data )
     # cmls, dep_lists, comp_graph = parse_graph(data)
     # with open('data.json', 'w'):
     #   json.dump(parse_graph(data), fp)
 
     # return ChemMLWrapperRun('data.json', '~/Documents/reps/tmp')
-    return ChemMLWrapperRun(parse_graph(data), '~/Documents/reps/tmp')
+    return ChemMLWrapperRun(parse_graph(data), 'output/'+str(data['graph_id']))
 

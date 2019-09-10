@@ -1,0 +1,294 @@
+09/10/2019 01:30:10 AM =================================================
+09/10/2019 01:30:10 AM ChemMLWrapper 0.6.0 (August 2019)
+09/10/2019 01:30:10 AM Mojtaba Haghighatlari (mojtabah@buffalo.edu)
+09/10/2019 01:30:10 AM Johannes Hachmann (hachmann@buffalo.edu)
+09/10/2019 01:30:10 AM =================================================
+09/10/2019 01:30:10 AM Tue Sep 10 01:30:10 2019
+09/10/2019 01:30:10 AM 
+09/10/2019 01:30:10 AM parsing the input dictionary ...
+
+09/10/2019 01:30:10 AM 1   ID1: read_csv (pandas)
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         nothing to receive!
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         ID2
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM 2   ID2: StandardScaler (sklearn)
+09/10/2019 01:30:10 AM         method = fit_transform
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         ID1
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         ID3
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM 3   ID3: PCA (sklearn)
+09/10/2019 01:30:10 AM         method = fit_transform
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         ID2
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         ID4
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM 4   ID4: SplitColumns (chemml)
+09/10/2019 01:30:10 AM         method = fit
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         ID3
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         ID5
+09/10/2019 01:30:10 AM         ID5
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM 5   ID5: train_test_split (sklearn)
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         ID4
+09/10/2019 01:30:10 AM         ID4
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         ID6
+09/10/2019 01:30:10 AM         ID6
+09/10/2019 01:30:10 AM         ID7
+09/10/2019 01:30:10 AM         ID8
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM 6   ID6: LinearRegression (sklearn)
+09/10/2019 01:30:10 AM         method = fit
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         ID5
+09/10/2019 01:30:10 AM         ID5
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         ID7
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM 7   ID7: LinearRegression (sklearn)
+09/10/2019 01:30:10 AM         method = predict
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         ID6
+09/10/2019 01:30:10 AM         ID5
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         ID8
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM 8   ID8: mean_absolute_error (sklearn)
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         ID5
+09/10/2019 01:30:10 AM         ID7
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         ID9
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM 9   ID9: SaveFile (chemml)
+09/10/2019 01:30:10 AM         method = write
+09/10/2019 01:30:10 AM         <<<<<<< receive from:
+09/10/2019 01:30:10 AM         ID8
+09/10/2019 01:30:10 AM         >>>>>>> send to:
+09/10/2019 01:30:10 AM         nothing to send!
+09/10/2019 01:30:10 AM         
+09/10/2019 01:30:10 AM =================================================
+09/10/2019 01:30:10 AM * Based on the dependencies, we run nodes in the 
+09/10/2019 01:30:10 AM   following order:
+09/10/2019 01:30:10 AM   ['ID1']
+09/10/2019 01:30:10 AM   ['ID2']
+09/10/2019 01:30:10 AM   ['ID3']
+09/10/2019 01:30:10 AM   ['ID4']
+09/10/2019 01:30:10 AM   ['ID5']
+09/10/2019 01:30:10 AM   ['ID6']
+09/10/2019 01:30:10 AM   ['ID7']
+09/10/2019 01:30:10 AM   ['ID8']
+09/10/2019 01:30:10 AM   ['ID9']
+09/10/2019 01:30:10 AM * The outputs will be stored in the following 
+09/10/2019 01:30:10 AM directory: output/48-2
+09/10/2019 01:30:10 AM 
+
+09/10/2019 01:30:10 AM ======= node ID#ID1: (read_csv, pandas)
+09/10/2019 01:30:10 AM | run ...
+
+09/10/2019 01:30:10 AM ... preparing outputs:
+09/10/2019 01:30:10 AM       name: df
+09/10/2019 01:30:10 AM       size: 60744 bytes (total: 60744 bytes)
+09/10/2019 01:30:10 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:30:10 AM       shape: (506, 14)
+09/10/2019 01:30:10 AM       -----
+09/10/2019 01:30:10 AM 
+
+09/10/2019 01:30:10 AM | ... done!
+09/10/2019 01:30:10 AM | execution time: 0.01s (0h 0m 0.01s)
+09/10/2019 01:30:10 AM =======
+
+
+09/10/2019 01:30:10 AM ======= node ID#ID2: (StandardScaler, sklearn)
+09/10/2019 01:30:10 AM | run ...
+
+09/10/2019 01:30:11 AM ... preparing outputs:
+09/10/2019 01:30:11 AM       name: X_new
+09/10/2019 01:30:11 AM       size: 112 bytes (total: 112 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (506, 14)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM 
+
+09/10/2019 01:30:11 AM | ... done!
+09/10/2019 01:30:11 AM | execution time: 0.19s (0h 0m 0.19s)
+09/10/2019 01:30:11 AM =======
+
+
+09/10/2019 01:30:11 AM ======= node ID#ID3: (PCA, sklearn)
+09/10/2019 01:30:11 AM | run ...
+
+09/10/2019 01:30:11 AM ... preparing outputs:
+09/10/2019 01:30:11 AM       name: X_new
+09/10/2019 01:30:11 AM       size: 112 bytes (total: 112 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (506, 14)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM 
+
+09/10/2019 01:30:11 AM | ... done!
+09/10/2019 01:30:11 AM | execution time: 0.02s (0h 0m 0.02s)
+09/10/2019 01:30:11 AM =======
+
+
+09/10/2019 01:30:11 AM ======= node ID#ID4: (SplitColumns, chemml)
+09/10/2019 01:30:11 AM | run ...
+
+09/10/2019 01:30:11 AM ... preparing outputs:
+09/10/2019 01:30:11 AM       name: X1
+09/10/2019 01:30:11 AM       size: 112 bytes (total: 112 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (506, 1)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM       name: X2
+09/10/2019 01:30:11 AM       size: 112 bytes (total: 224 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (506, 13)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM 
+
+09/10/2019 01:30:11 AM | ... done!
+09/10/2019 01:30:11 AM | execution time: 0.03s (0h 0m 0.03s)
+09/10/2019 01:30:11 AM =======
+
+
+09/10/2019 01:30:11 AM ======= node ID#ID5: (train_test_split, sklearn)
+09/10/2019 01:30:11 AM | run ...
+
+09/10/2019 01:30:11 AM ... preparing outputs:
+09/10/2019 01:30:11 AM       name: train1
+09/10/2019 01:30:11 AM       size: 42128 bytes (total: 42128 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (404, 13)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM       name: test1
+09/10/2019 01:30:11 AM       size: 10720 bytes (total: 52848 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (102, 13)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM       name: train2
+09/10/2019 01:30:11 AM       size: 3344 bytes (total: 56192 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (404, 1)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM       name: test2
+09/10/2019 01:30:11 AM       size: 928 bytes (total: 57120 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (102, 1)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM 
+
+09/10/2019 01:30:11 AM | ... done!
+09/10/2019 01:30:11 AM | execution time: 0.00s (0h 0m 0.00s)
+09/10/2019 01:30:11 AM =======
+
+
+09/10/2019 01:30:11 AM ======= node ID#ID6: (LinearRegression, sklearn)
+09/10/2019 01:30:11 AM | run ...
+
+09/10/2019 01:30:11 AM ... preparing outputs:
+09/10/2019 01:30:11 AM       name: obj
+09/10/2019 01:30:11 AM       size: 56 bytes (total: 11704 bytes)
+09/10/2019 01:30:11 AM       type: <class 'sklearn.linear_model.base.LinearRegression'>
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM 
+
+09/10/2019 01:30:11 AM | ... done!
+09/10/2019 01:30:11 AM | execution time: 0.00s (0h 0m 0.00s)
+09/10/2019 01:30:11 AM =======
+
+
+09/10/2019 01:30:11 AM ======= node ID#ID7: (LinearRegression, sklearn)
+09/10/2019 01:30:11 AM | run ...
+
+09/10/2019 01:30:11 AM ... preparing outputs:
+09/10/2019 01:30:11 AM       name: C
+09/10/2019 01:30:11 AM       size: 928 bytes (total: 1856 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:30:11 AM       shape: (102, 1)
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM 
+
+09/10/2019 01:30:11 AM | ... done!
+09/10/2019 01:30:11 AM | execution time: 0.00s (0h 0m 0.00s)
+09/10/2019 01:30:11 AM =======
+
+
+09/10/2019 01:30:11 AM ======= node ID#ID8: (mean_absolute_error, sklearn)
+09/10/2019 01:30:11 AM | run ...
+
+09/10/2019 01:30:11 AM ... preparing outputs:
+09/10/2019 01:30:11 AM       name: loss
+09/10/2019 01:30:11 AM       size: 32 bytes (total: 32 bytes)
+09/10/2019 01:30:11 AM       type: <class 'numpy.float64'>
+09/10/2019 01:30:11 AM       -----
+09/10/2019 01:30:11 AM 
+
+09/10/2019 01:30:11 AM | ... done!
+09/10/2019 01:30:11 AM | execution time: 0.00s (0h 0m 0.00s)
+09/10/2019 01:30:11 AM =======
+
+
+09/10/2019 01:30:11 AM ======= node ID#ID9: (SaveFile, chemml)
+09/10/2019 01:30:11 AM | run ...
+
+09/10/2019 01:30:11 AM 
+
+09/10/2019 01:30:11 AM | ... done!
+09/10/2019 01:30:11 AM | execution time: 0.02s (0h 0m 0.02s)
+09/10/2019 01:30:11 AM =======
+
+
+09/10/2019 01:30:11 AM Total execution time: 0.28s (0h 0m 0.28s)
+09/10/2019 01:30:11 AM 2019-09-10 01:30:11
+
+09/10/2019 01:30:11 AM =================================================
+09/10/2019 01:30:11 AM Created new connection <sqlite3.Connection object at 0x7fadf5f44e30>
+09/10/2019 01:30:11 AM SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+09/10/2019 01:30:11 AM ()
+09/10/2019 01:30:11 AM SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+09/10/2019 01:30:11 AM ()
+09/10/2019 01:30:11 AM Connection <sqlite3.Connection object at 0x7fadf5f44e30> checked out from pool
+09/10/2019 01:30:11 AM PRAGMA main.table_info("celery_taskmeta")
+09/10/2019 01:30:11 AM ()
+09/10/2019 01:30:11 AM Col ('cid', 'name', 'type', 'notnull', 'dflt_value', 'pk')
+09/10/2019 01:30:11 AM Row (0, 'id', 'INTEGER', 1, None, 1)
+09/10/2019 01:30:11 AM Row (1, 'task_id', 'VARCHAR(155)', 0, None, 0)
+09/10/2019 01:30:11 AM Row (2, 'status', 'VARCHAR(50)', 0, None, 0)
+09/10/2019 01:30:11 AM Row (3, 'result', 'BLOB', 0, None, 0)
+09/10/2019 01:30:11 AM Row (4, 'date_done', 'DATETIME', 0, None, 0)
+09/10/2019 01:30:11 AM Row (5, 'traceback', 'TEXT', 0, None, 0)
+09/10/2019 01:30:11 AM PRAGMA main.table_info("celery_tasksetmeta")
+09/10/2019 01:30:11 AM ()
+09/10/2019 01:30:11 AM Col ('cid', 'name', 'type', 'notnull', 'dflt_value', 'pk')
+09/10/2019 01:30:11 AM Row (0, 'id', 'INTEGER', 1, None, 1)
+09/10/2019 01:30:11 AM Row (1, 'taskset_id', 'VARCHAR(155)', 0, None, 0)
+09/10/2019 01:30:11 AM Row (2, 'result', 'BLOB', 0, None, 0)
+09/10/2019 01:30:11 AM Row (3, 'date_done', 'DATETIME', 0, None, 0)
+09/10/2019 01:30:11 AM Connection <sqlite3.Connection object at 0x7fadf5f44e30> being returned to pool
+09/10/2019 01:30:11 AM Connection <sqlite3.Connection object at 0x7fadf5f44e30> rollback-on-return
+09/10/2019 01:30:11 AM Closing connection <sqlite3.Connection object at 0x7fadf5f44e30>
+09/10/2019 01:30:11 AM Created new connection <sqlite3.Connection object at 0x7fadf5df7ab0>
+09/10/2019 01:30:11 AM Connection <sqlite3.Connection object at 0x7fadf5df7ab0> checked out from pool
+09/10/2019 01:30:11 AM BEGIN (implicit)
+09/10/2019 01:30:11 AM SELECT celery_taskmeta.id AS celery_taskmeta_id, celery_taskmeta.task_id AS celery_taskmeta_task_id, celery_taskmeta.status AS celery_taskmeta_status, celery_taskmeta.result AS celery_taskmeta_result, celery_taskmeta.date_done AS celery_taskmeta_date_done, celery_taskmeta.traceback AS celery_taskmeta_traceback 
+FROM celery_taskmeta 
+WHERE celery_taskmeta.task_id = ?
+09/10/2019 01:30:11 AM ('e9df9eca-9be6-4ef4-8852-1a72e8a3ece3',)
+09/10/2019 01:30:11 AM Col ('celery_taskmeta_id', 'celery_taskmeta_task_id', 'celery_taskmeta_status', 'celery_taskmeta_result', 'celery_taskmeta_date_done', 'celery_taskmeta_traceback')
+09/10/2019 01:30:11 AM INSERT INTO celery_taskmeta (task_id, status, result, date_done, traceback) VALUES (?, ?, ?, ?, ?)
+09/10/2019 01:30:11 AM ('e9df9eca-9be6-4ef4-8852-1a72e8a3ece3', 'PENDING', None, '2019-09-10 01:30:11.258028', None)
+09/10/2019 01:30:11 AM UPDATE celery_taskmeta SET status=?, result=?, date_done=?, traceback=? WHERE celery_taskmeta.id = ?
+09/10/2019 01:30:11 AM ('SUCCESS', None, '2019-09-10 01:30:11.258873', None, 484)
+09/10/2019 01:30:11 AM COMMIT
+09/10/2019 01:30:11 AM Connection <sqlite3.Connection object at 0x7fadf5df7ab0> being returned to pool
+09/10/2019 01:30:11 AM Connection <sqlite3.Connection object at 0x7fadf5df7ab0> rollback-on-return
+09/10/2019 01:30:11 AM Closing connection <sqlite3.Connection object at 0x7fadf5df7ab0>

@@ -1,0 +1,263 @@
+09/10/2019 01:42:18 AM =================================================
+09/10/2019 01:42:18 AM ChemMLWrapper 0.6.0 (August 2019)
+09/10/2019 01:42:18 AM Mojtaba Haghighatlari (mojtabah@buffalo.edu)
+09/10/2019 01:42:18 AM Johannes Hachmann (hachmann@buffalo.edu)
+09/10/2019 01:42:18 AM =================================================
+09/10/2019 01:42:18 AM Tue Sep 10 01:42:18 2019
+09/10/2019 01:42:18 AM 
+09/10/2019 01:42:18 AM parsing the input dictionary ...
+
+09/10/2019 01:42:18 AM 1   ID1: load_xyz_polarizability (chemml)
+09/10/2019 01:42:18 AM         <<<<<<< receive from:
+09/10/2019 01:42:18 AM         nothing to receive!
+09/10/2019 01:42:18 AM         >>>>>>> send to:
+09/10/2019 01:42:18 AM         ID2
+09/10/2019 01:42:18 AM         ID5
+09/10/2019 01:42:18 AM         
+09/10/2019 01:42:18 AM 2   ID2: CoulombMatrix (chemml)
+09/10/2019 01:42:18 AM         method = represent
+09/10/2019 01:42:18 AM         <<<<<<< receive from:
+09/10/2019 01:42:18 AM         ID1
+09/10/2019 01:42:18 AM         >>>>>>> send to:
+09/10/2019 01:42:18 AM         ID4
+09/10/2019 01:42:18 AM         ID5
+09/10/2019 01:42:18 AM         
+09/10/2019 01:42:18 AM 3   ID4: SaveCSV (chemml)
+09/10/2019 01:42:18 AM         method = write
+09/10/2019 01:42:18 AM         <<<<<<< receive from:
+09/10/2019 01:42:18 AM         ID2
+09/10/2019 01:42:18 AM         >>>>>>> send to:
+09/10/2019 01:42:18 AM         nothing to send!
+09/10/2019 01:42:18 AM         
+09/10/2019 01:42:18 AM 4   ID5: train_test_split (sklearn)
+09/10/2019 01:42:18 AM         <<<<<<< receive from:
+09/10/2019 01:42:18 AM         ID2
+09/10/2019 01:42:18 AM         ID1
+09/10/2019 01:42:18 AM         >>>>>>> send to:
+09/10/2019 01:42:18 AM         ID6
+09/10/2019 01:42:18 AM         ID6
+09/10/2019 01:42:18 AM         ID7
+09/10/2019 01:42:18 AM         ID8
+09/10/2019 01:42:18 AM         
+09/10/2019 01:42:18 AM 5   ID6: SVR (sklearn)
+09/10/2019 01:42:18 AM         method = fit
+09/10/2019 01:42:18 AM         <<<<<<< receive from:
+09/10/2019 01:42:18 AM         ID5
+09/10/2019 01:42:18 AM         ID5
+09/10/2019 01:42:18 AM         >>>>>>> send to:
+09/10/2019 01:42:18 AM         ID7
+09/10/2019 01:42:18 AM         
+09/10/2019 01:42:18 AM 6   ID7: SVR (sklearn)
+09/10/2019 01:42:18 AM         method = predict
+09/10/2019 01:42:18 AM         <<<<<<< receive from:
+09/10/2019 01:42:18 AM         ID6
+09/10/2019 01:42:18 AM         ID5
+09/10/2019 01:42:18 AM         >>>>>>> send to:
+09/10/2019 01:42:18 AM         ID8
+09/10/2019 01:42:18 AM         
+09/10/2019 01:42:18 AM 7   ID8: mean_absolute_error (sklearn)
+09/10/2019 01:42:18 AM         <<<<<<< receive from:
+09/10/2019 01:42:18 AM         ID5
+09/10/2019 01:42:18 AM         ID7
+09/10/2019 01:42:18 AM         >>>>>>> send to:
+09/10/2019 01:42:18 AM         ID9
+09/10/2019 01:42:18 AM         
+09/10/2019 01:42:18 AM 8   ID9: SaveFile (chemml)
+09/10/2019 01:42:18 AM         method = write
+09/10/2019 01:42:18 AM         <<<<<<< receive from:
+09/10/2019 01:42:18 AM         ID8
+09/10/2019 01:42:18 AM         >>>>>>> send to:
+09/10/2019 01:42:18 AM         nothing to send!
+09/10/2019 01:42:18 AM         
+09/10/2019 01:42:18 AM =================================================
+09/10/2019 01:42:18 AM * Based on the dependencies, we run nodes in the 
+09/10/2019 01:42:18 AM   following order:
+09/10/2019 01:42:18 AM   ['ID1']
+09/10/2019 01:42:18 AM   ['ID2']
+09/10/2019 01:42:18 AM   ['ID4', 'ID5']
+09/10/2019 01:42:18 AM   ['ID6']
+09/10/2019 01:42:18 AM   ['ID7']
+09/10/2019 01:42:18 AM   ['ID8']
+09/10/2019 01:42:18 AM   ['ID9']
+09/10/2019 01:42:18 AM * The outputs will be stored in the following 
+09/10/2019 01:42:18 AM directory: output/51-2
+09/10/2019 01:42:18 AM 
+
+09/10/2019 01:42:18 AM ======= node ID#ID1: (load_xyz_polarizability, chemml)
+09/10/2019 01:42:18 AM | run ...
+
+09/10/2019 01:42:19 AM ... preparing outputs:
+09/10/2019 01:42:19 AM       name: molecules
+09/10/2019 01:42:19 AM       size: 528 bytes (total: 528 bytes)
+09/10/2019 01:42:19 AM       type: <class 'list'>
+09/10/2019 01:42:19 AM       -----
+09/10/2019 01:42:19 AM       name: pol
+09/10/2019 01:42:19 AM       size: 552 bytes (total: 1080 bytes)
+09/10/2019 01:42:19 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:42:19 AM       shape: (50, 1)
+09/10/2019 01:42:19 AM       -----
+09/10/2019 01:42:19 AM 
+
+09/10/2019 01:42:19 AM | ... done!
+09/10/2019 01:42:19 AM | execution time: 0.88s (0h 0m 0.88s)
+09/10/2019 01:42:19 AM =======
+
+
+09/10/2019 01:42:19 AM ======= node ID#ID2: (CoulombMatrix, chemml)
+09/10/2019 01:42:19 AM | run ...
+
+09/10/2019 01:42:20 AM ... preparing outputs:
+09/10/2019 01:42:20 AM       name: features
+09/10/2019 01:42:20 AM       size: 238152 bytes (total: 238704 bytes)
+09/10/2019 01:42:20 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:42:20 AM       shape: (50, 595)
+09/10/2019 01:42:20 AM       -----
+09/10/2019 01:42:20 AM 
+
+09/10/2019 01:42:20 AM | ... done!
+09/10/2019 01:42:20 AM | execution time: 1.21s (0h 0m 1.21s)
+09/10/2019 01:42:20 AM =======
+
+
+09/10/2019 01:42:20 AM ======= node ID#ID4: (SaveCSV, chemml)
+09/10/2019 01:42:20 AM | run ...
+
+09/10/2019 01:42:20 AM 
+
+09/10/2019 01:42:20 AM | ... done!
+09/10/2019 01:42:20 AM | execution time: 0.03s (0h 0m 0.03s)
+09/10/2019 01:42:20 AM =======
+
+
+09/10/2019 01:42:20 AM ======= node ID#ID5: (train_test_split, sklearn)
+09/10/2019 01:42:20 AM | run ...
+
+09/10/2019 01:42:20 AM ... preparing outputs:
+09/10/2019 01:42:20 AM       name: train1
+09/10/2019 01:42:20 AM       size: 190744 bytes (total: 190744 bytes)
+09/10/2019 01:42:20 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:42:20 AM       shape: (40, 595)
+09/10/2019 01:42:20 AM       -----
+09/10/2019 01:42:20 AM       name: test1
+09/10/2019 01:42:20 AM       size: 47704 bytes (total: 238448 bytes)
+09/10/2019 01:42:20 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:42:20 AM       shape: (10, 595)
+09/10/2019 01:42:20 AM       -----
+09/10/2019 01:42:20 AM       name: train2
+09/10/2019 01:42:20 AM       size: 664 bytes (total: 239112 bytes)
+09/10/2019 01:42:20 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:42:20 AM       shape: (40, 1)
+09/10/2019 01:42:20 AM       -----
+09/10/2019 01:42:20 AM       name: test2
+09/10/2019 01:42:20 AM       size: 184 bytes (total: 239296 bytes)
+09/10/2019 01:42:20 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:42:20 AM       shape: (10, 1)
+09/10/2019 01:42:20 AM       -----
+09/10/2019 01:42:20 AM 
+
+09/10/2019 01:42:20 AM | ... done!
+09/10/2019 01:42:20 AM | execution time: 0.34s (0h 0m 0.34s)
+09/10/2019 01:42:20 AM =======
+
+
+09/10/2019 01:42:20 AM ======= node ID#ID6: (SVR, sklearn)
+09/10/2019 01:42:20 AM | run ...
+
+09/10/2019 01:42:20 AM ... preparing outputs:
+09/10/2019 01:42:20 AM       name: obj
+09/10/2019 01:42:20 AM       size: 56 bytes (total: 47944 bytes)
+09/10/2019 01:42:20 AM       type: <class 'sklearn.svm.classes.SVR'>
+09/10/2019 01:42:20 AM       -----
+09/10/2019 01:42:20 AM 
+
+09/10/2019 01:42:20 AM | ... done!
+09/10/2019 01:42:20 AM | execution time: 0.01s (0h 0m 0.01s)
+09/10/2019 01:42:20 AM =======
+
+
+09/10/2019 01:42:20 AM ======= node ID#ID7: (SVR, sklearn)
+09/10/2019 01:42:20 AM | run ...
+
+09/10/2019 01:42:20 AM ... preparing outputs:
+09/10/2019 01:42:20 AM       name: y_pred
+09/10/2019 01:42:20 AM       size: 176 bytes (total: 360 bytes)
+09/10/2019 01:42:20 AM       type: <class 'numpy.ndarray'>
+09/10/2019 01:42:20 AM       shape: (10,)
+09/10/2019 01:42:20 AM       -----
+09/10/2019 01:42:20 AM 
+
+09/10/2019 01:42:20 AM | ... done!
+09/10/2019 01:42:20 AM | execution time: 0.00s (0h 0m 0.00s)
+09/10/2019 01:42:20 AM =======
+
+
+09/10/2019 01:42:20 AM ======= node ID#ID8: (mean_absolute_error, sklearn)
+09/10/2019 01:42:20 AM | run ...
+
+09/10/2019 01:42:20 AM ... preparing outputs:
+09/10/2019 01:42:20 AM       name: loss
+09/10/2019 01:42:20 AM       size: 32 bytes (total: 32 bytes)
+09/10/2019 01:42:20 AM       type: <class 'numpy.float64'>
+09/10/2019 01:42:20 AM       -----
+09/10/2019 01:42:20 AM 
+
+09/10/2019 01:42:20 AM | ... done!
+09/10/2019 01:42:20 AM | execution time: 0.00s (0h 0m 0.00s)
+09/10/2019 01:42:20 AM =======
+
+
+09/10/2019 01:42:20 AM ======= node ID#ID9: (SaveFile, chemml)
+09/10/2019 01:42:20 AM | run ...
+
+09/10/2019 01:42:20 AM 
+
+09/10/2019 01:42:20 AM | ... done!
+09/10/2019 01:42:20 AM | execution time: 0.00s (0h 0m 0.00s)
+09/10/2019 01:42:20 AM =======
+
+
+09/10/2019 01:42:20 AM Total execution time: 2.48s (0h 0m 2.48s)
+09/10/2019 01:42:20 AM 2019-09-10 01:42:20
+
+09/10/2019 01:42:20 AM =================================================
+09/10/2019 01:42:20 AM Created new connection <sqlite3.Connection object at 0x7fadcc989e30>
+09/10/2019 01:42:20 AM SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+09/10/2019 01:42:20 AM ()
+09/10/2019 01:42:20 AM SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+09/10/2019 01:42:20 AM ()
+09/10/2019 01:42:20 AM Connection <sqlite3.Connection object at 0x7fadcc989e30> checked out from pool
+09/10/2019 01:42:20 AM PRAGMA main.table_info("celery_taskmeta")
+09/10/2019 01:42:20 AM ()
+09/10/2019 01:42:20 AM Col ('cid', 'name', 'type', 'notnull', 'dflt_value', 'pk')
+09/10/2019 01:42:20 AM Row (0, 'id', 'INTEGER', 1, None, 1)
+09/10/2019 01:42:20 AM Row (1, 'task_id', 'VARCHAR(155)', 0, None, 0)
+09/10/2019 01:42:20 AM Row (2, 'status', 'VARCHAR(50)', 0, None, 0)
+09/10/2019 01:42:20 AM Row (3, 'result', 'BLOB', 0, None, 0)
+09/10/2019 01:42:20 AM Row (4, 'date_done', 'DATETIME', 0, None, 0)
+09/10/2019 01:42:20 AM Row (5, 'traceback', 'TEXT', 0, None, 0)
+09/10/2019 01:42:20 AM PRAGMA main.table_info("celery_tasksetmeta")
+09/10/2019 01:42:20 AM ()
+09/10/2019 01:42:20 AM Col ('cid', 'name', 'type', 'notnull', 'dflt_value', 'pk')
+09/10/2019 01:42:20 AM Row (0, 'id', 'INTEGER', 1, None, 1)
+09/10/2019 01:42:20 AM Row (1, 'taskset_id', 'VARCHAR(155)', 0, None, 0)
+09/10/2019 01:42:20 AM Row (2, 'result', 'BLOB', 0, None, 0)
+09/10/2019 01:42:20 AM Row (3, 'date_done', 'DATETIME', 0, None, 0)
+09/10/2019 01:42:20 AM Connection <sqlite3.Connection object at 0x7fadcc989e30> being returned to pool
+09/10/2019 01:42:20 AM Connection <sqlite3.Connection object at 0x7fadcc989e30> rollback-on-return
+09/10/2019 01:42:20 AM Closing connection <sqlite3.Connection object at 0x7fadcc989e30>
+09/10/2019 01:42:20 AM Created new connection <sqlite3.Connection object at 0x7fadcc720570>
+09/10/2019 01:42:20 AM Connection <sqlite3.Connection object at 0x7fadcc720570> checked out from pool
+09/10/2019 01:42:20 AM BEGIN (implicit)
+09/10/2019 01:42:20 AM SELECT celery_taskmeta.id AS celery_taskmeta_id, celery_taskmeta.task_id AS celery_taskmeta_task_id, celery_taskmeta.status AS celery_taskmeta_status, celery_taskmeta.result AS celery_taskmeta_result, celery_taskmeta.date_done AS celery_taskmeta_date_done, celery_taskmeta.traceback AS celery_taskmeta_traceback 
+FROM celery_taskmeta 
+WHERE celery_taskmeta.task_id = ?
+09/10/2019 01:42:20 AM ('d680161d-9d28-4f39-b6e9-b5c58d86c1b4',)
+09/10/2019 01:42:20 AM Col ('celery_taskmeta_id', 'celery_taskmeta_task_id', 'celery_taskmeta_status', 'celery_taskmeta_result', 'celery_taskmeta_date_done', 'celery_taskmeta_traceback')
+09/10/2019 01:42:20 AM INSERT INTO celery_taskmeta (task_id, status, result, date_done, traceback) VALUES (?, ?, ?, ?, ?)
+09/10/2019 01:42:20 AM ('d680161d-9d28-4f39-b6e9-b5c58d86c1b4', 'PENDING', None, '2019-09-10 01:42:20.754310', None)
+09/10/2019 01:42:20 AM UPDATE celery_taskmeta SET status=?, result=?, date_done=?, traceback=? WHERE celery_taskmeta.id = ?
+09/10/2019 01:42:20 AM ('SUCCESS', None, '2019-09-10 01:42:20.755082', None, 487)
+09/10/2019 01:42:20 AM COMMIT
+09/10/2019 01:42:20 AM Connection <sqlite3.Connection object at 0x7fadcc720570> being returned to pool
+09/10/2019 01:42:20 AM Connection <sqlite3.Connection object at 0x7fadcc720570> rollback-on-return
+09/10/2019 01:42:20 AM Closing connection <sqlite3.Connection object at 0x7fadcc720570>
