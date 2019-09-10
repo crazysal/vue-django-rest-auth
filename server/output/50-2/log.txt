@@ -1,0 +1,166 @@
+09/10/2019 01:42:09 AM =================================================
+09/10/2019 01:42:09 AM ChemMLWrapper 0.6.0 (August 2019)
+09/10/2019 01:42:09 AM Mojtaba Haghighatlari (mojtabah@buffalo.edu)
+09/10/2019 01:42:09 AM Johannes Hachmann (hachmann@buffalo.edu)
+09/10/2019 01:42:09 AM =================================================
+09/10/2019 01:42:09 AM Tue Sep 10 01:42:09 2019
+09/10/2019 01:42:09 AM 
+09/10/2019 01:42:09 AM parsing the input dictionary ...
+
+09/10/2019 01:42:09 AM 1   ID1: load_xyz_polarizability (chemml)
+09/10/2019 01:42:09 AM         <<<<<<< receive from:
+09/10/2019 01:42:09 AM         nothing to receive!
+09/10/2019 01:42:09 AM         >>>>>>> send to:
+09/10/2019 01:42:09 AM         ID2
+09/10/2019 01:42:09 AM         ID3
+09/10/2019 01:42:09 AM         
+09/10/2019 01:42:09 AM 2   ID2: CoulombMatrix (chemml)
+09/10/2019 01:42:09 AM         method = represent
+09/10/2019 01:42:09 AM         <<<<<<< receive from:
+09/10/2019 01:42:09 AM         ID1
+09/10/2019 01:42:09 AM         >>>>>>> send to:
+09/10/2019 01:42:09 AM         ID4
+09/10/2019 01:42:09 AM         
+09/10/2019 01:42:09 AM 3   ID3: BagofBonds (chemml)
+09/10/2019 01:42:09 AM         method = represent
+09/10/2019 01:42:09 AM         <<<<<<< receive from:
+09/10/2019 01:42:09 AM         ID1
+09/10/2019 01:42:09 AM         >>>>>>> send to:
+09/10/2019 01:42:09 AM         ID5
+09/10/2019 01:42:09 AM         
+09/10/2019 01:42:09 AM 4   ID4: SaveCSV (chemml)
+09/10/2019 01:42:09 AM         method = write
+09/10/2019 01:42:09 AM         <<<<<<< receive from:
+09/10/2019 01:42:09 AM         ID2
+09/10/2019 01:42:09 AM         >>>>>>> send to:
+09/10/2019 01:42:09 AM         nothing to send!
+09/10/2019 01:42:09 AM         
+09/10/2019 01:42:09 AM 5   ID5: SaveCSV (chemml)
+09/10/2019 01:42:09 AM         method = write
+09/10/2019 01:42:09 AM         <<<<<<< receive from:
+09/10/2019 01:42:09 AM         ID3
+09/10/2019 01:42:09 AM         >>>>>>> send to:
+09/10/2019 01:42:09 AM         nothing to send!
+09/10/2019 01:42:09 AM         
+09/10/2019 01:42:09 AM =================================================
+09/10/2019 01:42:09 AM * Based on the dependencies, we run nodes in the 
+09/10/2019 01:42:09 AM   following order:
+09/10/2019 01:42:09 AM   ['ID1']
+09/10/2019 01:42:09 AM   ['ID2', 'ID3']
+09/10/2019 01:42:09 AM   ['ID4', 'ID5']
+09/10/2019 01:42:09 AM * The outputs will be stored in the following 
+09/10/2019 01:42:09 AM directory: output/50-2
+09/10/2019 01:42:09 AM 
+
+09/10/2019 01:42:09 AM ======= node ID#ID1: (load_xyz_polarizability, chemml)
+09/10/2019 01:42:09 AM | run ...
+
+09/10/2019 01:42:09 AM ... preparing outputs:
+09/10/2019 01:42:09 AM       name: molecules
+09/10/2019 01:42:09 AM       size: 528 bytes (total: 528 bytes)
+09/10/2019 01:42:09 AM       type: <class 'list'>
+09/10/2019 01:42:09 AM       -----
+09/10/2019 01:42:09 AM 
+
+09/10/2019 01:42:09 AM | ... done!
+09/10/2019 01:42:09 AM | execution time: 0.87s (0h 0m 0.87s)
+09/10/2019 01:42:09 AM =======
+
+
+09/10/2019 01:42:09 AM ======= node ID#ID2: (CoulombMatrix, chemml)
+09/10/2019 01:42:09 AM | run ...
+
+09/10/2019 01:42:11 AM ... preparing outputs:
+09/10/2019 01:42:11 AM       name: features
+09/10/2019 01:42:11 AM       size: 238152 bytes (total: 238680 bytes)
+09/10/2019 01:42:11 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:42:11 AM       shape: (50, 595)
+09/10/2019 01:42:11 AM       -----
+09/10/2019 01:42:11 AM 
+
+09/10/2019 01:42:11 AM | ... done!
+09/10/2019 01:42:11 AM | execution time: 1.20s (0h 0m 1.20s)
+09/10/2019 01:42:11 AM =======
+
+
+09/10/2019 01:42:11 AM ======= node ID#ID3: (BagofBonds, chemml)
+09/10/2019 01:42:11 AM | run ...
+
+09/10/2019 01:42:12 AM ... preparing outputs:
+09/10/2019 01:42:12 AM       name: features
+09/10/2019 01:42:12 AM       size: 289752 bytes (total: 527904 bytes)
+09/10/2019 01:42:12 AM       type: <class 'pandas.core.frame.DataFrame'>
+09/10/2019 01:42:12 AM       shape: (50, 724)
+09/10/2019 01:42:12 AM       -----
+09/10/2019 01:42:12 AM 
+
+09/10/2019 01:42:12 AM | ... done!
+09/10/2019 01:42:12 AM | execution time: 1.53s (0h 0m 1.53s)
+09/10/2019 01:42:12 AM =======
+
+
+09/10/2019 01:42:12 AM ======= node ID#ID4: (SaveCSV, chemml)
+09/10/2019 01:42:12 AM | run ...
+
+09/10/2019 01:42:12 AM 
+
+09/10/2019 01:42:12 AM | ... done!
+09/10/2019 01:42:12 AM | execution time: 0.03s (0h 0m 0.03s)
+09/10/2019 01:42:12 AM =======
+
+
+09/10/2019 01:42:12 AM ======= node ID#ID5: (SaveCSV, chemml)
+09/10/2019 01:42:12 AM | run ...
+
+09/10/2019 01:42:12 AM 
+
+09/10/2019 01:42:12 AM | ... done!
+09/10/2019 01:42:12 AM | execution time: 0.04s (0h 0m 0.04s)
+09/10/2019 01:42:12 AM =======
+
+
+09/10/2019 01:42:12 AM Total execution time: 3.68s (0h 0m 3.68s)
+09/10/2019 01:42:12 AM 2019-09-10 01:42:12
+
+09/10/2019 01:42:12 AM =================================================
+09/10/2019 01:42:12 AM Created new connection <sqlite3.Connection object at 0x7faddc7e1e30>
+09/10/2019 01:42:12 AM SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+09/10/2019 01:42:12 AM ()
+09/10/2019 01:42:12 AM SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+09/10/2019 01:42:12 AM ()
+09/10/2019 01:42:12 AM Connection <sqlite3.Connection object at 0x7faddc7e1e30> checked out from pool
+09/10/2019 01:42:12 AM PRAGMA main.table_info("celery_taskmeta")
+09/10/2019 01:42:12 AM ()
+09/10/2019 01:42:12 AM Col ('cid', 'name', 'type', 'notnull', 'dflt_value', 'pk')
+09/10/2019 01:42:12 AM Row (0, 'id', 'INTEGER', 1, None, 1)
+09/10/2019 01:42:12 AM Row (1, 'task_id', 'VARCHAR(155)', 0, None, 0)
+09/10/2019 01:42:12 AM Row (2, 'status', 'VARCHAR(50)', 0, None, 0)
+09/10/2019 01:42:12 AM Row (3, 'result', 'BLOB', 0, None, 0)
+09/10/2019 01:42:12 AM Row (4, 'date_done', 'DATETIME', 0, None, 0)
+09/10/2019 01:42:12 AM Row (5, 'traceback', 'TEXT', 0, None, 0)
+09/10/2019 01:42:12 AM PRAGMA main.table_info("celery_tasksetmeta")
+09/10/2019 01:42:12 AM ()
+09/10/2019 01:42:12 AM Col ('cid', 'name', 'type', 'notnull', 'dflt_value', 'pk')
+09/10/2019 01:42:12 AM Row (0, 'id', 'INTEGER', 1, None, 1)
+09/10/2019 01:42:12 AM Row (1, 'taskset_id', 'VARCHAR(155)', 0, None, 0)
+09/10/2019 01:42:12 AM Row (2, 'result', 'BLOB', 0, None, 0)
+09/10/2019 01:42:12 AM Row (3, 'date_done', 'DATETIME', 0, None, 0)
+09/10/2019 01:42:12 AM Connection <sqlite3.Connection object at 0x7faddc7e1e30> being returned to pool
+09/10/2019 01:42:12 AM Connection <sqlite3.Connection object at 0x7faddc7e1e30> rollback-on-return
+09/10/2019 01:42:12 AM Closing connection <sqlite3.Connection object at 0x7faddc7e1e30>
+09/10/2019 01:42:12 AM Created new connection <sqlite3.Connection object at 0x7faddc7e1650>
+09/10/2019 01:42:12 AM Connection <sqlite3.Connection object at 0x7faddc7e1650> checked out from pool
+09/10/2019 01:42:12 AM BEGIN (implicit)
+09/10/2019 01:42:12 AM SELECT celery_taskmeta.id AS celery_taskmeta_id, celery_taskmeta.task_id AS celery_taskmeta_task_id, celery_taskmeta.status AS celery_taskmeta_status, celery_taskmeta.result AS celery_taskmeta_result, celery_taskmeta.date_done AS celery_taskmeta_date_done, celery_taskmeta.traceback AS celery_taskmeta_traceback 
+FROM celery_taskmeta 
+WHERE celery_taskmeta.task_id = ?
+09/10/2019 01:42:12 AM ('63067dcd-f318-4fab-8ca9-237880316f17',)
+09/10/2019 01:42:12 AM Col ('celery_taskmeta_id', 'celery_taskmeta_task_id', 'celery_taskmeta_status', 'celery_taskmeta_result', 'celery_taskmeta_date_done', 'celery_taskmeta_traceback')
+09/10/2019 01:42:12 AM INSERT INTO celery_taskmeta (task_id, status, result, date_done, traceback) VALUES (?, ?, ?, ?, ?)
+09/10/2019 01:42:12 AM ('63067dcd-f318-4fab-8ca9-237880316f17', 'PENDING', None, '2019-09-10 01:42:12.741480', None)
+09/10/2019 01:42:12 AM UPDATE celery_taskmeta SET status=?, result=?, date_done=?, traceback=? WHERE celery_taskmeta.id = ?
+09/10/2019 01:42:12 AM ('SUCCESS', None, '2019-09-10 01:42:12.742527', None, 486)
+09/10/2019 01:42:12 AM COMMIT
+09/10/2019 01:42:12 AM Connection <sqlite3.Connection object at 0x7faddc7e1650> being returned to pool
+09/10/2019 01:42:12 AM Connection <sqlite3.Connection object at 0x7faddc7e1650> rollback-on-return
+09/10/2019 01:42:12 AM Closing connection <sqlite3.Connection object at 0x7faddc7e1650>

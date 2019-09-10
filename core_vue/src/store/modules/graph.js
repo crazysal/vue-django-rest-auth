@@ -4,9 +4,9 @@ const state = {
   usergraphs: null,
   rootgraphs: null,
   error: false,
-  currentGraphId: '1',
+  currentGraphId: '48',
   currentGraphType: 'root',
-  currentGraphTitle: 'init_template',
+  currentGraphTitle: 'Boston House Prices',
   graphruns: null
 }
 

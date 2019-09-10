@@ -65,9 +65,9 @@ tmp_inp = {
       "library": "sklearn",
       "module": "preprocessing",
       "inputs": {
-        "copy": "true",
-        "with_mean": "true",
-        "with_std": "true"
+        "copy": True,
+        "with_mean": True,
+        "with_std": True
       },
       "method": {
         "name": "fit_transform",
@@ -75,7 +75,7 @@ tmp_inp = {
           "X": "@ID2@descriptors"
         },
         "outputs": {
-          "X_new": "true"
+          "X_new": True
         }
       },
       "outputs": {
@@ -92,7 +92,7 @@ tmp_inp = {
       "method": {
       },
       "outputs": {
-        "descriptors": "true"
+        "descriptors": True
       },
       "wrapper_io": {
       }
@@ -103,79 +103,468 @@ tmp_inp = {
 
 }
 
+bstn = {
+  "nodes": {
+    "ID1": {
+      "name": "read_csv",
+      "library": "pandas",
+      "module": "",
+      "inputs": {
+        "filepath_or_buffer": "~/tmp/Boston.csv",
+        "index_col": 0
+      },
+      "outputs": {
+        "df": True
+      },
+      "method": {}
+    },
+    "ID2": {
+      "name": "StandardScaler",
+      "library": "sklearn",
+      "module": "preprocessing",
+      "inputs": {},
+      "outputs": {},
+      "method": {
+        "name": "fit_transform",
+        "inputs": {
+          "X": "@ID1@df"
+        },
+        "outputs": {
+          "X_new": True
+        }
+      }
+    },
+    "ID3": {
+      "name": "PCA",
+      "library": "sklearn",
+      "module": "decomposition",
+      "inputs": {},
+      "outputs": {},
+      "method": {
+        "name": "fit_transform",
+        "inputs": {
+          "X": "@ID2@X_new"
+        },
+        "outputs": {
+          "X_new": True
+        }
+      }
+    },
+    "ID4": {
+      "name": "SplitColumns",
+      "library": "chemml",
+      "module": "wrapper.preprocessing",
+      "inputs": {
+        "selection": -1
+      },
+      "outputs": {},
+      "method": {
+        "name": "fit",
+        "inputs": {
+          "X": "@ID3@X_new"
+        },
+        "outputs": {
+          "X1": True,
+          "X2": True
+        }
+      }
+    },
+    "ID5": {
+      "name": "train_test_split",
+      "library": "sklearn",
+      "module": "model_selection",
+      "inputs": {
+        "*args": "@ID4@X2@ID4@X1",
+        "test_size": 0.2
+      },
+      "outputs": {
+        "train1": True,
+        "test1": True,
+        "train2": True,
+        "test2": True
+      },
+      "method": {}
+    },
+    "ID6": {
+      "name": "LinearRegression",
+      "library": "sklearn",
+      "module": "linear_model",
+      "inputs": {},
+      "outputs": {"obj": True},
+      "method": {
+        "name": "fit",
+        "inputs": {
+          "X": "@ID5@train1",
+          "y": "@ID5@train2"
+        },
+        "outputs": {}
+      }
+    },
+    "ID7": {
+      "name": "LinearRegression",
+      "library": "sklearn",
+      "module": "linear_model",
+      "inputs": {
+        "obj": "@ID6@obj"
+      },
+      "outputs": {},
+      "method": {
+        "name": "predict",
+        "inputs": {
+          "X": "@ID5@test1"
+        },
+        "outputs": {
+          "C": True
+        }
+      }
+    },
+    "ID8": {
+      "name": "mean_absolute_error",
+      "library": "sklearn",
+      "module": "metrics",
+      "inputs": {
+        "y_true": "@ID5@test2",
+        "y_pred": "@ID7@C"
+      },
+      "outputs": {
+        "loss": True
+      },
+      "method": {}
+    },
+    "ID9": {
+      "name": "SaveFile",
+      "library": "chemml",
+      "module": "wrapper.preprocessing",
+      "inputs": {
+        "file_path": "metric/mae.txt"
+      },
+      "outputs": {},
+      "method": {
+        "name": "write",
+        "inputs": {
+          "X": "@ID8@loss"
+        },
+        "outputs": {}
+      }
+    }
+  }
+}
+
+chem2 = {
+  "nodes" : {
+    "ID1": {
+      "name": "load_xyz_polarizability",
+      "library": "chemml",
+      "module": "datasets",
+      "inputs": {
+      },
+      "method": {
+      },
+      "outputs": {
+        "molecules": True,
+        "pol": True
+      }
+    },
+    "ID2": {
+      "name": "CoulombMatrix",
+      "library": "chemml",
+      "module": "chem",
+      "inputs": {
+        "cm_type": "SC",
+        "n_jobs": 1
+      },
+      "method": {
+        "name": "represent",
+        "inputs": {
+          "molecules": "@ID1@molecules"
+        },
+        "outputs": {
+          "features": True
+        }
+      },
+      "outputs": {}
+    },
+    "ID3": {
+      "name": "BagofBonds",
+      "library": "chemml",
+      "module": "chem",
+      "inputs": {
+        "n_jobs": 1
+      },
+      "method": {
+        "name": "represent",
+        "inputs": {
+          "molecules": "@ID1@molecules"
+        },
+        "outputs": {
+          "features": True
+        }
+      },
+      "outputs": {}
+    },
+    "ID4": {
+      "name": "SaveCSV",
+      "library": "chemml",
+      "module": "wrapper.preprocessing",
+      "inputs": {
+        "file_path": "3d/coulmat.csv"
+      },
+      "method": {
+        "name": "write",
+        "inputs": {
+          "X": "@ID2@features"
+        },
+        "outputs": {
+        }
+      },
+      "outputs": {}
+    },
+    "ID5": {
+      "name": "SaveCSV",
+      "library": "chemml",
+      "module": "wrapper.preprocessing",
+      "inputs": {
+        "file_path": "3d/bagofbond.csv"
+      },
+      "method": {
+        "name": "write",
+        "inputs": {
+          "X": "@ID3@features"
+        },
+        "outputs": {
+        }
+      },
+      "outputs": {}
+    }
+
+  },
+  "gui_format": {},
+  "template": {
+      "id": 1,
+      "description": "A template workflow for calculating 3D descriptors for organic molecules."
+  }
+}
+
+chemfull = {
+  "nodes" : {
+    "ID1": {
+      "name": "load_xyz_polarizability",
+      "library": "chemml",
+      "module": "datasets",
+      "inputs": {
+      },
+      "method": {
+      },
+      "outputs": {
+        "molecules": True,
+        "pol": True
+      }
+    },
+    "ID2": {
+      "name": "CoulombMatrix",
+      "library": "chemml",
+      "module": "chem",
+      "inputs": {
+        "cm_type": "SC",
+        "n_jobs": 1
+      },
+      "method": {
+        "name": "represent",
+        "inputs": {
+          "molecules": "@ID1@molecules"
+        },
+        "outputs": {
+          "features": True
+        }
+      },
+      "outputs": {}
+    },
+    "ID4": {
+      "name": "SaveCSV",
+      "library": "chemml",
+      "module": "wrapper.preprocessing",
+      "inputs": {
+        "file_path": "3d/coulmat.csv"
+      },
+      "method": {
+        "name": "write",
+        "inputs": {
+          "X": "@ID2@features"
+        },
+        "outputs": {
+        }
+      },
+      "outputs": {}
+    },
+    "ID5": {
+      "name": "train_test_split",
+      "library": "sklearn",
+      "module": "model_selection",
+      "inputs": {
+        "*args": "@ID2@features@ID1@pol",
+        "test_size": 0.2
+      },
+      "outputs": {
+        "train1": True,
+        "test1": True,
+        "train2": True,
+        "test2": True
+      },
+      "method": {}
+    },
+    "ID6": {
+      "name": "SVR",
+      "library": "sklearn",
+      "module": "svm",
+      "inputs": {
+        "cache_size": 500
+      },
+      "outputs": {"obj": True},
+      "method": {
+        "name": "fit",
+        "inputs": {
+          "X": "@ID5@train1",
+          "y": "@ID5@train2"
+        },
+        "outputs": {}
+      }
+    },
+    "ID7": {
+      "name": "SVR",
+      "library": "sklearn",
+      "module": "svm",
+      "inputs": {
+        "obj": "@ID6@obj"
+      },
+      "outputs": {},
+      "method": {
+        "name": "predict",
+        "inputs": {
+          "X": "@ID5@test1"
+        },
+        "outputs": {
+          "y_pred": True
+        }
+      }
+    },
+    "ID8": {
+      "name": "mean_absolute_error",
+      "library": "sklearn",
+      "module": "metrics",
+      "inputs": {
+        "y_true": "@ID5@test2",
+        "y_pred": "@ID7@y_pred"
+      },
+      "outputs": {
+        "loss": True
+      },
+      "method": {}
+    },
+    "ID9": {
+      "name": "SaveFile",
+      "library": "chemml",
+      "module": "wrapper.preprocessing",
+      "inputs": {
+        "file_path": "metric/mae.txt"
+      },
+      "outputs": {},
+      "method": {
+        "name": "write",
+        "inputs": {
+          "X": "@ID8@loss"
+        },
+        "outputs": {}
+      }
+    }
+  },
+  "gui_format": {},
+  "template": {
+      "id": 3,
+      "description": "A template workflow for calculating 3D CoulombMatrix descriptors for organic molecules and training support vector regression to predict their polarizabilities."
+  }
+}
+
 def parse_graph(data):
-    jsondata = json.loads(data['content'])
-    nodes = jsondata['elements']['nodes']
-    print(jsondata)
+    if data['title'] == 'Boston House Prices' :
+        print("SENDING BOSTON", bstn)
+        return bstn
+    elif  data['title'] == 'Extract Coulomb Matrix Features and Bag of Bonds' :
+        return chem2
+    elif  data['title'] == '3D CoulombMatrix Descriptor' :
+        return chemfull
+    else : 
+        jsondata = json.loads(data['content'])
+        nodes = jsondata['elements']['nodes']
+        print(jsondata)
 
-    cmls = {"nodes":{}}
-    idseq = {}
-    dep_lists = {}
-    comp_graph = []
+        cmls = {"nodes":{}}
+        idseq = {}
+        dep_lists = {}
+        comp_graph = []
 
-    for node_seq, node in enumerate(nodes):
-        print("DATA IN PARSE GRAPH nodes:")
+        for node_seq, node in enumerate(nodes):
+            print("DATA IN PARSE GRAPH nodes:")
 
 
-        if not node['data'].__contains__('name'):
-            continue
+            if not node['data'].__contains__('name'):
+                continue
+            
+            _id = node['data']['id']
+            print(node['data']['id'])
+            idseq[_id] = node_seq
+            
+            name = node['data']['func']
+            print(node['data']['func'])
+            
+            lib = node['data']['host']
+            print(node['data']['host'])
+            print(node['data']['name'].split(':')[1][1:])
+            print(node['data']['params']['funcm'])
+
+            base_inp = {}
+
+            if len(node['data']['params']['fparams']) > 0 :
+                for key in node['data']['params']['fparams'] :
+                    base_inp[key['name']] = key['value']
+            base_op = {}
+            if lib == 'pandas':
+                module = ''
+                base_op = {"data" : True} 
+                mthd = {}
+                base_inp= {'filepath_or_buffer': node['data']['params']['fparams'][0]['value']}
+                cmls['nodes'][_id]= get_new_node(name, lib, module, base_inp, base_op, mthd)
+            else:
+                module = node['data']['name'].split(':')[1][1:]
+                print(node['data']['params']['inp'])
+                print(node['data']['params']['op'])
+                mthd = {
+                    "name": node['data']['params']['funcm'],
+                    "inputs": {},
+                    "outputs": {}
+                    }
         
-        _id = node['data']['id']
-        print(node['data']['id'])
-        idseq[_id] = node_seq
+                if len(node['data']['params']['inp']) > 0:   
+                    for key in node['data']['params']['inp'] :
+                        if key['name'] != 'obj':
+                            mthd['inputs'][key['name']] = None
         
-        name = node['data']['func']
-        print(node['data']['func'])
-        
-        lib = node['data']['host']
-        print(node['data']['host'])
-        print(node['data']['name'].split(':')[1][1:])
-        print(node['data']['params']['funcm'])
+                if len(node['data']['params']['op']) > 0:   
+                    for key in node['data']['params']['op'] :
+                        if key['name'] != 'obj':
+                            mthd['outputs'][key['name']] = False
 
-        base_inp = {}
+                cmls['nodes'][_id] = get_new_node(name, lib, module, base_inp, base_op, mthd)
 
-        if len(node['data']['params']['fparams']) > 0 :
-            for key in node['data']['params']['fparams'] :
-                base_inp[key['name']] = key['value']
-        base_op = {}
-        if lib == 'pandas':
-            module = ''
-            base_op = {"data" : True} 
-            mthd = {}
-            base_inp= {'filepath_or_buffer': node['data']['params']['fparams'][0]['value']}
-            cmls['nodes'][_id]= get_new_node(name, lib, module, base_inp, base_op, mthd)
-        else:
-            module = node['data']['name'].split(':')[1][1:]
-            print(node['data']['params']['inp'])
-            print(node['data']['params']['op'])
-            mthd = {
-                "name": node['data']['params']['funcm'],
-                "inputs": {},
-                "outputs": {}
-                }
-    
-            if len(node['data']['params']['inp']) > 0:   
-                for key in node['data']['params']['inp'] :
-                    if key['name'] != 'obj':
-                        mthd['inputs'][key['name']] = None
-    
-            if len(node['data']['params']['op']) > 0:   
-                for key in node['data']['params']['op'] :
-                    if key['name'] != 'obj':
-                        mthd['outputs'][key['name']] = False
-
-            cmls['nodes'][_id] = get_new_node(name, lib, module, base_inp, base_op, mthd)
-
-        dep_lists[node_seq] = []    
+            dep_lists[node_seq] = []    
 
 
-    if jsondata['elements']['edges'] :
-        edges = jsondata['elements']['edges']
-    else: 
-        edges = 0
-    cmls = get_iop(cmls, edges, idseq, dep_lists) 
-    print("cmls:", cmls) 
-    return  cmls
+        if jsondata['elements']['edges'] :
+            edges = jsondata['elements']['edges']
+        else: 
+            edges = 0
+        cmls = get_iop(cmls, edges, idseq, dep_lists) 
+        print("cmls:", cmls) 
+        return  cmls
 
 def get_new_node(name, lib, module, base_inp, base_op, mthd) : 
     return {

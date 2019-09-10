@@ -38,8 +38,9 @@ from .serializers import (
 )
 
 # ws = "/home/tinto/Workspace/tmp/graph_executions/"
-ws = "/Users/shara/Desktop/Summer/VisualisationModule/tmp/graph_executions/"
-
+# ws = "/Users/shara/Desktop/Summer/VisualisationModule/tmp/graph_executions/"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+ws = os.path.join(BASE_DIR, 'output')
 
 fileUpload()
 #comment out the following line
@@ -161,11 +162,12 @@ class RunGraph(APIView):
         # print(dep_lists)
         # print(comp_graph)
         # run_cheml.delay(cmls, dep_lists, comp_graph)
-
-        print('In rungraph API', serializer.data[0])
+        title = serializer.data[0]['title']
+        print('In rungraph API', title)
         res = send_task("server.api.tasks.run_cheml", [serializer.data[0]])
         print('here, after send_task' , res)
-        result_id = res.id
+        # result_id = res.id
+        result_id = serializer.data[0]['graph_id']
         run = GraphRun(
             graph=graph.first(),
             graph_name=graph.first().title,
@@ -233,6 +235,7 @@ class DownloadGraphRun(APIView):
     def get(self, request, format=None):
         folder = request.GET.get('run', '')
         filepath = os.path.join(ws,folder)
+        print("filepath", filepath)
         path_to_zip = make_archive(filepath, "zip", filepath)
         response = HttpResponse(FileWrapper(open(path_to_zip, 'rb')), content_type='application/zip')
         response['Content-Disposition'] = 'attachment; filename="{filename}.zip"'.format(
