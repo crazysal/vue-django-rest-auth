@@ -104,7 +104,7 @@ def fileUpload():
             return html.Div([''+str(e)+''])
        
         return html.Div([
-            html.Div([html.A('Lets go',id='visualize',className='btn btn-primary',href='statistics'),
+            html.Div([html.A('Lets go',id='visualize',className='btn btn-primary',href='/mltoolkit/statistics'),
             html.Div([html.P('First 5 rows of your uploaded file (rounded to 2 values) : ',className='uploadText',style={"font-size":"18px"}),html.B(filename)])
             ]),
             dash_table.DataTable(

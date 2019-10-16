@@ -15,8 +15,8 @@ CELERY_BROKER_URL = 'pyamqp://guest@localhost//'
 # CELERY_ACCEPT_CONTENT = ['json']
 
 # CELERY_RESULT_BACKEND = 'db+sqlite:////home/tinto/Workspace/CUBS/vue-django-rest-auth/server/results.sqlite'
-CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/web/vue-django-rest-auth/server/results.sqlite'
-# CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/vue-django-rest-auth/server/results.sqlite'
+#CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/Documents/reps/web/vue-django-rest-auth/server/results.sqlite'
+CELERY_RESULT_BACKEND = 'db+sqlite:////home/sahmed9/vue-django-rest-auth/server/results.sqlite'
 # CELERY_RESULT_BACKEND = 'db+sqlite:////results.sqlite'
 
 # CELERY_RESULT_BACKEND = 'redis://localhost'
@@ -172,4 +172,6 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 CORS_ORIGIN_ALLOW_ALL = True   
 
-
+PLOTLY_DASH = {
+"requests_pathname_prefix" :"/mltoolkit/"
+}

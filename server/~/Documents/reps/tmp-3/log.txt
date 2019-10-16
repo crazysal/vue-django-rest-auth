@@ -1,0 +1,51 @@
+09/09/2019 09:29:07 PM =================================================
+09/09/2019 09:29:07 PM ChemMLWrapper 0.6.0 (August 2019)
+09/09/2019 09:29:07 PM Mojtaba Haghighatlari (mojtabah@buffalo.edu)
+09/09/2019 09:29:07 PM Johannes Hachmann (hachmann@buffalo.edu)
+09/09/2019 09:29:07 PM =================================================
+09/09/2019 09:29:07 PM Mon Sep  9 21:29:07 2019
+09/09/2019 09:29:07 PM 
+09/09/2019 09:29:07 PM parsing the input dictionary ...
+
+09/09/2019 09:29:07 PM The input is not valid. There is a broken pipe in the graph construction.
+09/09/2019 09:29:07 PM Created new connection <sqlite3.Connection object at 0x7f0c12326d50>
+09/09/2019 09:29:07 PM SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+09/09/2019 09:29:07 PM ()
+09/09/2019 09:29:07 PM SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+09/09/2019 09:29:07 PM ()
+09/09/2019 09:29:07 PM Connection <sqlite3.Connection object at 0x7f0c12326d50> checked out from pool
+09/09/2019 09:29:07 PM PRAGMA main.table_info("celery_taskmeta")
+09/09/2019 09:29:07 PM ()
+09/09/2019 09:29:07 PM Col ('cid', 'name', 'type', 'notnull', 'dflt_value', 'pk')
+09/09/2019 09:29:07 PM Row (0, 'id', 'INTEGER', 1, None, 1)
+09/09/2019 09:29:07 PM Row (1, 'task_id', 'VARCHAR(155)', 0, None, 0)
+09/09/2019 09:29:07 PM Row (2, 'status', 'VARCHAR(50)', 0, None, 0)
+09/09/2019 09:29:07 PM Row (3, 'result', 'BLOB', 0, None, 0)
+09/09/2019 09:29:07 PM Row (4, 'date_done', 'DATETIME', 0, None, 0)
+09/09/2019 09:29:07 PM Row (5, 'traceback', 'TEXT', 0, None, 0)
+09/09/2019 09:29:07 PM PRAGMA main.table_info("celery_tasksetmeta")
+09/09/2019 09:29:07 PM ()
+09/09/2019 09:29:07 PM Col ('cid', 'name', 'type', 'notnull', 'dflt_value', 'pk')
+09/09/2019 09:29:07 PM Row (0, 'id', 'INTEGER', 1, None, 1)
+09/09/2019 09:29:07 PM Row (1, 'taskset_id', 'VARCHAR(155)', 0, None, 0)
+09/09/2019 09:29:07 PM Row (2, 'result', 'BLOB', 0, None, 0)
+09/09/2019 09:29:07 PM Row (3, 'date_done', 'DATETIME', 0, None, 0)
+09/09/2019 09:29:07 PM Connection <sqlite3.Connection object at 0x7f0c12326d50> being returned to pool
+09/09/2019 09:29:07 PM Connection <sqlite3.Connection object at 0x7f0c12326d50> rollback-on-return
+09/09/2019 09:29:07 PM Closing connection <sqlite3.Connection object at 0x7f0c12326d50>
+09/09/2019 09:29:07 PM Created new connection <sqlite3.Connection object at 0x7f0c38a98570>
+09/09/2019 09:29:07 PM Connection <sqlite3.Connection object at 0x7f0c38a98570> checked out from pool
+09/09/2019 09:29:07 PM BEGIN (implicit)
+09/09/2019 09:29:07 PM SELECT celery_taskmeta.id AS celery_taskmeta_id, celery_taskmeta.task_id AS celery_taskmeta_task_id, celery_taskmeta.status AS celery_taskmeta_status, celery_taskmeta.result AS celery_taskmeta_result, celery_taskmeta.date_done AS celery_taskmeta_date_done, celery_taskmeta.traceback AS celery_taskmeta_traceback 
+FROM celery_taskmeta 
+WHERE celery_taskmeta.task_id = ?
+09/09/2019 09:29:07 PM ('538e31ec-2197-4f6d-806d-d5d565f9b7de',)
+09/09/2019 09:29:07 PM Col ('celery_taskmeta_id', 'celery_taskmeta_task_id', 'celery_taskmeta_status', 'celery_taskmeta_result', 'celery_taskmeta_date_done', 'celery_taskmeta_traceback')
+09/09/2019 09:29:07 PM INSERT INTO celery_taskmeta (task_id, status, result, date_done, traceback) VALUES (?, ?, ?, ?, ?)
+09/09/2019 09:29:07 PM ('538e31ec-2197-4f6d-806d-d5d565f9b7de', 'PENDING', None, '2019-09-09 21:29:07.535984', None)
+09/09/2019 09:29:07 PM UPDATE celery_taskmeta SET status=?, result=?, date_done=?, traceback=? WHERE celery_taskmeta.id = ?
+09/09/2019 09:29:07 PM ('FAILURE', <memory at 0x7f0c12354648>, '2019-09-09 21:29:07.543558', 'Traceback (most recent call last):\n  File "/home/sahmed9/.local/share/virtualenvs/server-S9jwYjbZ/lib/python3.7/site-packages/celery/app/trace.py",  ... (771 characters truncated) ... gine.py", line 252, in make_graph\n    raise ValueError(msg)\nValueError: The input is not valid. There is a broken pipe in the graph construction.\n', 459)
+09/09/2019 09:29:07 PM COMMIT
+09/09/2019 09:29:07 PM Connection <sqlite3.Connection object at 0x7f0c38a98570> being returned to pool
+09/09/2019 09:29:07 PM Connection <sqlite3.Connection object at 0x7f0c38a98570> rollback-on-return
+09/09/2019 09:29:07 PM Closing connection <sqlite3.Connection object at 0x7f0c38a98570>

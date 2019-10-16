@@ -14,10 +14,16 @@ urlpatterns = [
     url(r'^/registration/', include('rest_auth.registration.urls')),
     path('', TemplateView.as_view(template_name='index.html')),
     path('/', TemplateView.as_view(template_name='index.html')),
-    path('.visualize/', TemplateView.as_view(template_name='home.html')),
-    path('.django_plotly_dash/', include('django_plotly_dash.urls')),
-    path('.line', TemplateView.as_view(template_name='line.html')),
-    path('.scatter', TemplateView.as_view(template_name='scatter.html')),
-    path('.bar', TemplateView.as_view(template_name='bar.html')),
-    re_path(r'.statistics',views.statistics)
+    url(r'.visualize/', TemplateView.as_view(template_name='home.html')),
+    url(r'.django_plotly_dash/', include('django_plotly_dash.urls')),
+    url(r'.line', TemplateView.as_view(template_name='line.html')),
+    url(r'.scatter', TemplateView.as_view(template_name='scatter.html')),
+    url(r'.bar', TemplateView.as_view(template_name='bar.html')),
+    url(r'.statistics',views.statistics),
+    #url(r'^/visualize/', TemplateView.as_view(template_name='home.html')),
+    #url(r'^/django_plotly_dash/', include('django_plotly_dash.urls')),
+    #url(r'^/line', TemplateView.as_view(template_name='line.html')),
+    #url(r'^/scatter', TemplateView.as_view(template_name='scatter.html')),
+    #url(r'^/bar', TemplateView.as_view(template_name='bar.html')),
+    #url(r'^/statistics',views.statistics)
 ]

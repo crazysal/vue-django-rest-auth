@@ -1,0 +1,99 @@
+{
+  "nodes": {
+    "0d056a24-4626-0964-4955-3ca00b6a3196": {
+      "inputs": {
+        "const": "1.0",
+        "n_jobs": "-1",
+        "verbose": "True"
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "molecules": null
+        },
+        "name": "represent",
+        "outputs": {
+          "features": true
+        }
+      },
+      "module": "Chemical",
+      "name": "BagofBonds",
+      "outputs": {}
+    },
+    "7303a570-7243-127b-8bc3-c35080e23360": {
+      "inputs": {
+        "file_path": null,
+        "header": "False",
+        "index": "False",
+        "record_time": "False"
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "df": "@dbc51d98-c28d-e193-c470-58c725d6091a@features",
+          "main_directory": null
+        },
+        "name": "fit",
+        "outputs": {}
+      },
+      "module": "Store Data",
+      "name": "SaveCSV",
+      "outputs": {}
+    },
+    "b09ccdca-eeef-fc77-541e-6d94232e06e7": {
+      "inputs": {
+        "file_path": null,
+        "header": "False",
+        "index": "False",
+        "record_time": "False"
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "df": "@0d056a24-4626-0964-4955-3ca00b6a3196@features",
+          "main_directory": null
+        },
+        "name": "fit",
+        "outputs": {}
+      },
+      "module": "Store Data",
+      "name": "SaveCSV",
+      "outputs": {}
+    },
+    "b15ace67-da8e-96e2-a838-5274cc7078cb": {
+      "inputs": {},
+      "library": "chemml",
+      "method": {
+        "inputs": {},
+        "name": "data",
+        "outputs": {}
+      },
+      "module": "Chemical",
+      "name": "load_xyz_polarizability",
+      "outputs": {}
+    },
+    "dbc51d98-c28d-e193-c470-58c725d6091a": {
+      "inputs": {
+        "cm_type": "SC",
+        "const": "1",
+        "max_n_atoms": "auto",
+        "nPerm": "3",
+        "n_jobs": "-1",
+        "verbose": "True"
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "molecules": null
+        },
+        "name": "represent",
+        "outputs": {
+          "features": false
+        }
+      },
+      "module": "Chemical",
+      "name": "CoulombMatrix",
+      "outputs": {}
+    }
+  }
+}

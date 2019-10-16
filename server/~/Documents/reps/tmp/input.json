@@ -1,0 +1,190 @@
+{
+  "nodes": {
+    "36298668-0fbf-1ba3-df46-3d732c239fa7": {
+      "inputs": {
+        "filepath_or_buffer": {}
+      },
+      "library": "pandas",
+      "method": {},
+      "module": "",
+      "name": "read_csv",
+      "outputs": {
+        "data": true
+      }
+    },
+    "610fd93f-fbb2-4891-4daf-68217397ceb6": {
+      "inputs": {
+        "copy": "True",
+        "with_mean": "True",
+        "with_std": "True"
+      },
+      "library": "sklearn",
+      "method": {
+        "inputs": {
+          "X": "@36298668-0fbf-1ba3-df46-3d732c239fa7@data",
+          "y": null
+        },
+        "name": "fit_transform",
+        "outputs": {
+          "X_new": true
+        }
+      },
+      "module": "Preprocessing",
+      "name": "StandardScaler",
+      "outputs": {}
+    },
+    "83ae9c1d-ae5d-9c86-7723-61ff23bf5f0b": {
+      "inputs": {},
+      "library": "sklearn",
+      "method": {
+        "inputs": {
+          "multioutput": "@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj",
+          "sample_weight": "@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj",
+          "y_pred": "@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj",
+          "y_true": "@d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d@obj"
+        },
+        "name": "mean_absolute_error",
+        "outputs": {
+          "loss": true
+        }
+      },
+      "module": "Metrics",
+      "name": "Regression Metrics",
+      "outputs": {}
+    },
+    "9d0ce466-713f-1ff2-e96c-34323f241c88": {
+      "inputs": {
+        "copy_X": "True",
+        "fit_intercept": "True",
+        "n_jobs": "None",
+        "normalize": "False"
+      },
+      "library": "sklearn",
+      "method": {
+        "inputs": {
+          "X": "@a7d7dd21-2a06-980a-c5ef-fa8ba98e4146@splitting",
+          "sample_weight": null,
+          "y": "@a7d7dd21-2a06-980a-c5ef-fa8ba98e4146@splitting@a7d7dd21-2a06-980a-c5ef-fa8ba98e4146@splitting"
+        },
+        "name": "fit",
+        "outputs": {
+          "obj": true
+        }
+      },
+      "module": "Linear",
+      "name": "LinearRegression",
+      "outputs": {}
+    },
+    "a7d7dd21-2a06-980a-c5ef-fa8ba98e4146": {
+      "inputs": {
+        "*arrays": null,
+        "shuffle": "True",
+        "stratify": "None",
+        "test_size": "None",
+        "train_size": "None"
+      },
+      "library": "sklearn",
+      "method": {
+        "inputs": {
+          "*arrays": "@b4d59570-c5c9-3e7d-4d4b-9780c4fc1f03@X1",
+          "shuffle": null,
+          "stratify": null,
+          "test_size": null,
+          "train_size": null
+        },
+        "name": "split2",
+        "outputs": {
+          "splitting": true
+        }
+      },
+      "module": "Selection",
+      "name": "train_test_split",
+      "outputs": {}
+    },
+    "b4d59570-c5c9-3e7d-4d4b-9780c4fc1f03": {
+      "inputs": {
+        "selection": "-1"
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "X": "@f16c12c7-eee0-e804-949d-140f5e7523ae@X_new"
+        },
+        "name": "fit",
+        "outputs": {
+          "X1": true,
+          "X2": true
+        }
+      },
+      "module": "Data Splitting",
+      "name": "SplitColumns",
+      "outputs": {}
+    },
+    "d41a9ab1-0326-60d4-90b2-f72bf1a3dd9d": {
+      "inputs": {
+        "copy_X": "True",
+        "fit_intercept": "True",
+        "n_jobs": "None",
+        "normalize": "False",
+        "obj": "@9d0ce466-713f-1ff2-e96c-34323f241c88@obj"
+      },
+      "library": "sklearn",
+      "method": {
+        "inputs": {
+          "X": "@a7d7dd21-2a06-980a-c5ef-fa8ba98e4146@splitting",
+          "sample_weight": null,
+          "y": "@a7d7dd21-2a06-980a-c5ef-fa8ba98e4146@splitting@a7d7dd21-2a06-980a-c5ef-fa8ba98e4146@splitting"
+        },
+        "name": "fit",
+        "outputs": {
+          "obj": true
+        }
+      },
+      "module": "Linear",
+      "name": "LinearRegression",
+      "outputs": {}
+    },
+    "de6f5cc9-13f7-8993-c910-2cea067e5ba1": {
+      "inputs": {
+        "file_path": "tmp/",
+        "record_time": "False"
+      },
+      "library": "chemml",
+      "method": {
+        "inputs": {
+          "df": "@83ae9c1d-ae5d-9c86-7723-61ff23bf5f0b@loss",
+          "main_directory": "@83ae9c1d-ae5d-9c86-7723-61ff23bf5f0b@loss@83ae9c1d-ae5d-9c86-7723-61ff23bf5f0b@loss"
+        },
+        "name": "fit",
+        "outputs": {}
+      },
+      "module": "Store Data",
+      "name": "SaveFile",
+      "outputs": {}
+    },
+    "f16c12c7-eee0-e804-949d-140f5e7523ae": {
+      "inputs": {
+        "copy": "True",
+        "iterated_power": "auto",
+        "n_components": null,
+        "svd_solver": null,
+        "tol": ".0",
+        "whiten": "False"
+      },
+      "library": "sklearn",
+      "method": {
+        "inputs": {
+          "X": "@610fd93f-fbb2-4891-4daf-68217397ceb6@X_new",
+          "y": null
+        },
+        "name": "fit_transform",
+        "outputs": {
+          "X_new": true
+        }
+      },
+      "module": "Dimensionality Reduction",
+      "name": "PCA",
+      "outputs": {}
+    }
+  }
+}

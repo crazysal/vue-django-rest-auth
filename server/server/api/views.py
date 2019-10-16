@@ -16,7 +16,7 @@ from celery.execute import send_task
 from server.api.models import *
 from shutil import make_archive
 from wsgiref.util import FileWrapper
-from .dash_apps import fileUpload,columnStats,lineplot,scatterPlot,barPlot
+from server.api.dash_apps import fileUpload,columnStats,lineplot,scatterPlot,barPlot
 import pandas as pd
 from django.shortcuts import render,render_to_response
 
