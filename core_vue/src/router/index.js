@@ -11,7 +11,7 @@ import Full from '@/containers/Full'
 import Landing from '@/views/Landing'
 import Dashboard from '@/views/Dashboard'
 import Results from '@/views/Results'
-import Analysis from '@/views/Analysis'
+import Visual from '@/views/Visual'
 // Views - Pages
 import Page404 from '@/views/pages/Page404'
 import Page500 from '@/views/pages/Page500'
@@ -62,9 +62,9 @@ const router = new Router({
           }
         },
         {
-          path: 'analysis',
-          name: 'Analysis',
-          component: Analysis,
+          path: 'visual',
+          name: 'Visual',
+          component: Visual,
           meta: {
             requiresAuth: true
           }

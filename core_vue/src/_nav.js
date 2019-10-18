@@ -14,11 +14,11 @@ export default {
       name: 'Results',
       url: '/results',
       icon: 'icon-direction'
-    }// ,
-    // {
-    //   name: 'Visualizations',
-    //   url: dashUrl,
-    //   icon: 'icon-pie-chart'
-    // }
+    },
+    {
+      name: 'Visualizations',
+      url: '/visual',
+      icon: 'icon-pie-chart'
+    }
   ]
 }
