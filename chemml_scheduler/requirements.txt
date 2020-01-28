@@ -64,7 +64,7 @@ singledispatch==3.4.0.3
 six==1.11.0
 SQLAlchemy==1.2.14
 subprocess32==3.5.3
-tensorflow==1.1.0
+tensorflow==1.15.2
 terminado==0.8.1
 testpath==0.4.2
 tornado==5.1.1
